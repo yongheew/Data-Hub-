@@ -1,8 +1,6 @@
 # Data-Hub
 An AI-powered operational memory system for workers, managers, users that turns history and reports from a particular organization into structured, actionable intelligence using Vertex AI.
 
----
-
 ## Repository Overview & Team Introduction
 This repository contains source code, documentation, and implementation for **Data-Hub**.
 
@@ -10,8 +8,6 @@ This repository contains source code, documentation, and implementation for **Da
 1. Wong Yonghee - AI / Logic Implementation (Team Leader)
 2. Lim Ying Yu - Frontend Designer 
 3. Sheryl Lim Zoe Ee - Backend Developer
-
----
 
 ## Project Overview:
 **Problem Statement** 
@@ -23,7 +19,6 @@ This project is highly related to 2 SDGs, which are SDG 8 and SDG 9.
 
 **Solution**
 
----
 
 ## Key Features
 1. Text
