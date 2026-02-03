@@ -6,7 +6,8 @@ DataHub is an AI-powered operational memory system for workers, managers, users 
 - [Introduction](#introduction)
 - [Project Overview](#project-overview)
 - [Key Features](#key-features)
-- [Overview of Technologies Used](#soverview-of-technologies-used)
+- [Technologies Used](#technologies-used)
+- [Implementation Details & Innovation ](#implementation-details-&-innovation)
 
 ## Introduction
 Incident reporting in many organizations is still scattered across notebooks, messaging apps, and shift summaries. This fragmentation makes it difficult to detect recurring issues, preserve institutional memory, or identify operational risks early.
@@ -32,7 +33,7 @@ This project is highly related to 2 SDGs, which are SDG 8 and SDG 9.
 ## Key Features
 1. Text
 
-## Overview of Technologies Used
+## Technologies Used
 **Google Technologies**
 1. ``Gemini API:``
 2. ``Vertex AI:``
