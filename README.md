@@ -39,8 +39,9 @@ This project is highly related to 2 SDGs, which are SDG 8 and SDG 9.
 **Google Technologies**
 1. ``Gemini API:``
 2. ``Vertex AI:``
-3. ``Firebase:``
-4. ``Flutter:``
+3. ``Firebase Authentication:`` for secure user access
+4. ``Cloud Firestore:`` for real-time data storage  
+5. ``Flutter:``
 
 **Other Supporting Tools/ Libraries**
 
