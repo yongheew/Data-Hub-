@@ -7,7 +7,7 @@ This repository contains source code, documentation, and implementation for **Da
 **Team Members**
 1. Wong Yonghee - AI / Logic Implementation (Team Leader)
 2. Lim Ying Yu - Frontend Designer 
-3. Sheryl Lim Zoe Ee - Backend Developer
+3. Sheryl Khoo Zoe Ee - Backend Developer
 
 ## Project Overview:
 **Problem Statement** 
