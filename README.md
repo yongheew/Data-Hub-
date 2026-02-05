@@ -22,7 +22,8 @@ DataHub is an AI-powered operational intelligence platform built using Firebase,
 
 ## Project Overview:
 **Problem Statement**     
-Frontline workers such as security guards, maintenance staffs, cleaners, and facility operators are responsible for recording incidents, managing daily operations, and responding to issues across shifts. These are often reported using handwritten logs, WhatsApp messages, spreadsheets, and disconnected systems. 
+Frontline workers such as security guards, maintenance staffs, cleaners, and facility operators are responsible for recording incidents, managing daily operations, and responding to issues across shifts. These are often reported using handwritten logs, WhatsApp messages, spreadsheets, and disconnected systems.  
+
 Though these reports are recorded, they are often unstructured and inconsistent, which leads to lack of coherent operation memory from the organizations. Recurring issues are treated as isolated events, patterns are missed, and preventable failures continue. Supervisors must manually review scattered data, leading to <ins>slow responses, inefficient planning</ins>, and increased safety risks. 
 > A traditional database can store data, but it cannot understand meaning, detect semantic similarities or connect records over time. This is where **AI** step into the game.
 
