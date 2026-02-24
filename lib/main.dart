@@ -1,3 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+
 import 'package:flutter/material.dart';
 import 'package:datahub/screens/login_page.dart';
 import 'package:datahub/screens/signup_page.dart';
@@ -8,7 +11,11 @@ import 'package:datahub/screens/chat_history.dart';
 import 'package:datahub/screens/data_log_page.dart';
 import 'package:datahub/screens/notes_page.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -28,7 +35,7 @@ class MyApp extends StatelessWidget {
         '/insights': (context) => const InsightsPage(),
         '/chat-history': (context) => const ChatHistoryPage(),
         '/data-log': (context) => const DataLogPage(),
-        '/notes': (context) => const NotesPage(),
+        //'/notes': (context) => NotesPage(),
       },
     );
   }
