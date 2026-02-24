@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datahub/screens/signup_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,6 +12,9 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   bool _obscurePassword = true;
+
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -59,6 +63,7 @@ class _LoginPageState extends State<LoginPage> {
                 /// Email Field
                 _buildTextField(
                   hintText: "Email or Username",
+                  controller: emailController,
                   obscureText: false,
                 ),
 
@@ -67,6 +72,7 @@ class _LoginPageState extends State<LoginPage> {
                 /// Password Field
                 _buildTextField(
                   hintText: "Password",
+                  controller: passwordController,
                   obscureText: _obscurePassword,
                   suffixIcon: IconButton(
                     icon: Icon(
@@ -104,7 +110,30 @@ class _LoginPageState extends State<LoginPage> {
                   width: double.infinity,
                   height: 52,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () async {
+                      try {
+                        await FirebaseAuth.instance.signInWithEmailAndPassword(
+                          email: emailController.text.trim(),
+                          password: passwordController.text.trim(),
+                        );
+
+                          Navigator.pushReplacementNamed(context, '/home');
+                        } on FirebaseAuthException catch (_) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Account does not exist or wrong password."),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        } catch (_) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              content: Text("Something went wrong. Please try again."),
+                              backgroundColor: Colors.red,
+                            ),
+                          );
+                        }
+                    },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF243C66),
                       shape: RoundedRectangleBorder(
@@ -161,9 +190,11 @@ class _LoginPageState extends State<LoginPage> {
   Widget _buildTextField({
     required String hintText,
     required bool obscureText,
+    TextEditingController? controller,
     Widget? suffixIcon,
   }) {
     return TextField(
+      controller: controller,   
       obscureText: obscureText,
       decoration: InputDecoration(
         hintText: hintText,
