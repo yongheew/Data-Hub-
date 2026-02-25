@@ -10,12 +10,11 @@ import 'package:datahub/screens/insights_page.dart';
 import 'package:datahub/screens/chat_history.dart';
 import 'package:datahub/screens/data_log_page.dart';
 import 'package:datahub/screens/notes_page.dart';
+import 'package:datahub/screens/chat_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const MyApp());
 }
 
@@ -35,7 +34,8 @@ class MyApp extends StatelessWidget {
         '/insights': (context) => const InsightsPage(),
         '/chat-history': (context) => const ChatHistoryPage(),
         '/data-log': (context) => const DataLogPage(),
-        //'/notes': (context) => NotesPage(),
+        '/notes': (context) => NotesPage(),
+        '/chat': (context) => const ChatPage(),
       },
     );
   }

@@ -87,97 +87,119 @@ class HomePage extends StatelessWidget {
 
               // Grid Buttons
               Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 20,
-                  crossAxisSpacing: 20,
-                  childAspectRatio: 1,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(28),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.pushNamed(context, '/chat-history');
-                          },
-                          child: const _HomeCard(
-                            icon: Icons.arrow_outward,
-                            title: "Chat\nHistory",
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: GridView.count(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                    childAspectRatio: 1,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(28),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/chat-history');
+                            },
+                            child: const _HomeCard(
+                              icon: Icons.arrow_outward,
+                              title: "Chat\nHistory",
+                            ),
                           ),
                         ),
                       ),
-                    ),
-                    Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(28),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/dashboard');
-                        },
-                        child: const _HomeCard(
-                          icon: Icons.circle_outlined,
-                          title: "Dashboard",
-                        ),
-                      ),
-                    ),
-                    Material(
-                      color: Colors.transparent,
-                      child: InkWell(
-                        borderRadius: BorderRadius.circular(28),
-                        onTap: () {
-                          Navigator.pushNamed(context, '/insights');
-                        },
-                        child: const _HomeCard(
-                          icon: Icons.auto_graph_outlined,
-                          title: "Insights",
-                        ),
-                      ),
-                    ),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(28),
-                      child: Material(
+                      Material(
                         color: Colors.transparent,
                         child: InkWell(
+                          borderRadius: BorderRadius.circular(28),
                           onTap: () {
-                            Navigator.pushNamed(context, '/data-log');
+                            Navigator.pushNamed(context, '/dashboard');
                           },
                           child: const _HomeCard(
-                            icon: Icons.crop_square,
-                            title: "Data Log",
+                            icon: Icons.circle_outlined,
+                            title: "Dashboard",
                           ),
                         ),
                       ),
-                    ),
-                    const _HomeCard(
-                      icon: Icons.change_history_outlined,
-                      title: "Notes",
-                    ),
-                  ],
+                      Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          borderRadius: BorderRadius.circular(28),
+                          onTap: () {
+                            Navigator.pushNamed(context, '/insights');
+                          },
+                          child: const _HomeCard(
+                            icon: Icons.auto_graph_outlined,
+                            title: "Insights",
+                          ),
+                        ),
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(28),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/data-log');
+                            },
+                            child: const _HomeCard(
+                              icon: Icons.crop_square,
+                              title: "Data Log",
+                            ),
+                          ),
+                        ),
+                      ),
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(28),
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, '/notes');
+                            },
+                            child: const _HomeCard(
+                              icon: Icons.change_history_outlined,
+                              title: "Notes",
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
 
               const SizedBox(height: 20),
 
               // Bottom Input Bar
-              Container(
-                height: 56,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(30),
-                  border: Border.all(color: Colors.white70),
-                ),
-                padding: const EdgeInsets.symmetric(horizontal: 16),
-                child: Row(
-                  children: const [
-                    Icon(Icons.auto_awesome, color: Colors.white70),
-                    SizedBox(width: 12),
-                    Expanded(
-                      child: Text("", style: TextStyle(color: Colors.white)),
-                    ),
-                    Icon(Icons.mic_none, color: Colors.white70),
-                    SizedBox(width: 16),
-                    Icon(Icons.image_outlined, color: Colors.white70),
-                  ],
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/chat');
+                },
+                child: Container(
+                  height: 56,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(30),
+                    border: Border.all(color: Colors.white70),
+                  ),
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: const [
+                      Icon(Icons.auto_awesome, color: Colors.white70),
+                      SizedBox(width: 12),
+                      Expanded(
+                        child: Text(
+                          "Ask AI anything...",
+                          style: TextStyle(color: Colors.white70),
+                        ),
+                      ),
+                      Icon(Icons.mic_none, color: Colors.white70),
+                      SizedBox(width: 16),
+                      Icon(Icons.image_outlined, color: Colors.white70),
+                    ],
+                  ),
                 ),
               ),
 
