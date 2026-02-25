@@ -1,7 +1,42 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  Future<String> _getUserName() async {
+    final user = FirebaseAuth.instance.currentUser;
+
+    // If not logged in yet (or auth state not ready), fallback
+    if (user == null) return "User";
+
+    // Try Firestore: users/{uid}
+    try {
+      final doc = await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .get();
+
+      final data = doc.data();
+      final name = data?['name'];
+
+      if (name is String && name.trim().isNotEmpty) {
+        return name.trim();
+      }
+    } catch (_) {
+      // Ignore here; we’ll fallback below (permission denied / missing doc / etc.)
+    }
+
+    // Fallbacks
+    final display = user.displayName;
+    if (display != null && display.trim().isNotEmpty) return display.trim();
+
+    final email = user.email;
+    if (email != null && email.trim().isNotEmpty) return email.trim();
+
+    return "User";
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +58,22 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // Greeting
-              const Text(
-                "Hello, Sheryl",
-                style: TextStyle(
-                  fontSize: 26,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
+              // Greeting (dynamic)
+              FutureBuilder<String>(
+                future: _getUserName(),
+                builder: (context, snapshot) {
+                  final name = (snapshot.data == null || snapshot.data!.isEmpty)
+                      ? "User"
+                      : snapshot.data!;
+                  return Text(
+                    "Hello, $name",
+                    style: const TextStyle(
+                      fontSize: 26,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
+                  );
+                },
               ),
 
               const SizedBox(height: 8),
