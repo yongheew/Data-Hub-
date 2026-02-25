@@ -1,278 +1,330 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-class DashboardPage extends StatelessWidget {
-  const DashboardPage({super.key});
+class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
+  @override
+  State<SignUpPage> createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
+  final _nameCtrl = TextEditingController();
+  final _emailCtrl = TextEditingController();
+  final _pwCtrl = TextEditingController();
+  final _confirmPwCtrl = TextEditingController();
+
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
+  bool _agreeToTerms = false;
+  bool _loading = false;
+
+  String? _selectedGender;
+  DateTime? _selectedBirthDate;
+
+  @override
+  void dispose() {
+    _nameCtrl.dispose();
+    _emailCtrl.dispose();
+    _pwCtrl.dispose();
+    _confirmPwCtrl.dispose();
+    super.dispose();
+  }
+
+  Future<void> _signUp() async {
+    final name = _nameCtrl.text.trim();
+    final email = _emailCtrl.text.trim();
+    final pw = _pwCtrl.text;
+    final confirm = _confirmPwCtrl.text;
+
+    if (name.isEmpty || email.isEmpty || pw.isEmpty || confirm.isEmpty) {
+      _showMsg("Please fill in all required fields.");
+      return;
+    }
+
+    if (!_agreeToTerms) {
+      _showMsg("Please agree to the Terms and Conditions.");
+      return;
+    }
+
+    if (pw != confirm) {
+      _showMsg("Passwords do not match.");
+      return;
+    }
+
+    if (pw.length < 6) {
+      _showMsg("Password must be at least 6 characters.");
+      return;
+    }
+
+    setState(() => _loading = true);
+
+    try {
+      // 🔹 1) Create account in Firebase Authentication
+      final cred = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+        email: email,
+        password: pw,
+      );
+
+      // 🔹 2) Create profile in Firestore
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(cred.user!.uid)
+          .set({
+        'name': name,
+        'email': email,
+        'gender': _selectedGender,
+        'birthDate': _selectedBirthDate == null
+            ? null
+            : Timestamp.fromDate(_selectedBirthDate!),
+        'createdAt': FieldValue.serverTimestamp(),
+      });
+
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, '/home');
+    } on FirebaseAuthException catch (e) {
+      _showMsg(e.message ?? "Sign up failed.");
+    } catch (e) {
+      _showMsg("Error: $e");
+    } finally {
+      if (mounted) setState(() => _loading = false);
+    }
+  }
+
+  void _showMsg(String message) {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF2F436E),
+      backgroundColor: const Color(0xFFEDEDED),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: ListView(
-            children: [
-              // HEADER
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text(
-                    "Welcome Back,\nSheryl",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 28),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 60),
+                const Text(
+                  "Sign Up",
+                  style: TextStyle(
+                    fontSize: 36,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(height: 12),
+                const Text(
+                  "Please fill in your details",
+                  style: TextStyle(fontSize: 16, color: Colors.black54),
+                ),
+                const SizedBox(height: 40),
+
+                _buildTextField(
+                  controller: _nameCtrl,
+                  hintText: "Your Name",
+                  obscureText: false,
+                ),
+                const SizedBox(height: 20),
+
+                _buildTextField(
+                  controller: _emailCtrl,
+                  hintText: "Your E-mail",
+                  obscureText: false,
+                  keyboardType: TextInputType.emailAddress,
+                ),
+                const SizedBox(height: 20),
+
+                _buildTextField(
+                  controller: _pwCtrl,
+                  hintText: "Create your Password",
+                  obscureText: _obscurePassword,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
                     ),
-                  ),
-                  Row(
-                    children: const [
-                      Icon(Icons.notifications_none, color: Colors.white),
-                      SizedBox(width: 16),
-                      CircleAvatar(
-                        radius: 18,
-                        backgroundColor: Colors.white24,
-                        child: Icon(Icons.person, color: Colors.white),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 24),
-
-              const Text(
-                "Operational Overview",
-                style: TextStyle(color: Colors.white70, fontSize: 16),
-              ),
-
-              const SizedBox(height: 16),
-
-              // FILTERS
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: const [
-                    _FilterPill(text: "All", selected: true),
-                    _FilterPill(text: "Last 24 hrs"),
-                    _FilterPill(text: "Last 7 Days"),
-                    _FilterPill(text: "Last 30 Days"),
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 24),
-
-              // MAIN CARD
-              Container(
-                padding: const EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  gradient: const LinearGradient(
-                    colors: [Color(0xFF4C6CB3), Color(0xFF3A5AA8)],
-                    begin: Alignment.topLeft,
-                    end: Alignment.bottomRight,
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
                   ),
                 ),
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                const SizedBox(height: 20),
+
+                _buildTextField(
+                  controller: _confirmPwCtrl,
+                  hintText: "Re-type your Password",
+                  obscureText: _obscureConfirmPassword,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscureConfirmPassword
+                          ? Icons.visibility_off_outlined
+                          : Icons.visibility_outlined,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscureConfirmPassword =
+                            !_obscureConfirmPassword;
+                      });
+                    },
+                  ),
+                ),
+
+                const SizedBox(height: 20),
+
+                Row(
                   children: [
-                    Text(
-                      "Operational Signals",
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF3F3F3),
+                          borderRadius: BorderRadius.circular(16),
+                        ),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton<String>(
+                            value: _selectedGender,
+                            hint: const Text("Gender"),
+                            items: const [
+                              DropdownMenuItem(
+                                  value: "Male", child: Text("Male")),
+                              DropdownMenuItem(
+                                  value: "Female", child: Text("Female")),
+                            ],
+                            onChanged: (value) {
+                              setState(() {
+                                _selectedGender = value;
+                              });
+                            },
+                          ),
+                        ),
                       ),
                     ),
-                    SizedBox(height: 20),
-                    Text(
-                      "Repeated Issues: 12",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    SizedBox(height: 6),
-                    Text(
-                      "Unresolved issues: 5",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
-                    ),
-                    SizedBox(height: 6),
-                    Text(
-                      "High-Risk Locations: 3",
-                      style: TextStyle(color: Colors.white, fontSize: 15),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: GestureDetector(
+                        onTap: () async {
+                          DateTime? pickedDate =
+                              await showDatePicker(
+                            context: context,
+                            initialDate: DateTime(2000),
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime.now(),
+                          );
+
+                          if (pickedDate != null) {
+                            setState(() {
+                              _selectedBirthDate = pickedDate;
+                            });
+                          }
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 20, vertical: 18),
+                          decoration: BoxDecoration(
+                            color: const Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          child: Text(
+                            _selectedBirthDate == null
+                                ? "Birth"
+                                : "${_selectedBirthDate!.day}/${_selectedBirthDate!.month}/${_selectedBirthDate!.year}",
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
-              ),
 
-              const SizedBox(height: 24),
+                const SizedBox(height: 20),
 
-              // STATS CARDS
-              Row(
-                children: const [
-                  Expanded(
-                    child: _StatCard(
-                      title: "Repeated\nIssues",
-                      value: "50%",
-                      subtitle: "Recurring Occurrences",
+                Row(
+                  children: [
+                    Checkbox(
+                      value: _agreeToTerms,
+                      onChanged: (value) {
+                        setState(() {
+                          _agreeToTerms = value ?? false;
+                        });
+                      },
                     ),
-                  ),
-                  SizedBox(width: 16),
-                  Expanded(
-                    child: _StatCard(
-                      title: "New\nIssues",
-                      value: "30%",
-                      subtitle: "First-time Occurrences",
+                    const Expanded(
+                      child: Text(
+                        "I agree to the Terms and Conditions",
+                        style: TextStyle(fontSize: 13),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 28),
-
-              const Text(
-                "Metrics Overview",
-                style: TextStyle(color: Colors.white, fontSize: 18),
-              ),
-
-              const SizedBox(height: 16),
-
-              Row(
-                children: const [
-                  Expanded(
-                    child: _MetricCard(
-                      title: "1.8 hrs",
-                      subtitle: "Average Resolution Time",
-                    ),
-                  ),
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: _MetricCard(
-                      title: "75%",
-                      subtitle: "Recurrence Rate",
-                    ),
-                  ),
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: _MetricCard(
-                      title: "50%",
-                      subtitle: "Operational Stability Index",
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(height: 40),
-
-              // BUTTON
-              Container(
-                height: 56,
-                decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.circular(30),
+                  ],
                 ),
-                child: const Center(
-                  child: Text(
-                    "View Active Issues",
-                    style: TextStyle(color: Colors.white, fontSize: 16),
+
+                const SizedBox(height: 24),
+
+                SizedBox(
+                  width: double.infinity,
+                  height: 56,
+                  child: ElevatedButton(
+                    onPressed: _loading ? null : _signUp,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor:
+                          const Color(0xFF2F436E),
+                      shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadius.circular(16),
+                      ),
+                    ),
+                    child: _loading
+                        ? const CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            "Create your Account",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Colors.white),
+                          ),
                   ),
                 ),
-              ),
-            ],
+
+                const SizedBox(height: 40),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
-}
 
-class _FilterPill extends StatelessWidget {
-  final String text;
-  final bool selected;
-
-  const _FilterPill({required this.text, this.selected = false});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(right: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
-      decoration: BoxDecoration(
-        color: selected ? Colors.white : Colors.white24,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        text,
-        style: TextStyle(
-          color: selected ? Colors.black : Colors.white,
-          fontSize: 13,
+  Widget _buildTextField({
+    required TextEditingController controller,
+    required String hintText,
+    required bool obscureText,
+    Widget? suffixIcon,
+    TextInputType? keyboardType,
+  }) {
+    return TextField(
+      controller: controller,
+      obscureText: obscureText,
+      keyboardType: keyboardType,
+      decoration: InputDecoration(
+        hintText: hintText,
+        filled: true,
+        fillColor: const Color(0xFFF3F3F3),
+        suffixIcon: suffixIcon,
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 18,
         ),
-      ),
-    );
-  }
-}
-
-class _StatCard extends StatelessWidget {
-  final String title;
-  final String value;
-  final String subtitle;
-
-  const _StatCard({
-    required this.title,
-    required this.value,
-    required this.subtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(18),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(24),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
-          const SizedBox(height: 20),
-          Text(
-            value,
-            style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          Text(subtitle, style: const TextStyle(fontSize: 12)),
-        ],
-      ),
-    );
-  }
-}
-
-class _MetricCard extends StatelessWidget {
-  final String title;
-  final String subtitle;
-
-  const _MetricCard({required this.title, required this.subtitle});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(14),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        children: [
-          Text(
-            title,
-            style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
-          ),
-          const SizedBox(height: 4),
-          Text(
-            subtitle,
-            textAlign: TextAlign.center,
-            style: const TextStyle(fontSize: 11),
-          ),
-        ],
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(16),
+          borderSide: BorderSide.none,
+        ),
       ),
     );
   }
