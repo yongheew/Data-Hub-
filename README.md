@@ -52,7 +52,7 @@ It allows workers to log issues easily, while AI structures, links, and analyzes
 4. ``Cloud Firestore:`` for real-time data storage  
 
 **Other Supporting Tools/ Libraries**
-1. ``Flutter:`` 
+1. ``Flutter:``for building the cross-platform frontend (web + mobile) UI
 2. ``GitHub:`` for version control and collaboration use
 
 ## Implementation Details & Innovation 
