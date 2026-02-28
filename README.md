@@ -13,6 +13,7 @@ DataHub is an AI-powered operational memory system for workers, managers, users 
 - [Implementation Details & Innovation ](#implementation-details-&-innovation)
 - [Workflow](#workflow)
 - [Challenges Faced](#challenges-faced)
+- [Installation & Setup (Prototype)](#installation-&-setup-(Prototype))
 
 ## Introduction     
 DataHub is an AI-powered operational intelligence platform built using Firebase, Google Cloud, Flutter, Gemini, and Vertex AI. It provides organizations with a centralized system to capture, interpret, and utilize frontline incident reports, enabling faster responses and more informed decision-making. Moving beyond fragmented logs and disconnected reporting methods, DataHub transforms unstructured inputs into actionable insights, helping teams detect recurring issues early, improve workplace safety, and enhance operational efficiency.
