@@ -1,13 +1,86 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_functions/cloud_functions.dart';
 
 class ChatService {
   static final FirebaseFunctions _functions =
       FirebaseFunctions.instanceFor(region: 'us-central1');
 
-  static const String _chatId = "default";
+  static final FirebaseFirestore _db = FirebaseFirestore.instance;
+
+  /// Ensure chat doc exists (so chat history can show it)
+  static Future<void> ensureChatExists({
+    required String uid,
+    required String chatId,
+  }) async {
+    final ref = _db.collection("users").doc(uid).collection("chats").doc(chatId);
+    final snap = await ref.get();
+    if (!snap.exists) {
+      await ref.set({
+        "title": "New Chat",
+        "lastMessage": "",
+        "createdAt": FieldValue.serverTimestamp(),
+        "updatedAt": FieldValue.serverTimestamp(),
+      }, SetOptions(merge: true));
+    }
+  }
+
+  /// Create a new chat session and return chatId
+  static Future<String> createChat({required String uid}) async {
+    final ref = _db.collection("users").doc(uid).collection("chats").doc();
+    await ref.set({
+      "title": "New Chat",
+      "lastMessage": "",
+      "createdAt": FieldValue.serverTimestamp(),
+      "updatedAt": FieldValue.serverTimestamp(),
+    }, SetOptions(merge: true));
+    return ref.id;
+  }
+
+  /// Stream chat history list
+  static Stream<QuerySnapshot<Map<String, dynamic>>> streamChats({
+    required String uid,
+    required Timestamp cutoff,
+  }) {
+    return _db
+        .collection("users")
+        .doc(uid)
+        .collection("chats")
+        .where("updatedAt", isGreaterThanOrEqualTo: cutoff)
+        .orderBy("updatedAt", descending: true)
+        .snapshots();
+  }
+
+  /// Delete chat + all messages
+  ///
+  /// ✅ Fixed: use batched deletes (faster + avoids slow loop on many docs)
+  static Future<void> deleteChat({
+    required String uid,
+    required String chatId,
+  }) async {
+    final chatRef =
+        _db.collection("users").doc(uid).collection("chats").doc(chatId);
+
+    while (true) {
+      final msgs = await chatRef
+          .collection("messages")
+          .orderBy("createdAt", descending: true)
+          .limit(200)
+          .get();
+
+      if (msgs.docs.isEmpty) break;
+
+      final batch = _db.batch();
+      for (final d in msgs.docs) {
+        batch.delete(d.reference);
+      }
+      await batch.commit();
+    }
+
+    await chatRef.delete();
+  }
 
   /// Sends a message to backend.
   /// Backend decides: incident vs chat (NO keyword detection in Flutter).
@@ -16,6 +89,7 @@ class ChatService {
   /// - imageBytes + imageMimeType
   static Future<String> sendChat(
     String message, {
+    required String chatId,
     Uint8List? imageBytes,
     String? imageMimeType,
   }) async {
@@ -28,7 +102,7 @@ class ChatService {
 
     final payload = <String, dynamic>{
       "message": finalText,
-      "chatId": _chatId,
+      "chatId": chatId,
     };
 
     if (imageBytes != null) {
@@ -77,7 +151,7 @@ class ChatService {
         payload ??
             <String, dynamic>{
               "message": message,
-              "chatId": _chatId,
+              "chatId": "default",
             },
       );
 
