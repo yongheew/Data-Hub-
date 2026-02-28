@@ -8,7 +8,9 @@ class NotesPage extends StatefulWidget {
 }
 
 class _NotesPageState extends State<NotesPage> {
-  int selectedIndex = 0; // 0 = Others, 1 = Court, 2 = Paddles
+  int selectedIndex = 0;
+
+  final List<String> tabNames = ["Others", "Court", "Paddles"];
 
   final Map<int, List<String>> notes = {
     0: [
@@ -24,42 +26,121 @@ class _NotesPageState extends State<NotesPage> {
   @override
   void initState() {
     super.initState();
-    for (var key in notes.keys) {
-      controllers[key] = TextEditingController(text: notes[key]!.join("\n"));
+    for (var i = 0; i < tabNames.length; i++) {
+      controllers[i] =
+          TextEditingController(text: notes[i]?.join("\n") ?? "");
     }
+  }
+
+  @override
+  void dispose() {
+    for (final c in controllers.values) {
+      c.dispose();
+    }
+    super.dispose();
+  }
+
+  Future<void> _showCreateTabDialog() async {
+    final controller = TextEditingController();
+
+    final String? name = await showDialog<String>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Create new block"),
+          content: TextField(
+            controller: controller,
+            autofocus: true,
+            decoration: const InputDecoration(
+              hintText: "Enter name",
+            ),
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context, null),
+              child: const Text("Cancel"),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                final text = controller.text.trim();
+                if (text.isEmpty) return;
+                Navigator.pop(context, text);
+              },
+              child: const Text("Create"),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (name == null) return;
+
+    final exists =
+        tabNames.any((t) => t.toLowerCase() == name.toLowerCase());
+    if (exists) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Block name already exists")),
+      );
+      return;
+    }
+
+    setState(() {
+      final newIndex = tabNames.length;
+
+      tabNames.add(name);
+      notes[newIndex] = [];
+      controllers[newIndex] = TextEditingController(text: "");
+
+      selectedIndex = newIndex;
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF2F436E),
+
+      /// ✅ APP BAR WITH BACK BUTTON
+      appBar: AppBar(
+        backgroundColor: const Color(0xFF2F436E),
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: const Text(
+          "Notes",
+          style: TextStyle(fontWeight: FontWeight.w600),
+        ),
+      ),
+
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          padding:
+              const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Notes",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
 
               /// TOP BUTTONS
-              Row(
-                children: [
-                  _addButton(),
-                  const SizedBox(width: 10),
-                  _tabButton("Others", 0),
-                  const SizedBox(width: 10),
-                  _tabButton("Court", 1),
-                  const SizedBox(width: 10),
-                  _tabButton("Paddles", 2),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    _addButton(),
+                    const SizedBox(width: 10),
+                    ...List.generate(tabNames.length, (i) {
+                      return Padding(
+                        padding:
+                            const EdgeInsets.only(right: 10),
+                        child: _tabButton(tabNames[i], i),
+                      );
+                    }),
+                  ],
+                ),
               ),
 
               const SizedBox(height: 20),
@@ -75,34 +156,41 @@ class _NotesPageState extends State<NotesPage> {
                     children: [
                       /// HEADER BAR
                       Container(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 16,
-                          vertical: 10,
-                        ),
-                        decoration: const BoxDecoration(
+                        padding:
+                            const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 10),
+                        decoration:
+                            const BoxDecoration(
                           color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.vertical(
+                          borderRadius:
+                              BorderRadius.vertical(
                             top: Radius.circular(20),
                           ),
                         ),
                         child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment:
+                              MainAxisAlignment
+                                  .spaceBetween,
                           children: [
                             Row(
                               children: const [
                                 CircleAvatar(
                                   radius: 3,
-                                  backgroundColor: Colors.black,
+                                  backgroundColor:
+                                      Colors.black,
                                 ),
                                 SizedBox(width: 6),
                                 CircleAvatar(
                                   radius: 3,
-                                  backgroundColor: Colors.black,
+                                  backgroundColor:
+                                      Colors.black,
                                 ),
                                 SizedBox(width: 6),
                                 CircleAvatar(
                                   radius: 3,
-                                  backgroundColor: Colors.black,
+                                  backgroundColor:
+                                      Colors.black,
                                 ),
                               ],
                             ),
@@ -110,7 +198,8 @@ class _NotesPageState extends State<NotesPage> {
                               "DATE : 02/02/2026",
                               style: TextStyle(
                                 fontSize: 12,
-                                fontWeight: FontWeight.w500,
+                                fontWeight:
+                                    FontWeight.w500,
                               ),
                             ),
                           ],
@@ -122,25 +211,41 @@ class _NotesPageState extends State<NotesPage> {
                         child: CustomPaint(
                           painter: _LinePainter(),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
+                            padding:
+                                const EdgeInsets
+                                    .symmetric(
                               horizontal: 16,
                               vertical: 12,
                             ),
                             child: TextField(
-                              controller: controllers[selectedIndex],
+                              controller:
+                                  controllers[
+                                      selectedIndex],
                               maxLines: null,
                               expands: true,
-                              keyboardType: TextInputType.multiline,
-                              style: const TextStyle(
+                              keyboardType:
+                                  TextInputType
+                                      .multiline,
+                              style:
+                                  const TextStyle(
                                 fontSize: 14,
-                                color: Colors.black87,
+                                color:
+                                    Colors.black87,
                               ),
-                              decoration: const InputDecoration(
-                                border: InputBorder.none,
-                                isCollapsed: true,
+                              decoration:
+                                  const InputDecoration(
+                                border:
+                                    InputBorder
+                                        .none,
+                                isCollapsed:
+                                    true,
                               ),
-                              onChanged: (value) {
-                                notes[selectedIndex] = value.split("\n");
+                              onChanged:
+                                  (value) {
+                                notes[
+                                        selectedIndex] =
+                                    value.split(
+                                        "\n");
                               },
                             ),
                           ),
@@ -158,18 +263,23 @@ class _NotesPageState extends State<NotesPage> {
   }
 
   Widget _addButton() {
-    return Container(
-      padding: const EdgeInsets.all(12),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        shape: BoxShape.circle,
+    return GestureDetector(
+      onTap: _showCreateTabDialog,
+      child: Container(
+        padding: const EdgeInsets.all(12),
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          shape: BoxShape.circle,
+        ),
+        child:
+            const Icon(Icons.add, color: Colors.black),
       ),
-      child: const Icon(Icons.add, color: Colors.black),
     );
   }
 
   Widget _tabButton(String text, int index) {
-    final bool isSelected = selectedIndex == index;
+    final bool isSelected =
+        selectedIndex == index;
 
     return GestureDetector(
       onTap: () {
@@ -178,15 +288,23 @@ class _NotesPageState extends State<NotesPage> {
         });
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+        padding:
+            const EdgeInsets.symmetric(
+                horizontal: 18,
+                vertical: 10),
         decoration: BoxDecoration(
-          color: isSelected ? Colors.white : Colors.white24,
-          borderRadius: BorderRadius.circular(20),
+          color: isSelected
+              ? Colors.white
+              : Colors.white24,
+          borderRadius:
+              BorderRadius.circular(20),
         ),
         child: Text(
           text,
           style: TextStyle(
-            color: isSelected ? Colors.black : Colors.white,
+            color: isSelected
+                ? Colors.black
+                : Colors.white,
             fontSize: 13,
           ),
         ),
@@ -204,11 +322,18 @@ class _LinePainter extends CustomPainter {
 
     const double spacing = 26;
 
-    for (double y = spacing; y < size.height; y += spacing) {
-      canvas.drawLine(Offset(0, y), Offset(size.width, y), paint);
+    for (double y = spacing;
+        y < size.height;
+        y += spacing) {
+      canvas.drawLine(
+          Offset(0, y),
+          Offset(size.width, y),
+          paint);
     }
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+  bool shouldRepaint(
+          covariant CustomPainter oldDelegate) =>
+      false;
 }
