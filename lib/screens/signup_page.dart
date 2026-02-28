@@ -61,34 +61,32 @@ class _SignUpPageState extends State<SignUpPage> {
     setState(() => _loading = true);
 
     try {
-      // 🔹 1) Create account in Firebase Authentication
-      final cred = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
+      // 1) Create account in Firebase Authentication
+      final cred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: pw,
       );
 
-      await cred.user!.updateDisplayName(name);
-
-      // 🔹 2) Create profile in Firestore
+      // 2) Create profile in Firestore
       await FirebaseFirestore.instance
           .collection('users')
           .doc(cred.user!.uid)
           .set({
-        'name': name,
-        'email': email,
-        'gender': _selectedGender,
-        'birthDate': _selectedBirthDate == null
-            ? null
-            : Timestamp.fromDate(_selectedBirthDate!),
-        'createdAt': FieldValue.serverTimestamp(),
-      });
+            'name': name,
+            'email': email,
+            'gender': _selectedGender,
+            'birthDate': _selectedBirthDate == null
+                ? null
+                : Timestamp.fromDate(_selectedBirthDate!),
+            'createdAt': FieldValue.serverTimestamp(),
+            'updatedAt': FieldValue.serverTimestamp(),
+          }, SetOptions(merge: true));
 
       if (!mounted) return;
       Navigator.pushReplacementNamed(context, '/home');
     } on FirebaseAuthException catch (e) {
       _showMsg(e.message ?? "Sign up failed.");
-    } catch (e) {
+    } catch (_) {
       _showMsg("Something went wrong. Please try again.");
     } finally {
       if (mounted) setState(() => _loading = false);
@@ -96,8 +94,9 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _showMsg(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -114,10 +113,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 60),
                 const Text(
                   "Sign Up",
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
                 const Text(
@@ -152,9 +148,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           : Icons.visibility_outlined,
                     ),
                     onPressed: () {
-                      setState(() {
-                        _obscurePassword = !_obscurePassword;
-                      });
+                      setState(() => _obscurePassword = !_obscurePassword);
                     },
                   ),
                 ),
@@ -171,10 +165,10 @@ class _SignUpPageState extends State<SignUpPage> {
                           : Icons.visibility_outlined,
                     ),
                     onPressed: () {
-                      setState(() {
-                        _obscureConfirmPassword =
-                            !_obscureConfirmPassword;
-                      });
+                      setState(
+                        () =>
+                            _obscureConfirmPassword = !_obscureConfirmPassword,
+                      );
                     },
                   ),
                 ),
@@ -196,14 +190,16 @@ class _SignUpPageState extends State<SignUpPage> {
                             hint: const Text("Gender"),
                             items: const [
                               DropdownMenuItem(
-                                  value: "Male", child: Text("Male")),
+                                value: "Male",
+                                child: Text("Male"),
+                              ),
                               DropdownMenuItem(
-                                  value: "Female", child: Text("Female")),
+                                value: "Female",
+                                child: Text("Female"),
+                              ),
                             ],
                             onChanged: (value) {
-                              setState(() {
-                                _selectedGender = value;
-                              });
+                              setState(() => _selectedGender = value);
                             },
                           ),
                         ),
@@ -213,8 +209,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () async {
-                          DateTime? pickedDate =
-                              await showDatePicker(
+                          final pickedDate = await showDatePicker(
                             context: context,
                             initialDate: DateTime(2000),
                             firstDate: DateTime(1900),
@@ -222,14 +217,14 @@ class _SignUpPageState extends State<SignUpPage> {
                           );
 
                           if (pickedDate != null) {
-                            setState(() {
-                              _selectedBirthDate = pickedDate;
-                            });
+                            setState(() => _selectedBirthDate = pickedDate);
                           }
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 18),
+                            horizontal: 20,
+                            vertical: 18,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color(0xFFF3F3F3),
                             borderRadius: BorderRadius.circular(16),
@@ -252,9 +247,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Checkbox(
                       value: _agreeToTerms,
                       onChanged: (value) {
-                        setState(() {
-                          _agreeToTerms = value ?? false;
-                        });
+                        setState(() => _agreeToTerms = value ?? false);
                       },
                     ),
                     const Expanded(
@@ -274,22 +267,16 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: ElevatedButton(
                     onPressed: _loading ? null : _signUp,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          const Color(0xFF2F436E),
+                      backgroundColor: const Color(0xFF2F436E),
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                     ),
                     child: _loading
-                        ? const CircularProgressIndicator(
-                            color: Colors.white,
-                          )
+                        ? const CircularProgressIndicator(color: Colors.white)
                         : const Text(
                             "Create your Account",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                   ),
                 ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:datahub/screens/signup_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -15,6 +16,18 @@ class _LoginPageState extends State<LoginPage> {
 
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  bool _isValidEmail(String v) {
+    final s = v.trim();
+    return RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(s);
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -60,11 +73,15 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 32),
 
-                /// Email Field
+                /// Email Field (✅ email only)
                 _buildTextField(
-                  hintText: "Email or Username",
+                  hintText: "Email",
                   controller: emailController,
                   obscureText: false,
+                  keyboardType: TextInputType.emailAddress,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.deny(RegExp(r"\s")),
+                  ],
                 ),
 
                 const SizedBox(height: 16),
@@ -76,9 +93,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: _obscurePassword,
                   suffixIcon: IconButton(
                     icon: Icon(
-                      _obscurePassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
+                      _obscurePassword ? Icons.visibility_off : Icons.visibility,
                       color: Colors.grey,
                     ),
                     onPressed: () {
@@ -111,28 +126,52 @@ class _LoginPageState extends State<LoginPage> {
                   height: 52,
                   child: ElevatedButton(
                     onPressed: () async {
+                      final email = emailController.text.trim();
+                      final pass = passwordController.text.trim();
+
+                      if (!_isValidEmail(email)) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Please enter a valid email address."),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                        return;
+                      }
+                      if (pass.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Please enter your password."),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                        return;
+                      }
+
                       try {
                         await FirebaseAuth.instance.signInWithEmailAndPassword(
-                          email: emailController.text.trim(),
-                          password: passwordController.text.trim(),
+                          email: email,
+                          password: pass,
                         );
 
-                          Navigator.pushReplacementNamed(context, '/home');
-                        } on FirebaseAuthException catch (_) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Account does not exist or wrong password."),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        } catch (_) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text("Something went wrong. Please try again."),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        }
+                        if (!context.mounted) return;
+                        Navigator.pushReplacementNamed(context, '/home');
+                      } on FirebaseAuthException catch (_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content:
+                                Text("Account does not exist or wrong password."),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      } catch (_) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text("Something went wrong. Please try again."),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
+                      }
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF243C66),
@@ -192,10 +231,14 @@ class _LoginPageState extends State<LoginPage> {
     required bool obscureText,
     TextEditingController? controller,
     Widget? suffixIcon,
+    TextInputType? keyboardType,
+    List<TextInputFormatter>? inputFormatters,
   }) {
     return TextField(
-      controller: controller,   
+      controller: controller,
       obscureText: obscureText,
+      keyboardType: keyboardType,
+      inputFormatters: inputFormatters,
       decoration: InputDecoration(
         hintText: hintText,
         hintStyle: const TextStyle(color: Colors.black38),

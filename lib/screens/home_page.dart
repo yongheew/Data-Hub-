@@ -7,8 +7,6 @@ class HomePage extends StatelessWidget {
 
   Future<String> _getUserName() async {
     final user = FirebaseAuth.instance.currentUser;
-
-    // If not logged in yet (or auth state not ready), fallback
     if (user == null) return "User";
 
     // Try Firestore: users/{uid}
@@ -25,13 +23,14 @@ class HomePage extends StatelessWidget {
         return name.trim();
       }
     } catch (_) {
-      // Ignore here; we’ll fallback below (permission denied / missing doc / etc.)
+      // Ignore; fallback below
     }
 
     // Fallbacks
     final display = user.displayName;
     if (display != null && display.trim().isNotEmpty) return display.trim();
 
+    // ✅ If you REALLY don't want email to show, return "User" here instead.
     final email = user.email;
     if (email != null && email.trim().isNotEmpty) return email.trim();
 
@@ -49,7 +48,6 @@ class HomePage extends StatelessWidget {
             children: [
               const SizedBox(height: 40),
 
-              // Robot Icon
               const Icon(
                 Icons.smart_toy_outlined,
                 size: 110,
@@ -58,13 +56,24 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 24),
 
-              // Greeting (dynamic)
               FutureBuilder<String>(
                 future: _getUserName(),
                 builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const Text(
+                      "Hello, ...",
+                      style: TextStyle(
+                        fontSize: 26,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                      ),
+                    );
+                  }
+
                   final name = (snapshot.data == null || snapshot.data!.isEmpty)
                       ? "User"
                       : snapshot.data!;
+
                   return Text(
                     "Hello, $name",
                     style: const TextStyle(
@@ -85,7 +94,6 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 40),
 
-              // Grid Buttons
               Expanded(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 20),
@@ -173,7 +181,6 @@ class HomePage extends StatelessWidget {
 
               const SizedBox(height: 20),
 
-              // Bottom Input Bar
               GestureDetector(
                 onTap: () {
                   Navigator.pushNamed(context, '/chat');
