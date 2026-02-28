@@ -120,9 +120,9 @@ Unlike chat-based AI tools, DataHub accumulates site-specific intelligence over 
 
 2. Semantic Recurrence Detection
 Instead of keyword matching, the system uses AI-based semantic similarity to link:
-“Court lights not working”
-“Lighting failure at court 2”
-“Flickering lights again”
+- “Court lights not working”
+- “Lighting failure at court 2”
+- “Flickering lights again”
 
 3. AI as a Structuring Layer (Not Replacement)
 AI is used to:
@@ -173,7 +173,7 @@ Enabled APIs:
 
 **Setup Steps**
 1. Clone Repository
-```git clone <repository-link>     ```
+```git clone <repository-link> ```           
 ```cd datahub```
 2. Install Dependencies
 ```flutter pub get ```
