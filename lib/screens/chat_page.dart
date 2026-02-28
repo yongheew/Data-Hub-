@@ -1,5 +1,3 @@
-
-
 import 'dart:convert';
 import 'dart:typed_data';
 
@@ -13,15 +11,17 @@ import 'package:speech_to_text/speech_to_text.dart' as stt;
 import '../services/chat_service.dart';
 
 class ChatPage extends StatefulWidget {
-  const ChatPage({super.key});
+  final String chatId;
+
+  /// Keep backward compatibility:
+  /// If old code calls ChatPage(), it still works using "default"
+  const ChatPage({super.key, this.chatId = "default"});
 
   @override
   State<ChatPage> createState() => _ChatPageState();
 }
 
 class _ChatPageState extends State<ChatPage> {
-  static const String _chatId = "default";
-
   final TextEditingController _messageCtrl = TextEditingController();
   final ScrollController _scrollCtrl = ScrollController();
 
@@ -43,7 +43,7 @@ class _ChatPageState extends State<ChatPage> {
         .collection("users")
         .doc(uid)
         .collection("chats")
-        .doc(_chatId)
+        .doc(widget.chatId)
         .collection("messages");
   }
 
@@ -56,6 +56,13 @@ class _ChatPageState extends State<ChatPage> {
     super.initState();
     _speech = stt.SpeechToText();
     _initSpeech();
+
+    // Ensure chat doc exists (so history can show it even before first message)
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      final u = _user;
+      if (u == null) return;
+      await ChatService.ensureChatExists(uid: u.uid, chatId: widget.chatId);
+    });
   }
 
   Future<void> _initSpeech() async {
@@ -87,7 +94,6 @@ class _ChatPageState extends State<ChatPage> {
       onResult: (res) {
         if (!mounted) return;
 
-        // Put dictated text into input (append)
         final current = _messageCtrl.text.trim();
         final newText = res.recognizedWords.trim();
         if (newText.isEmpty) return;
@@ -145,10 +151,8 @@ class _ChatPageState extends State<ChatPage> {
 
     setState(() => _sending = true);
 
-    // Clear input UI immediately (like ChatGPT)
     _messageCtrl.clear();
 
-    // Snapshot the image, then clear preview immediately
     final imgToSend = _pickedImage;
     setState(() => _pickedImage = null);
 
@@ -161,9 +165,10 @@ class _ChatPageState extends State<ChatPage> {
         imageMimeType = _guessMimeType(imgToSend.name);
       }
 
-      // ✅ Send to backend (backend writes user+assistant)
+      // ✅ Send to backend (backend writes user+assistant messages)
       await ChatService.sendChat(
         text,
+        chatId: widget.chatId,
         imageBytes: imageBytes,
         imageMimeType: imageMimeType,
       );
@@ -179,6 +184,21 @@ class _ChatPageState extends State<ChatPage> {
     } finally {
       if (mounted) setState(() => _sending = false);
     }
+  }
+
+  /// ✅ NEW CHAT BUTTON ACTION
+  Future<void> _startNewChat() async {
+    final u = _user;
+    if (u == null) return;
+
+    final newChatId = await ChatService.createChat(uid: u.uid);
+    if (!mounted) return;
+
+    // Replace this chat thread with a new one
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (_) => ChatPage(chatId: newChatId)),
+    );
   }
 
   bool _isIncidentKind(String kind) {
@@ -220,7 +240,19 @@ class _ChatPageState extends State<ChatPage> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF2F436E),
         foregroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: const Text("Chat"),
+        actions: [
+          IconButton(
+            tooltip: "New chat",
+            icon: const Icon(Icons.add_comment_outlined),
+            onPressed: _startNewChat,
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
@@ -268,7 +300,8 @@ class _ChatPageState extends State<ChatPage> {
                                         ? "This is usually Firestore rules.\nPublish the rules, then restart the app."
                                         : "Please try again.",
                                     textAlign: TextAlign.center,
-                                    style: const TextStyle(color: Colors.white70),
+                                    style:
+                                        const TextStyle(color: Colors.white70),
                                   ),
                                   const SizedBox(height: 14),
                                   ElevatedButton(
@@ -318,7 +351,6 @@ class _ChatPageState extends State<ChatPage> {
 
                             final isUser = role == "user";
 
-                            // ✅ If user has image message saved (optional)
                             if (kind == "user_with_image" && isUser) {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -332,7 +364,6 @@ class _ChatPageState extends State<ChatPage> {
                               );
                             }
 
-                            // ✅ PDF Card support
                             if (kind == "po_pdf" || kind == "pdf") {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -349,7 +380,6 @@ class _ChatPageState extends State<ChatPage> {
                               );
                             }
 
-                            // ✅ Incident reply card (pretty)
                             if (!isUser && _isIncidentKind(kind)) {
                               return Column(
                                 crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -363,7 +393,6 @@ class _ChatPageState extends State<ChatPage> {
                               );
                             }
 
-                            // Default chat bubbles
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
@@ -384,7 +413,6 @@ class _ChatPageState extends State<ChatPage> {
                     ),
             ),
 
-            // ✅ picked image preview (like chat apps)
             if (_pickedImage != null)
               Container(
                 margin: const EdgeInsets.fromLTRB(20, 0, 20, 10),
@@ -441,7 +469,6 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                   ),
 
-                  // Send
                   IconButton(
                     icon: _sending
                         ? const SizedBox(
@@ -456,7 +483,6 @@ class _ChatPageState extends State<ChatPage> {
                     onPressed: _sending ? null : _send,
                   ),
 
-                  // Mic (dictation)
                   IconButton(
                     icon: Icon(
                       _listening ? Icons.mic : Icons.mic_none,
@@ -465,9 +491,9 @@ class _ChatPageState extends State<ChatPage> {
                     onPressed: _sending ? null : _toggleMic,
                   ),
 
-                  // Image
                   IconButton(
-                    icon: const Icon(Icons.image_outlined, color: Colors.white70),
+                    icon:
+                        const Icon(Icons.image_outlined, color: Colors.white70),
                     onPressed: _sending ? null : _pickImage,
                   ),
                 ],
@@ -502,7 +528,7 @@ class _UserBubble extends StatelessWidget {
   }
 }
 
-/// ✅ AI bubble with Markdown rendering (like ChatGPT)
+/// AI bubble with Markdown rendering
 class _AiMarkdownBubble extends StatelessWidget {
   final String text;
   const _AiMarkdownBubble({required this.text});
@@ -530,7 +556,7 @@ class _AiMarkdownBubble extends StatelessWidget {
   }
 }
 
-/// ✅ INCIDENT CARD (clean + nice + small ID at bottom-right)
+/// INCIDENT CARD
 class _IncidentCard extends StatelessWidget {
   final Map<String, dynamic> message;
   const _IncidentCard({required this.message});
@@ -630,7 +656,7 @@ class _IncidentCard extends StatelessWidget {
   }
 }
 
-/// PDF CARD (kept)
+/// PDF CARD
 class _PdfCard extends StatelessWidget {
   final String fileName;
   const _PdfCard({required this.fileName});
