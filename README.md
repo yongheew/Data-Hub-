@@ -172,7 +172,7 @@ Enabled APIs:
 - BigQuery
 
 **Setup Steps**
-1. Clone Repository
+1. Clone Repository  
 ```git clone <repository-link> ```           
 ```cd datahub```
 2. Install Dependencies
