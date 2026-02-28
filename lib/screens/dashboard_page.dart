@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../services/chat_service.dart';
+import 'chat_page.dart';
+
 class DashboardPage extends StatelessWidget {
   DashboardPage({super.key});
 
@@ -24,6 +27,32 @@ class DashboardPage extends StatelessWidget {
     }
 
     return user.email ?? "";
+  }
+
+  /// ✅ NEW: create a new chat session and open ChatPage(chatId: ...)
+  Future<void> _openNewChat(BuildContext context) async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please login first.")),
+      );
+      return;
+    }
+
+    try {
+      final chatId = await ChatService.createChat(uid: user.uid);
+      if (!context.mounted) return;
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => ChatPage(chatId: chatId)),
+      );
+    } catch (e) {
+      if (!context.mounted) return;
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text("Failed to open chat: $e")),
+      );
+    }
   }
 
   @override
@@ -106,9 +135,10 @@ class DashboardPage extends StatelessWidget {
               ),
               const SizedBox(height: 30),
 
+              // ✅ FIX: Chat now opens a NEW chatId so Chat History can show multiple sessions
               _DashboardButton(
                 title: "Chat",
-                onTap: () => Navigator.pushNamed(context, '/chat'),
+                onTap: () => _openNewChat(context),
               ),
               const SizedBox(height: 16),
 
