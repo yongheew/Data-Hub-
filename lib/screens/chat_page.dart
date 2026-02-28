@@ -1,7 +1,67 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:firebase_auth/firebase_auth.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
+
+  @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
+  final TextEditingController _controller = TextEditingController();
+  List<Map<String, String>> messages = [];
+  bool isLoading = false;
+
+  final String flaskUrl = "http://34.132.41.250:5050/process_incident";
+
+  Future<void> sendMessage(String userMessage) async {
+    if (userMessage.trim().isEmpty) return;
+
+    final user = FirebaseAuth.instance.currentUser;
+    final userName = user?.displayName ?? user?.email ?? "User";
+
+    setState(() {
+      messages.add({"sender": "user", "text": userMessage});
+      isLoading = true;
+    });
+    _controller.clear();
+
+    try {
+      final response = await http.post(
+        Uri.parse(flaskUrl),
+        headers: {"Content-Type": "application/json"},
+        body: jsonEncode({"user_name": userName, "issue_text": userMessage}),
+      );
+
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        String aiResponse = data['user_message'] ?? "No response from AI.";
+
+        setState(() {
+          messages.add({"sender": "ai", "text": aiResponse});
+        });
+      } else {
+        setState(() {
+          messages.add({
+            "sender": "ai",
+            "text": "Error: ${response.statusCode}",
+          });
+        });
+      }
+    } catch (e) {
+      setState(() {
+        messages.add({"sender": "ai", "text": "Error: $e"});
+        isLoading = false;
+      });
+    } finally {
+      setState(() {
+        isLoading = false;
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,81 +72,43 @@ class ChatPage extends StatelessWidget {
           children: [
             /// CHAT MESSAGES
             Expanded(
-              child: ListView(
+              child: ListView.builder(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                   vertical: 20,
                 ),
-                children: const [
-                  /// USER MESSAGE
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: _UserBubble(
-                      text:
-                          "The Franklin paddles are out of stock.\nWhat should I do?",
+                itemCount: messages.length,
+                itemBuilder: (context, index) {
+                  final msg = messages[index];
+                  return Align(
+                    alignment: msg["sender"] == "user"
+                        ? Alignment.centerRight
+                        : Alignment.centerLeft,
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 12),
+                      padding: const EdgeInsets.all(14),
+                      decoration: BoxDecoration(
+                        color: msg["sender"] == "user"
+                            ? Colors.black
+                            : Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Text(
+                        msg["text"] ?? "",
+                        style: TextStyle(
+                          fontSize: 14,
+                          height: 1.5,
+                          color: msg["sender"] == "user"
+                              ? Colors.white
+                              : Colors.black87,
+                        ),
+                      ),
                     ),
-                  ),
-
-                  SizedBox(height: 16),
-
-                  /// AI RESPONSE
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: _AiBubble(
-                      text:
-                          "Let me check the current inventory status for Franklin paddles.\n"
-                          "Current stock: 0\n"
-                          "Maximum stock level: 8\n\n"
-                          "Since the stock is empty, here’s a recommended purchase plan based on the preset maximum stock level.\n\n"
-                          "Required purchase quantity: 8 paddles\n\n"
-                          "Supplier details:\n"
-                          "PicklePro Sports Supplies\n"
-                          "Whatsapp : 012-3456789\n"
-                          "Email : pickleprosports@gmail.com\n"
-                          "· Unit price: RM700\n"
-                          "· Subtotal: RM5600\n"
-                          "Estimated total cost: RM5600\n\n"
-                          "Would you like to confirm? Once confirmed, a Purchase Order (PO) will be generated automatically. In the meantime, please inform customers that the paddles are temporarily out of stock. Ask customers to leave their contact number, and let them know the court will contact them as soon as the paddles are back in stock.",
-                    ),
-                  ),
-
-                  SizedBox(height: 20),
-
-                  /// USER CONFIRM
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: _UserBubble(text: "Yes, please proceed."),
-                  ),
-
-                  SizedBox(height: 16),
-
-                  /// AI CONFIRMATION
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: _AiBubble(
-                      text:
-                          "The Purchase Order (PO) has been generated successfully. Please send the PO to PicklePro Sports Supplies via:\n"
-                          "· Email: pickleprosports@gmail.com\n"
-                          "· WhatsApp: 012-3456789",
-                    ),
-                  ),
-
-                  SizedBox(height: 16),
-
-                  /// PDF CARD
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: _PdfCard(
-                      fileName: "PO_PickleProSports_20260202_PO-2026-001.pdf",
-                    ),
-                  ),
-
-                  SizedBox(height: 30),
-                ],
+                  );
+                },
               ),
             ),
 
-            /// INPUT BAR
             Container(
               margin: const EdgeInsets.all(20),
               padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -99,20 +121,25 @@ class ChatPage extends StatelessWidget {
                 children: [
                   const Icon(Icons.auto_awesome, color: Colors.white70),
                   const SizedBox(width: 12),
-                  const Expanded(
+                  Expanded(
                     child: TextField(
-                      style: TextStyle(color: Colors.white),
+                      controller: _controller,
+                      style: const TextStyle(color: Colors.white),
                       cursorColor: Colors.white,
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintText: "Ask AI anything...",
                         hintStyle: TextStyle(color: Colors.white70),
                         border: InputBorder.none,
                       ),
+                      onSubmitted: (value) => sendMessage(value),
                     ),
                   ),
-                  const Icon(Icons.mic_none, color: Colors.white70),
-                  const SizedBox(width: 16),
-                  const Icon(Icons.image_outlined, color: Colors.white70),
+                  isLoading
+                      ? const CircularProgressIndicator(color: Colors.white)
+                      : IconButton(
+                          icon: const Icon(Icons.send, color: Colors.white70),
+                          onPressed: () => sendMessage(_controller.text),
+                        ),
                 ],
               ),
             ),

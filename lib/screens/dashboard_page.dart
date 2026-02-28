@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class SignUpPage extends StatefulWidget {
-  const SignUpPage({super.key});
+class DashboardPage extends StatefulWidget {
+  const DashboardPage({super.key});
 
   @override
-  State<SignUpPage> createState() => _SignUpPageState();
+  State<DashboardPage> createState() => _DashboardPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _DashboardPageState extends State<DashboardPage> {
   final _nameCtrl = TextEditingController();
   final _emailCtrl = TextEditingController();
   final _pwCtrl = TextEditingController();
@@ -62,8 +62,7 @@ class _SignUpPageState extends State<SignUpPage> {
 
     try {
       // 🔹 1) Create account in Firebase Authentication
-      final cred = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
+      final cred = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: pw,
       );
@@ -73,14 +72,14 @@ class _SignUpPageState extends State<SignUpPage> {
           .collection('users')
           .doc(cred.user!.uid)
           .set({
-        'name': name,
-        'email': email,
-        'gender': _selectedGender,
-        'birthDate': _selectedBirthDate == null
-            ? null
-            : Timestamp.fromDate(_selectedBirthDate!),
-        'createdAt': FieldValue.serverTimestamp(),
-      });
+            'name': name,
+            'email': email,
+            'gender': _selectedGender,
+            'birthDate': _selectedBirthDate == null
+                ? null
+                : Timestamp.fromDate(_selectedBirthDate!),
+            'createdAt': FieldValue.serverTimestamp(),
+          });
 
       if (!mounted) return;
       Navigator.pushReplacementNamed(context, '/home');
@@ -94,8 +93,9 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _showMsg(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
+    ScaffoldMessenger.of(
+      context,
+    ).showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -112,10 +112,7 @@ class _SignUpPageState extends State<SignUpPage> {
                 const SizedBox(height: 60),
                 const Text(
                   "Sign Up",
-                  style: TextStyle(
-                    fontSize: 36,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 12),
                 const Text(
@@ -170,8 +167,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                     onPressed: () {
                       setState(() {
-                        _obscureConfirmPassword =
-                            !_obscureConfirmPassword;
+                        _obscureConfirmPassword = !_obscureConfirmPassword;
                       });
                     },
                   ),
@@ -194,9 +190,13 @@ class _SignUpPageState extends State<SignUpPage> {
                             hint: const Text("Gender"),
                             items: const [
                               DropdownMenuItem(
-                                  value: "Male", child: Text("Male")),
+                                value: "Male",
+                                child: Text("Male"),
+                              ),
                               DropdownMenuItem(
-                                  value: "Female", child: Text("Female")),
+                                value: "Female",
+                                child: Text("Female"),
+                              ),
                             ],
                             onChanged: (value) {
                               setState(() {
@@ -211,8 +211,7 @@ class _SignUpPageState extends State<SignUpPage> {
                     Expanded(
                       child: GestureDetector(
                         onTap: () async {
-                          DateTime? pickedDate =
-                              await showDatePicker(
+                          DateTime? pickedDate = await showDatePicker(
                             context: context,
                             initialDate: DateTime(2000),
                             firstDate: DateTime(1900),
@@ -227,7 +226,9 @@ class _SignUpPageState extends State<SignUpPage> {
                         },
                         child: Container(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 20, vertical: 18),
+                            horizontal: 20,
+                            vertical: 18,
+                          ),
                           decoration: BoxDecoration(
                             color: const Color(0xFFF3F3F3),
                             borderRadius: BorderRadius.circular(16),
@@ -272,22 +273,16 @@ class _SignUpPageState extends State<SignUpPage> {
                   child: ElevatedButton(
                     onPressed: _loading ? null : _signUp,
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:
-                          const Color(0xFF2F436E),
+                      backgroundColor: const Color(0xFF2F436E),
                       shape: RoundedRectangleBorder(
-                        borderRadius:
-                            BorderRadius.circular(16),
+                        borderRadius: BorderRadius.circular(16),
                       ),
                     ),
                     child: _loading
-                        ? const CircularProgressIndicator(
-                            color: Colors.white,
-                          )
+                        ? const CircularProgressIndicator(color: Colors.white)
                         : const Text(
                             "Create your Account",
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.white),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                           ),
                   ),
                 ),

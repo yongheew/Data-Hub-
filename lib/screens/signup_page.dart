@@ -68,6 +68,8 @@ class _SignUpPageState extends State<SignUpPage> {
         password: pw,
       );
 
+      await cred.user!.updateDisplayName(name);
+
       // 🔹 2) Create profile in Firestore
       await FirebaseFirestore.instance
           .collection('users')

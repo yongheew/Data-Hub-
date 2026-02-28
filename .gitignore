@@ -44,3 +44,6 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 flutter_log.txt
+
+# Firebase service account
+serviceAccountKey.json
