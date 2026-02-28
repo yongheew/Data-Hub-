@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "568899876433",
+    "project_id": "datahub-3c396",
+    "storage_bucket": "datahub-3c396.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568899876433:android:92b4935f7d4250e334ea70",
+        "android_client_info": {
+          "package_name": "com.example.datahub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568899876433-fajq6r6hqrkb16juecefbe4pfspcuonv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLmk4KgnHrMyoMp66AK7AKDKkPFHbrgJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568899876433-fajq6r6hqrkb16juecefbe4pfspcuonv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "568899876433-7altco64h2j63c0jbe9le176bo3kaijv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.datahub"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:568899876433:android:ca7268e7f6c938aa34ea70",
+        "android_client_info": {
+          "package_name": "comp.kitahack.datahub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "568899876433-fajq6r6hqrkb16juecefbe4pfspcuonv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLmk4KgnHrMyoMp66AK7AKDKkPFHbrgJw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "568899876433-fajq6r6hqrkb16juecefbe4pfspcuonv.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "568899876433-7altco64h2j63c0jbe9le176bo3kaijv.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.datahub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
