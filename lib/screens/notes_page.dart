@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -12,21 +14,59 @@ class NotesPage extends StatefulWidget {
 class _NotesPageState extends State<NotesPage> {
   int selectedIndex = 0;
 
-  // Keep your initial default names (will also be created in Firestore if missing)
+  // Default tabs (ensured in Firestore)
   final List<String> tabNames = ["Others", "Court", "Paddles"];
 
-  // Controllers per tab
+  // Controllers per tab index
   final Map<int, TextEditingController> controllers = {};
 
-  // Firestore
+  // Firestore + Auth
   final _db = FirebaseFirestore.instance;
   final _auth = FirebaseAuth.instance;
 
-  // Store tabId per index (so renaming/reordering won’t break)
+  // Mapping index -> tabId (from notesTabs docs)
   final Map<int, String> _tabIdByIndex = {};
 
-  // For dynamic date display (last updated for selected tab)
+  // Store updatedAt per tabId (from tabs stream)
+  final Map<String, Timestamp?> _tabUpdatedAtById = {};
+
+  // For date display (selected tab updatedAt)
   Timestamp? _selectedTabUpdatedAt;
+
+  // Editor focus (avoid overwriting while typing)
+  final FocusNode _editorFocus = FocusNode();
+
+  // Debounce save
+  Timer? _saveDebounce;
+
+  // Migration flags
+  final Set<String> _migratedTabIds = {};
+  final Set<String> _migrationStarted = {};
+
+  // Cache per tabId so switching is instant and no “blank flash”
+  final Map<String, String> _cachedTextByTabId = {};
+
+  // Active tab streaming subscription (THIS is the key fix)
+  StreamSubscription<QuerySnapshot<Map<String, dynamic>>>? _linesSub;
+  String? _activeTabId;
+
+  String? get _uid => _auth.currentUser?.uid;
+
+  CollectionReference<Map<String, dynamic>> _tabsCol(String uid) =>
+      _db.collection("users").doc(uid).collection("notesTabs");
+
+  // NEW structure: users/{uid}/notesTabs/{tabId}/lines/{lineId}
+  CollectionReference<Map<String, dynamic>> _linesCol(String uid, String tabId) =>
+      _db
+          .collection("users")
+          .doc(uid)
+          .collection("notesTabs")
+          .doc(tabId)
+          .collection("lines");
+
+  // OLD structure: users/{uid}/notes
+  CollectionReference<Map<String, dynamic>> _oldNotesCol(String uid) =>
+      _db.collection("users").doc(uid).collection("notes");
 
   @override
   void initState() {
@@ -36,31 +76,24 @@ class _NotesPageState extends State<NotesPage> {
       controllers[i] = TextEditingController(text: "");
     }
 
-    // Ensure defaults exist in DB and load initial content
     WidgetsBinding.instance.addPostFrameCallback((_) async {
       await _ensureDefaultTabsExist();
-      await _loadSelectedTabContent();
     });
   }
 
   @override
   void dispose() {
+    _saveDebounce?.cancel();
+    _linesSub?.cancel();
+    _editorFocus.dispose();
     for (final c in controllers.values) {
       c.dispose();
     }
     super.dispose();
   }
 
-  String? get _uid => _auth.currentUser?.uid;
-
-  CollectionReference<Map<String, dynamic>> _tabsCol(String uid) =>
-      _db.collection("users").doc(uid).collection("notesTabs");
-
-  CollectionReference<Map<String, dynamic>> _notesCol(String uid) =>
-      _db.collection("users").doc(uid).collection("notes");
-
   // -----------------------------
-  // Firestore: ensure default tabs exist
+  // Ensure default tabs exist
   // -----------------------------
   Future<void> _ensureDefaultTabsExist() async {
     final uid = _uid;
@@ -68,7 +101,6 @@ class _NotesPageState extends State<NotesPage> {
 
     final col = _tabsCol(uid);
 
-    // Use fixed IDs so we can reliably find them
     final defaults = [
       {"id": "others", "name": "Others"},
       {"id": "court", "name": "Court"},
@@ -84,12 +116,18 @@ class _NotesPageState extends State<NotesPage> {
           "createdAt": FieldValue.serverTimestamp(),
           "updatedAt": FieldValue.serverTimestamp(),
         });
+      } else {
+        await ref.set({
+          "name": (snap.data()?["name"] ?? d["name"]),
+          "createdAt": snap.data()?["createdAt"] ?? FieldValue.serverTimestamp(),
+          "updatedAt": snap.data()?["updatedAt"] ?? FieldValue.serverTimestamp(),
+        }, SetOptions(merge: true));
       }
     }
   }
 
   // -----------------------------
-  // Firestore: stream tabs list
+  // Tabs stream
   // -----------------------------
   Stream<QuerySnapshot<Map<String, dynamic>>> _tabsStream() {
     final uid = _uid;
@@ -98,36 +136,122 @@ class _NotesPageState extends State<NotesPage> {
   }
 
   // -----------------------------
-  // Load selected tab notes into controller
+  // Start + maintain active tab listener (NO MORE “must switch tabs”)
   // -----------------------------
-  Future<void> _loadSelectedTabContent() async {
+  void _activateTab(String tabId) {
+    if (_activeTabId == tabId) return;
+    _activeTabId = tabId;
+
+    // show cached immediately (if any)
+    final cached = _cachedTextByTabId[tabId];
+    final ctrl = controllers[selectedIndex];
+    if (cached != null && ctrl != null && !_editorFocus.hasFocus) {
+      if (ctrl.text != cached) ctrl.text = cached;
+    }
+
+    // kick migration in background (doesn't block UI)
+    _startMigrationIfNeeded(tabId);
+
+    // cancel previous listener
+    _linesSub?.cancel();
+
     final uid = _uid;
     if (uid == null) return;
 
-    final tabId = _tabIdByIndex[selectedIndex];
-    if (tabId == null) return;
-
-    final snap = await _notesCol(uid)
-        .where("tabId", isEqualTo: tabId)
+    // subscribe to lines for this tab and keep controller updated
+    _linesSub = _linesCol(uid, tabId)
         .orderBy("lineIndex", descending: false)
-        .get();
+        .snapshots()
+        .listen((snap) {
+      // build joined text
+      final lines = snap.docs.map((d) => (d.data()["text"] ?? "").toString()).toList();
+      final joined = lines.join("\n");
 
-    final lines = snap.docs
-        .map((d) => (d.data()["text"] ?? "").toString())
-        .where((t) => t.trim().isNotEmpty)
-        .toList();
+      // cache it
+      _cachedTextByTabId[tabId] = joined;
 
-    controllers[selectedIndex]?.text = lines.join("\n");
+      // only push into UI if this tab is still active
+      if (_activeTabId != tabId) return;
 
-    // Also load tab updatedAt for dynamic date
-    final tabSnap = await _tabsCol(uid).doc(tabId).get();
-    final data = tabSnap.data();
-    _selectedTabUpdatedAt = data?["updatedAt"] as Timestamp?;
-    if (mounted) setState(() {});
+      // update controller if user not typing
+      final currentCtrl = controllers[selectedIndex];
+      if (currentCtrl == null) return;
+
+      if (!_editorFocus.hasFocus && currentCtrl.text != joined) {
+        currentCtrl.text = joined;
+      }
+    });
   }
 
   // -----------------------------
-  // Save controller text -> Firestore (replace all lines for that tab)
+  // Background migration (old /notes -> new subcollection)
+  // -----------------------------
+  void _startMigrationIfNeeded(String tabId) {
+    if (_migratedTabIds.contains(tabId)) return;
+    if (_migrationStarted.contains(tabId)) return;
+
+    _migrationStarted.add(tabId);
+
+    migrateOldNotesIfNeeded(tabId).catchError(() {
+      // ignore; UI still works
+    });
+  }
+
+  Future<void> _migrateOldNotesIfNeeded(String tabId) async {
+    final uid = _uid;
+    if (uid == null) return;
+
+    if (_migratedTabIds.contains(tabId)) return;
+
+    // If new already has lines -> done
+    final newSnap = await _linesCol(uid, tabId).limit(1).get();
+    if (newSnap.docs.isNotEmpty) {
+      _migratedTabIds.add(tabId);
+      return;
+    }
+
+    // Read old notes for this tab (NO orderBy to avoid index)
+    final oldSnap = await _oldNotesCol(uid).where("tabId", isEqualTo: tabId).get();
+    if (oldSnap.docs.isEmpty) {
+      _migratedTabIds.add(tabId);
+      return;
+    }
+
+    final oldDocs = oldSnap.docs.map((d) {
+      final m = d.data();
+      return {
+        "text": (m["text"] ?? "").toString(),
+        "lineIndex": (m["lineIndex"] is int) ? (m["lineIndex"] as int) : 0,
+        "createdAt": m["createdAt"],
+        "updatedAt": m["updatedAt"],
+      };
+    }).toList();
+
+    oldDocs.sort((a, b) => (a["lineIndex"] as int).compareTo(b["lineIndex"] as int));
+
+    final batch = _db.batch();
+    for (final row in oldDocs) {
+      final ref = _linesCol(uid, tabId).doc();
+      batch.set(ref, {
+        "text": row["text"],
+        "lineIndex": row["lineIndex"],
+        "createdAt": row["createdAt"] ?? FieldValue.serverTimestamp(),
+        "updatedAt": row["updatedAt"] ?? FieldValue.serverTimestamp(),
+      });
+    }
+
+    batch.set(
+      _tabsCol(uid).doc(tabId),
+      {"updatedAt": FieldValue.serverTimestamp()},
+      SetOptions(merge: true),
+    );
+
+    await batch.commit();
+    _migratedTabIds.add(tabId);
+  }
+
+  // -----------------------------
+  // Save editor -> new lines subcollection (replace all lines)
   // -----------------------------
   Future<void> _saveSelectedTabContent(String value) async {
     final uid = _uid;
@@ -136,45 +260,50 @@ class _NotesPageState extends State<NotesPage> {
     final tabId = _tabIdByIndex[selectedIndex];
     if (tabId == null) return;
 
-    // Split lines
+    // cache immediately so UI never “goes blank”
+    _cachedTextByTabId[tabId] = value;
+
     final lines = value.split("\n").map((s) => s.trimRight()).toList();
 
-    // Delete previous notes for this tab
-    final prev = await _notesCol(uid).where("tabId", isEqualTo: tabId).get();
+    final prev = await _linesCol(uid, tabId).get();
     final batch = _db.batch();
     for (final d in prev.docs) {
       batch.delete(d.reference);
     }
 
-    // Re-add current lines as separate docs (keeps ordering stable)
+    int idx = 0;
     for (int i = 0; i < lines.length; i++) {
       final text = lines[i].trim();
       if (text.isEmpty) continue;
 
-      final ref = _notesCol(uid).doc();
+      final ref = _linesCol(uid, tabId).doc();
       batch.set(ref, {
-        "tabId": tabId,
         "text": text,
-        "lineIndex": i,
-        "updatedAt": FieldValue.serverTimestamp(),
+        "lineIndex": idx,
         "createdAt": FieldValue.serverTimestamp(),
+        "updatedAt": FieldValue.serverTimestamp(),
       });
+      idx++;
     }
 
-    // Update tab updatedAt (for date display)
-    final tabRef = _tabsCol(uid).doc(tabId);
-    batch.set(tabRef, {"updatedAt": FieldValue.serverTimestamp()}, SetOptions(merge: true));
+    batch.set(
+      _tabsCol(uid).doc(tabId),
+      {"updatedAt": FieldValue.serverTimestamp()},
+      SetOptions(merge: true),
+    );
 
     await batch.commit();
+  }
 
-    // Refresh date in UI quickly
-    final tabSnap = await _tabsCol(uid).doc(tabId).get();
-    _selectedTabUpdatedAt = tabSnap.data()?["updatedAt"] as Timestamp?;
-    if (mounted) setState(() {});
+  void _onEditorChanged(String value) {
+    _saveDebounce?.cancel();
+    _saveDebounce = Timer(const Duration(milliseconds: 500), () {
+      _saveSelectedTabContent(value);
+    });
   }
 
   // -----------------------------
-  // Create new block/tab in Firestore
+  // Create new tab
   // -----------------------------
   Future<void> _showCreateTabDialog() async {
     final controller = TextEditingController();
@@ -187,9 +316,7 @@ class _NotesPageState extends State<NotesPage> {
           content: TextField(
             controller: controller,
             autofocus: true,
-            decoration: const InputDecoration(
-              hintText: "Enter name",
-            ),
+            decoration: const InputDecoration(hintText: "Enter name"),
           ),
           actions: [
             TextButton(
@@ -214,7 +341,6 @@ class _NotesPageState extends State<NotesPage> {
     final uid = _uid;
     if (uid == null) return;
 
-    // Check duplicate (case-insensitive) from Firestore
     final existing = await _tabsCol(uid).get();
     final exists = existing.docs.any((d) {
       final n = (d.data()["name"] ?? "").toString().trim().toLowerCase();
@@ -230,22 +356,15 @@ class _NotesPageState extends State<NotesPage> {
       return;
     }
 
-    // Add tab doc
-    final ref = await _tabsCol(uid).add({
+    await _tabsCol(uid).add({
       "name": name.trim(),
       "createdAt": FieldValue.serverTimestamp(),
       "updatedAt": FieldValue.serverTimestamp(),
     });
-
-    // After created, select it (we will rebuild indices from stream)
-    // We'll set selectedIndex after stream rebuild finds it
-    // For now, do nothing; UI will show it
-    // You can optionally jump to last tab by setting selectedIndex later.
-    if (mounted) setState(() {});
   }
 
   // -----------------------------
-  // Date formatting (NOT hard-coded)
+  // Date formatting
   // -----------------------------
   String _formatDate(Timestamp? ts) {
     final dt = (ts ?? Timestamp.fromDate(DateTime.now())).toDate();
@@ -257,23 +376,18 @@ class _NotesPageState extends State<NotesPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF2F436E),
-
-      /// APP BAR WITH BACK BUTTON
       appBar: AppBar(
         backgroundColor: const Color(0xFF2F436E),
         elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+          onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
           "Notes",
           style: TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
-
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
@@ -282,7 +396,7 @@ class _NotesPageState extends State<NotesPage> {
             children: [
               const SizedBox(height: 10),
 
-              /// TOP BUTTONS (dynamic tabs from Firestore)
+              // Tabs row
               StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                 stream: _tabsStream(),
                 builder: (context, snap) {
@@ -295,27 +409,55 @@ class _NotesPageState extends State<NotesPage> {
                     );
                   }
 
-                  final docs = snap.data?.docs ?? [];
+                  if (snap.hasError) {
+                    return Text(
+                      "Tabs error: ${snap.error}",
+                      style: const TextStyle(color: Colors.white),
+                    );
+                  }
 
-                  // Build tabNames + mapping
+                  if (!snap.hasData) {
+                    return const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 8),
+                      child: CircularProgressIndicator(color: Colors.white),
+                    );
+                  }
+
+                  final docs = snap.data!.docs;
+
                   final dynamicTabNames = <String>[];
                   _tabIdByIndex.clear();
+                  _tabUpdatedAtById.clear();
 
                   for (int i = 0; i < docs.length; i++) {
                     final d = docs[i];
-                    final name = (d.data()["name"] ?? d.id).toString();
+                    final data = d.data();
+                    final name = (data["name"] ?? d.id).toString();
                     dynamicTabNames.add(name);
                     _tabIdByIndex[i] = d.id;
+                    _tabUpdatedAtById[d.id] = data["updatedAt"] as Timestamp?;
                   }
 
-                  // Safety: clamp selectedIndex
                   if (dynamicTabNames.isNotEmpty && selectedIndex >= dynamicTabNames.length) {
                     selectedIndex = 0;
                   }
 
-                  // Ensure controllers exist for all tabs
+                  // Ensure controllers exist
                   for (int i = 0; i < dynamicTabNames.length; i++) {
                     controllers.putIfAbsent(i, () => TextEditingController(text: ""));
+                  }
+
+                  // Update date for selected tab
+                  final currentTabId = _tabIdByIndex[selectedIndex];
+                  _selectedTabUpdatedAt =
+                      currentTabId == null ? null : _tabUpdatedAtById[currentTabId];
+
+                  // IMPORTANT: activate the selected tab stream AFTER this build frame
+                  if (currentTabId != null) {
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      if (!mounted) return;
+                      _activateTab(currentTabId);
+                    });
                   }
 
                   return SingleChildScrollView(
@@ -338,7 +480,7 @@ class _NotesPageState extends State<NotesPage> {
 
               const SizedBox(height: 20),
 
-              /// NOTE CARD
+              // Note card
               Expanded(
                 child: Container(
                   decoration: BoxDecoration(
@@ -347,78 +489,51 @@ class _NotesPageState extends State<NotesPage> {
                   ),
                   child: Column(
                     children: [
-                      /// HEADER BAR
+                      // Header bar with date
                       Container(
                         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                         decoration: const BoxDecoration(
                           color: Color(0xFFE6E6E6),
-                          borderRadius: BorderRadius.vertical(
-                            top: Radius.circular(20),
-                          ),
+                          borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Row(
                               children: const [
-                                CircleAvatar(
-                                  radius: 3,
-                                  backgroundColor: Colors.black,
-                                ),
+                                CircleAvatar(radius: 3, backgroundColor: Colors.black),
                                 SizedBox(width: 6),
-                                CircleAvatar(
-                                  radius: 3,
-                                  backgroundColor: Colors.black,
-                                ),
+                                CircleAvatar(radius: 3, backgroundColor: Colors.black),
                                 SizedBox(width: 6),
-                                CircleAvatar(
-                                  radius: 3,
-                                  backgroundColor: Colors.black,
-                                ),
+                                CircleAvatar(radius: 3, backgroundColor: Colors.black),
                               ],
                             ),
-
-                            /// TAB LAST UPDATED DAY
                             Text(
                               "DATE : ${_formatDate(_selectedTabUpdatedAt)}",
-                              style: const TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w500,
-                              ),
+                              style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                             ),
                           ],
                         ),
                       ),
 
-                      /// LINED PAPER
+                      // Editor (always visible)
                       Expanded(
                         child: CustomPaint(
                           painter: _LinePainter(),
                           child: Padding(
-                            padding: const EdgeInsets.symmetric(
-                              horizontal: 16,
-                              vertical: 12,
-                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                             child: TextField(
+                              focusNode: _editorFocus,
                               controller: controllers[selectedIndex],
                               maxLines: null,
                               expands: true,
                               keyboardType: TextInputType.multiline,
-                              style: const TextStyle(
-                                fontSize: 14,
-                                color: Colors.black87,
-                              ),
+                              style: const TextStyle(fontSize: 14, color: Colors.black87),
                               decoration: const InputDecoration(
                                 border: InputBorder.none,
                                 isCollapsed: true,
                               ),
-
-                              /// SAVE TO FIRESTORE (so it won't disappear)
-                              onChanged: (value) {
-                                // Debounce not implemented (keeps it simple),
-                                // but we can add debounce later for performance.
-                                _saveSelectedTabContent(value);
-                              },
+                              onChanged: _onEditorChanged,
                             ),
                           ),
                         ),
@@ -439,10 +554,7 @@ class _NotesPageState extends State<NotesPage> {
       onTap: _showCreateTabDialog,
       child: Container(
         padding: const EdgeInsets.all(12),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-        ),
+        decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
         child: const Icon(Icons.add, color: Colors.black),
       ),
     );
@@ -452,11 +564,21 @@ class _NotesPageState extends State<NotesPage> {
     final bool isSelected = selectedIndex == index;
 
     return GestureDetector(
-      onTap: () async {
+      onTap: () {
         setState(() {
           selectedIndex = index;
         });
-        await _loadSelectedTabContent();
+
+        final tabId = _tabIdByIndex[index];
+        if (tabId != null) {
+          // update date immediately
+          setState(() {
+            _selectedTabUpdatedAt = _tabUpdatedAtById[tabId];
+          });
+
+          // activate stream for this tab (will populate immediately when snapshot arrives)
+          _activateTab(tabId);
+        }
       },
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 10),
@@ -484,7 +606,6 @@ class _LinePainter extends CustomPainter {
       ..strokeWidth = 1;
 
     const double spacing = 26;
-
     for (double y = spacing; y < size.height; y += spacing) {
       canvas.drawLine(Offset(0, y), Offset(size.width, y), paint);
     }
