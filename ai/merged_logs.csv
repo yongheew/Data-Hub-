@@ -1,0 +1,1003 @@
+log_text,location,category,severity,action_taken,date,"log_text,location,category,severity,action_taken,date"
+Network issue at Sports Hall Court 1: WiFi outage reported.,Sports Hall Court 1,Network,High,Restarted access point,2024-04-12,
+Mechanical issue at Main Library: unusual vibration.,Main Library,Mechanical,Medium,Reset control system,2024-04-09,
+Electrical issue at Lecture Hall A: circuit breaker tripped.,Lecture Hall A,Electrical,Medium,Replaced fuse,2024-06-06,
+Plumbing issue at Main Library: slow drainage.,Main Library,Plumbing,High,Sealed leaking joint,2024-03-12,
+Mechanical issue at Lecture Hall A: unusual vibration.,Lecture Hall A,Mechanical,High,Replaced worn relay,2024-04-18,
+Electrical issue at Admin Block: voltage instability.,Admin Block,Electrical,Low,Rewired loose connection,2024-04-27,
+Electrical issue at Sports Hall Court 1: circuit breaker tripped.,Sports Hall Court 1,Electrical,Medium,Inspected voltage supply,2024-04-25,
+Plumbing issue at Sports Hall Court 1: sink clogged.,Sports Hall Court 1,Plumbing,High,Sealed leaking joint,2024-03-10,
+Electrical issue at Cafeteria: power outage.,Cafeteria,Electrical,Medium,Rewired loose connection,2024-05-16,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-06-25,
+Network issue at Cafeteria: network latency high.,Cafeteria,Network,Medium,Replaced faulty switch,2024-06-26,
+Network issue at Main Library: WiFi intermittent drop.,Main Library,Network,Medium,Reconfigured router,2024-04-01,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-05-27,
+Network issue at Lecture Hall A: WiFi intermittent drop.,Lecture Hall A,Network,Medium,Reconfigured router,2024-05-04,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Low,Inspected voltage supply,2024-03-10,
+HVAC issue at Sports Hall Court 1: weak airflow.,Sports Hall Court 1,HVAC,High,Recharged refrigerant,2024-04-16,
+Network issue at Admin Block: WiFi outage reported.,Admin Block,Network,High,Replaced faulty switch,2024-05-04,
+Plumbing issue at Block B Stairwell: slow drainage.,Block B Stairwell,Plumbing,High,Cleaned drainage trap,2024-05-07,
+Electrical issue at Engineering Block: lights not turning on.,Engineering Block,Electrical,Medium,Replaced fuse,2024-04-19,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Low,Recharged refrigerant,2024-04-27,
+Mechanical issue at Block C Restroom: door not closing properly.,Block C Restroom,Mechanical,High,Reset control system,2024-03-09,
+Plumbing issue at Block B Stairwell: sink clogged.,Block B Stairwell,Plumbing,Low,Cleared blockage,2024-05-13,
+Mechanical issue at Block C Restroom: elevator stuck.,Block C Restroom,Mechanical,Low,Reset control system,2024-03-21,
+Network issue at Main Library: network latency high.,Main Library,Network,Low,Reconfigured router,2024-05-13,
+Plumbing issue at Admin Block: toilet overflow.,Admin Block,Plumbing,High,Cleared blockage,2024-04-30,
+Mechanical issue at Block C Restroom: elevator stuck.,Block C Restroom,Mechanical,High,Recalibrated motor,2024-04-15,
+Mechanical issue at Engineering Block: motor overheating.,Engineering Block,Mechanical,Medium,Reset control system,2024-03-16,
+Mechanical issue at Cafeteria: motor overheating.,Cafeteria,Mechanical,Low,Replaced worn relay,2024-04-26,
+Mechanical issue at Lecture Hall A: motor overheating.,Lecture Hall A,Mechanical,Medium,Lubricated moving parts,2024-05-26,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Low,Cleaned air filters,2024-03-25,
+Electrical issue at Admin Block: circuit breaker tripped.,Admin Block,Electrical,Low,Rewired loose connection,2024-06-12,
+Plumbing issue at Main Library: sink clogged.,Main Library,Plumbing,Low,Sealed leaking joint,2024-05-28,
+Mechanical issue at Main Library: unusual vibration.,Main Library,Mechanical,Low,Recalibrated motor,2024-06-04,
+Electrical issue at Block B Stairwell: lights flickering.,Block B Stairwell,Electrical,High,Replaced fuse,2024-05-26,
+HVAC issue at Sports Hall Court 1: emitting warm air.,Sports Hall Court 1,HVAC,High,Inspected ductwork,2024-04-03,
+Network issue at Main Library: access point not responding.,Main Library,Network,High,Adjusted bandwidth settings,2024-06-10,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Low,Replaced blower motor,2024-03-23,
+Electrical issue at Cafeteria: power outage.,Cafeteria,Electrical,Medium,Rewired loose connection,2024-04-14,
+Plumbing issue at Block B Stairwell: sink clogged.,Block B Stairwell,Plumbing,Medium,Replaced pipe section,2024-06-13,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Low,Calibrated thermostat,2024-06-09,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Medium,Restarted access point,2024-05-03,
+Electrical issue at Sports Hall Court 2: lights not turning on.,Sports Hall Court 2,Electrical,High,Replaced fuse,2024-03-02,
+Electrical issue at Block B Stairwell: circuit breaker tripped.,Block B Stairwell,Electrical,Low,Rewired loose connection,2024-03-12,
+Plumbing issue at Cafeteria: sink clogged.,Cafeteria,Plumbing,High,Cleared blockage,2024-04-25,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,High,Inspected voltage supply,2024-06-14,
+Network issue at Block C Restroom: WiFi connectivity slow.,Block C Restroom,Network,Medium,Updated firmware,2024-06-14,
+Plumbing issue at Cafeteria: toilet overflow.,Cafeteria,Plumbing,Low,Adjusted water valve,2024-06-23,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Low,Updated firmware,2024-05-16,
+Network issue at Block C Restroom: WiFi outage reported.,Block C Restroom,Network,Low,Reconfigured router,2024-03-27,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Medium,Cleaned air filters,2024-03-23,
+Network issue at Engineering Block: access point not responding.,Engineering Block,Network,High,Restarted access point,2024-05-09,
+Electrical issue at Lecture Hall A: lights not turning on.,Lecture Hall A,Electrical,Low,Replaced fuse,2024-03-19,
+Network issue at Sports Hall Court 1: WiFi outage reported.,Sports Hall Court 1,Network,Medium,Restarted access point,2024-04-18,
+Plumbing issue at Block B Stairwell: toilet overflow.,Block B Stairwell,Plumbing,Medium,Adjusted water valve,2024-06-18,
+Electrical issue at Engineering Block: circuit breaker tripped.,Engineering Block,Electrical,Low,Rewired loose connection,2024-03-16,
+Network issue at Lecture Hall B: network latency high.,Lecture Hall B,Network,High,Updated firmware,2024-06-06,
+Network issue at Cafeteria: WiFi outage reported.,Cafeteria,Network,Medium,Replaced faulty switch,2024-04-22,
+Plumbing issue at Block C Restroom: slow drainage.,Block C Restroom,Plumbing,High,Sealed leaking joint,2024-06-13,
+Network issue at Sports Hall Court 1: WiFi outage reported.,Sports Hall Court 1,Network,High,Replaced faulty switch,2024-04-12,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Low,Inspected ductwork,2024-05-01,
+Plumbing issue at Main Library: sink clogged.,Main Library,Plumbing,Medium,Adjusted water valve,2024-03-07,
+Mechanical issue at Sports Hall Court 2: unusual vibration.,Sports Hall Court 2,Mechanical,Low,Reset control system,2024-04-07,
+Plumbing issue at Main Library: slow drainage.,Main Library,Plumbing,Medium,Sealed leaking joint,2024-06-15,
+HVAC issue at Engineering Block: emitting warm air.,Engineering Block,HVAC,High,Recharged refrigerant,2024-05-01,
+Electrical issue at Main Library: circuit breaker tripped.,Main Library,Electrical,Low,Replaced ballast,2024-06-15,
+Plumbing issue at Sports Hall Court 1: sink clogged.,Sports Hall Court 1,Plumbing,Low,Sealed leaking joint,2024-05-29,
+Plumbing issue at Sports Hall Court 1: water leakage detected.,Sports Hall Court 1,Plumbing,Low,Cleared blockage,2024-06-17,
+Plumbing issue at Lecture Hall A: slow drainage.,Lecture Hall A,Plumbing,High,Cleared blockage,2024-06-15,
+HVAC issue at Cafeteria: not cooling properly.,Cafeteria,HVAC,High,Calibrated thermostat,2024-03-24,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,Low,Inspected ductwork,2024-06-13,
+HVAC issue at Admin Block: weak airflow.,Admin Block,HVAC,Low,Inspected ductwork,2024-06-07,
+Network issue at Main Library: access point not responding.,Main Library,Network,Medium,Restarted access point,2024-03-08,
+Network issue at Block C Restroom: network latency high.,Block C Restroom,Network,High,Replaced faulty switch,2024-06-06,
+Electrical issue at Engineering Block: voltage instability.,Engineering Block,Electrical,Medium,Replaced fuse,2024-04-03,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,High,Inspected voltage supply,2024-06-23,
+HVAC issue at Sports Hall Court 2: making loud noise.,Sports Hall Court 2,HVAC,Low,Replaced blower motor,2024-03-07,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,Medium,Replaced blower motor,2024-03-13,
+Plumbing issue at Lecture Hall A: slow drainage.,Lecture Hall A,Plumbing,Medium,Cleared blockage,2024-05-29,
+Plumbing issue at Cafeteria: slow drainage.,Cafeteria,Plumbing,Low,Sealed leaking joint,2024-04-09,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Low,Inspected ductwork,2024-04-08,
+Electrical issue at Lecture Hall B: voltage instability.,Lecture Hall B,Electrical,Low,Replaced fuse,2024-04-01,
+HVAC issue at Engineering Block: emitting warm air.,Engineering Block,HVAC,Medium,Inspected ductwork,2024-06-23,
+Mechanical issue at Lecture Hall A: control panel unresponsive.,Lecture Hall A,Mechanical,High,Updated control firmware,2024-04-10,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,Low,Adjusted bandwidth settings,2024-03-04,
+Plumbing issue at Sports Hall Court 2: slow drainage.,Sports Hall Court 2,Plumbing,Medium,Cleaned drainage trap,2024-03-29,
+HVAC issue at Engineering Block: not cooling properly.,Engineering Block,HVAC,High,Recharged refrigerant,2024-04-03,
+Mechanical issue at Lecture Hall A: motor overheating.,Lecture Hall A,Mechanical,Low,Lubricated moving parts,2024-03-26,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Medium,Replaced ballast,2024-05-08,
+Plumbing issue at Block C Restroom: sink clogged.,Block C Restroom,Plumbing,Medium,Sealed leaking joint,2024-06-23,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-05-15,
+HVAC issue at Engineering Block: emitting warm air.,Engineering Block,HVAC,Low,Cleaned air filters,2024-03-30,
+Mechanical issue at Sports Hall Court 1: control panel unresponsive.,Sports Hall Court 1,Mechanical,Low,Replaced worn relay,2024-05-12,
+Mechanical issue at Block B Stairwell: motor overheating.,Block B Stairwell,Mechanical,Low,Updated control firmware,2024-04-05,
+HVAC issue at Sports Hall Court 1: not cooling properly.,Sports Hall Court 1,HVAC,Low,Calibrated thermostat,2024-03-18,
+Plumbing issue at Sports Hall Court 2: toilet overflow.,Sports Hall Court 2,Plumbing,Medium,Cleared blockage,2024-03-23,
+Network issue at Main Library: access point not responding.,Main Library,Network,High,Replaced faulty switch,2024-06-04,
+Electrical issue at Sports Hall Court 1: lights flickering.,Sports Hall Court 1,Electrical,Medium,Replaced ballast,2024-05-08,
+Mechanical issue at Block B Stairwell: motor overheating.,Block B Stairwell,Mechanical,Medium,Recalibrated motor,2024-04-01,
+Plumbing issue at Sports Hall Court 1: water leakage detected.,Sports Hall Court 1,Plumbing,Medium,Adjusted water valve,2024-04-20,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-06-07,
+Mechanical issue at Block C Restroom: control panel unresponsive.,Block C Restroom,Mechanical,High,Lubricated moving parts,2024-04-21,
+Electrical issue at Lecture Hall A: lights not turning on.,Lecture Hall A,Electrical,Low,Rewired loose connection,2024-03-24,
+HVAC issue at Block B Stairwell: making loud noise.,Block B Stairwell,HVAC,Medium,Replaced blower motor,2024-04-25,
+HVAC issue at Engineering Block: making loud noise.,Engineering Block,HVAC,Medium,Recharged refrigerant,2024-06-12,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,High,Inspected voltage supply,2024-05-30,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-03-17,
+Mechanical issue at Cafeteria: elevator stuck.,Cafeteria,Mechanical,High,Reset control system,2024-04-19,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,High,Adjusted bandwidth settings,2024-04-23,
+Plumbing issue at Engineering Block: pipe joint dripping.,Engineering Block,Plumbing,High,Sealed leaking joint,2024-03-26,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-05-23,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,Medium,Updated firmware,2024-03-14,
+Network issue at Admin Block: WiFi outage reported.,Admin Block,Network,High,Restarted access point,2024-05-31,
+Electrical issue at Lecture Hall A: lights not turning on.,Lecture Hall A,Electrical,High,Rewired loose connection,2024-06-14,
+HVAC issue at Admin Block: temperature fluctuating.,Admin Block,HVAC,Low,Inspected ductwork,2024-04-16,
+Network issue at Engineering Block: network latency high.,Engineering Block,Network,Low,Adjusted bandwidth settings,2024-06-23,
+Mechanical issue at Main Library: door not closing properly.,Main Library,Mechanical,Low,Lubricated moving parts,2024-04-14,
+Electrical issue at Block C Restroom: power outage.,Block C Restroom,Electrical,High,Reset circuit breaker,2024-03-26,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,Medium,Restarted access point,2024-06-06,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Medium,Inspected voltage supply,2024-04-09,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,Medium,Inspected ductwork,2024-06-08,
+Plumbing issue at Admin Block: slow drainage.,Admin Block,Plumbing,Medium,Sealed leaking joint,2024-03-10,
+Network issue at Lecture Hall B: WiFi connectivity slow.,Lecture Hall B,Network,High,Replaced faulty switch,2024-04-30,
+Electrical issue at Sports Hall Court 2: lights flickering.,Sports Hall Court 2,Electrical,Low,Inspected voltage supply,2024-06-25,
+Mechanical issue at Sports Hall Court 1: door not closing properly.,Sports Hall Court 1,Mechanical,High,Recalibrated motor,2024-05-13,
+Network issue at Block C Restroom: access point not responding.,Block C Restroom,Network,Low,Reconfigured router,2024-04-08,
+Plumbing issue at Block B Stairwell: slow drainage.,Block B Stairwell,Plumbing,Medium,Cleared blockage,2024-06-29,
+Electrical issue at Sports Hall Court 1: voltage instability.,Sports Hall Court 1,Electrical,High,Inspected voltage supply,2024-04-01,
+HVAC issue at Main Library: emitting warm air.,Main Library,HVAC,Low,Replaced blower motor,2024-06-24,
+HVAC issue at Sports Hall Court 2: making loud noise.,Sports Hall Court 2,HVAC,Medium,Replaced blower motor,2024-05-06,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Replaced blower motor,2024-05-02,
+Electrical issue at Sports Hall Court 1: voltage instability.,Sports Hall Court 1,Electrical,Medium,Replaced ballast,2024-04-03,
+Network issue at Main Library: access point not responding.,Main Library,Network,High,Replaced faulty switch,2024-03-19,
+Electrical issue at Lecture Hall B: lights flickering.,Lecture Hall B,Electrical,Low,Rewired loose connection,2024-06-22,
+Plumbing issue at Admin Block: slow drainage.,Admin Block,Plumbing,High,Sealed leaking joint,2024-04-16,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Low,Replaced fuse,2024-03-15,
+Mechanical issue at Main Library: unusual vibration.,Main Library,Mechanical,Low,Replaced worn relay,2024-06-20,
+Electrical issue at Block C Restroom: circuit breaker tripped.,Block C Restroom,Electrical,Low,Replaced fuse,2024-05-11,
+Mechanical issue at Lecture Hall A: unusual vibration.,Lecture Hall A,Mechanical,High,Replaced worn relay,2024-04-10,
+Plumbing issue at Main Library: water leakage detected.,Main Library,Plumbing,Medium,Adjusted water valve,2024-06-09,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-04-21,
+HVAC issue at Lecture Hall B: making loud noise.,Lecture Hall B,HVAC,Medium,Calibrated thermostat,2024-06-03,
+Electrical issue at Admin Block: lights not turning on.,Admin Block,Electrical,Medium,Reset circuit breaker,2024-06-17,
+Plumbing issue at Block B Stairwell: slow drainage.,Block B Stairwell,Plumbing,High,Adjusted water valve,2024-04-13,
+Network issue at Main Library: access point not responding.,Main Library,Network,Medium,Reconfigured router,2024-04-25,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,Medium,Updated firmware,2024-05-11,
+Electrical issue at Engineering Block: voltage instability.,Engineering Block,Electrical,Medium,Replaced ballast,2024-05-22,
+Mechanical issue at Lecture Hall A: door not closing properly.,Lecture Hall A,Mechanical,Medium,Recalibrated motor,2024-03-01,
+HVAC issue at Admin Block: not cooling properly.,Admin Block,HVAC,Medium,Recharged refrigerant,2024-05-05,
+HVAC issue at Block B Stairwell: making loud noise.,Block B Stairwell,HVAC,Low,Calibrated thermostat,2024-03-05,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Calibrated thermostat,2024-06-06,
+Network issue at Sports Hall Court 1: network latency high.,Sports Hall Court 1,Network,High,Updated firmware,2024-05-18,
+Electrical issue at Admin Block: circuit breaker tripped.,Admin Block,Electrical,Medium,Reset circuit breaker,2024-04-22,
+HVAC issue at Sports Hall Court 2: emitting warm air.,Sports Hall Court 2,HVAC,Medium,Cleaned air filters,2024-06-15,
+Mechanical issue at Lecture Hall B: elevator stuck.,Lecture Hall B,Mechanical,Medium,Lubricated moving parts,2024-06-16,
+Electrical issue at Cafeteria: circuit breaker tripped.,Cafeteria,Electrical,Medium,Rewired loose connection,2024-03-03,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,Low,Reconfigured router,2024-03-21,
+Network issue at Lecture Hall A: WiFi outage reported.,Lecture Hall A,Network,High,Updated firmware,2024-04-02,
+Plumbing issue at Block B Stairwell: sink clogged.,Block B Stairwell,Plumbing,Low,Cleared blockage,2024-03-20,
+HVAC issue at Engineering Block: temperature fluctuating.,Engineering Block,HVAC,Medium,Recharged refrigerant,2024-06-10,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Calibrated thermostat,2024-04-29,
+Electrical issue at Admin Block: power outage.,Admin Block,Electrical,High,Inspected voltage supply,2024-06-04,
+Plumbing issue at Block B Stairwell: pipe joint dripping.,Block B Stairwell,Plumbing,Medium,Adjusted water valve,2024-06-14,
+HVAC issue at Admin Block: emitting warm air.,Admin Block,HVAC,High,Cleaned air filters,2024-03-08,
+HVAC issue at Engineering Block: emitting warm air.,Engineering Block,HVAC,Low,Inspected ductwork,2024-05-12,
+Electrical issue at Sports Hall Court 2: lights not turning on.,Sports Hall Court 2,Electrical,Low,Replaced ballast,2024-06-06,
+Electrical issue at Cafeteria: lights flickering.,Cafeteria,Electrical,High,Replaced ballast,2024-06-06,
+Electrical issue at Cafeteria: lights flickering.,Cafeteria,Electrical,Low,Replaced ballast,2024-03-25,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,Medium,Restarted access point,2024-03-12,
+Electrical issue at Block C Restroom: lights flickering.,Block C Restroom,Electrical,Low,Rewired loose connection,2024-06-29,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Low,Calibrated thermostat,2024-04-14,
+Plumbing issue at Lecture Hall B: toilet overflow.,Lecture Hall B,Plumbing,Medium,Cleaned drainage trap,2024-04-08,
+Electrical issue at Sports Hall Court 1: lights flickering.,Sports Hall Court 1,Electrical,Low,Replaced ballast,2024-04-05,
+Plumbing issue at Block C Restroom: pipe joint dripping.,Block C Restroom,Plumbing,High,Adjusted water valve,2024-04-21,
+Network issue at Sports Hall Court 2: network latency high.,Sports Hall Court 2,Network,Medium,Reconfigured router,2024-04-22,
+Electrical issue at Cafeteria: lights flickering.,Cafeteria,Electrical,Medium,Rewired loose connection,2024-03-05,
+Network issue at Block C Restroom: WiFi outage reported.,Block C Restroom,Network,Low,Restarted access point,2024-03-02,
+Mechanical issue at Lecture Hall B: control panel unresponsive.,Lecture Hall B,Mechanical,Low,Recalibrated motor,2024-03-13,
+HVAC issue at Sports Hall Court 1: temperature fluctuating.,Sports Hall Court 1,HVAC,Medium,Inspected ductwork,2024-03-25,
+Plumbing issue at Cafeteria: slow drainage.,Cafeteria,Plumbing,Low,Adjusted water valve,2024-06-02,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,Medium,Inspected ductwork,2024-04-13,
+HVAC issue at Block C Restroom: weak airflow.,Block C Restroom,HVAC,High,Recharged refrigerant,2024-03-01,
+Mechanical issue at Sports Hall Court 1: door not closing properly.,Sports Hall Court 1,Mechanical,Low,Recalibrated motor,2024-06-04,
+HVAC issue at Main Library: making loud noise.,Main Library,HVAC,High,Recharged refrigerant,2024-04-15,
+Electrical issue at Admin Block: voltage instability.,Admin Block,Electrical,High,Inspected voltage supply,2024-03-18,
+Mechanical issue at Lecture Hall B: control panel unresponsive.,Lecture Hall B,Mechanical,Low,Updated control firmware,2024-04-30,
+Mechanical issue at Sports Hall Court 1: door not closing properly.,Sports Hall Court 1,Mechanical,Low,Updated control firmware,2024-05-14,
+Electrical issue at Cafeteria: lights flickering.,Cafeteria,Electrical,High,Inspected voltage supply,2024-04-10,
+Electrical issue at Sports Hall Court 1: power outage.,Sports Hall Court 1,Electrical,Low,Reset circuit breaker,2024-03-13,
+Plumbing issue at Block B Stairwell: toilet overflow.,Block B Stairwell,Plumbing,Medium,Sealed leaking joint,2024-06-02,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Medium,Cleaned air filters,2024-04-19,
+Mechanical issue at Block B Stairwell: motor overheating.,Block B Stairwell,Mechanical,High,Updated control firmware,2024-05-10,
+Network issue at Main Library: network latency high.,Main Library,Network,Low,Replaced faulty switch,2024-04-11,
+Network issue at Block C Restroom: WiFi connectivity slow.,Block C Restroom,Network,Low,Adjusted bandwidth settings,2024-04-04,
+Mechanical issue at Cafeteria: motor overheating.,Cafeteria,Mechanical,Low,Recalibrated motor,2024-03-13,
+Electrical issue at Sports Hall Court 2: lights not turning on.,Sports Hall Court 2,Electrical,High,Rewired loose connection,2024-03-22,
+HVAC issue at Lecture Hall B: temperature fluctuating.,Lecture Hall B,HVAC,Medium,Calibrated thermostat,2024-05-25,
+Electrical issue at Cafeteria: power outage.,Cafeteria,Electrical,Medium,Reset circuit breaker,2024-04-30,
+Plumbing issue at Block B Stairwell: sink clogged.,Block B Stairwell,Plumbing,Medium,Cleaned drainage trap,2024-06-20,
+Network issue at Block B Stairwell: WiFi outage reported.,Block B Stairwell,Network,Medium,Updated firmware,2024-06-14,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Low,Replaced blower motor,2024-05-06,
+Network issue at Engineering Block: WiFi intermittent drop.,Engineering Block,Network,High,Updated firmware,2024-04-28,
+Plumbing issue at Block C Restroom: toilet overflow.,Block C Restroom,Plumbing,High,Cleaned drainage trap,2024-03-16,
+Mechanical issue at Engineering Block: motor overheating.,Engineering Block,Mechanical,Low,Recalibrated motor,2024-05-19,
+Network issue at Main Library: access point not responding.,Main Library,Network,Low,Restarted access point,2024-06-17,
+HVAC issue at Block B Stairwell: not cooling properly.,Block B Stairwell,HVAC,High,Recharged refrigerant,2024-05-15,
+Electrical issue at Main Library: lights flickering.,Main Library,Electrical,Low,Replaced ballast,2024-03-11,
+HVAC issue at Main Library: temperature fluctuating.,Main Library,HVAC,High,Calibrated thermostat,2024-04-10,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,Medium,Replaced faulty switch,2024-03-12,
+Mechanical issue at Sports Hall Court 2: motor overheating.,Sports Hall Court 2,Mechanical,Low,Lubricated moving parts,2024-03-26,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Low,Inspected ductwork,2024-04-29,
+Mechanical issue at Lecture Hall B: control panel unresponsive.,Lecture Hall B,Mechanical,High,Replaced worn relay,2024-05-15,
+Mechanical issue at Main Library: control panel unresponsive.,Main Library,Mechanical,Medium,Lubricated moving parts,2024-05-02,
+Mechanical issue at Sports Hall Court 1: unusual vibration.,Sports Hall Court 1,Mechanical,Medium,Replaced worn relay,2024-06-17,
+Electrical issue at Admin Block: circuit breaker tripped.,Admin Block,Electrical,High,Rewired loose connection,2024-04-18,
+Mechanical issue at Block B Stairwell: unusual vibration.,Block B Stairwell,Mechanical,High,Reset control system,2024-06-20,
+Network issue at Main Library: network latency high.,Main Library,Network,Low,Updated firmware,2024-03-12,
+Network issue at Block C Restroom: WiFi outage reported.,Block C Restroom,Network,High,Restarted access point,2024-04-01,
+Network issue at Lecture Hall A: WiFi outage reported.,Lecture Hall A,Network,High,Updated firmware,2024-06-18,
+Mechanical issue at Sports Hall Court 2: unusual vibration.,Sports Hall Court 2,Mechanical,Low,Updated control firmware,2024-05-09,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Low,Recharged refrigerant,2024-06-22,
+Electrical issue at Sports Hall Court 2: lights flickering.,Sports Hall Court 2,Electrical,Medium,Reset circuit breaker,2024-05-05,
+Network issue at Lecture Hall B: network latency high.,Lecture Hall B,Network,Medium,Reconfigured router,2024-03-29,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,Low,Updated firmware,2024-03-29,
+Network issue at Admin Block: WiFi connectivity slow.,Admin Block,Network,Low,Replaced faulty switch,2024-05-29,
+Electrical issue at Sports Hall Court 2: voltage instability.,Sports Hall Court 2,Electrical,Medium,Rewired loose connection,2024-05-20,
+Plumbing issue at Cafeteria: water leakage detected.,Cafeteria,Plumbing,Medium,Cleared blockage,2024-03-01,
+Mechanical issue at Lecture Hall A: control panel unresponsive.,Lecture Hall A,Mechanical,Medium,Lubricated moving parts,2024-04-15,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Medium,Reconfigured router,2024-03-28,
+Plumbing issue at Engineering Block: pipe joint dripping.,Engineering Block,Plumbing,Low,Cleaned drainage trap,2024-03-05,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Replaced blower motor,2024-04-09,
+Electrical issue at Sports Hall Court 2: power outage.,Sports Hall Court 2,Electrical,Low,Reset circuit breaker,2024-05-14,
+Electrical issue at Sports Hall Court 1: circuit breaker tripped.,Sports Hall Court 1,Electrical,Low,Reset circuit breaker,2024-06-09,
+Mechanical issue at Sports Hall Court 2: motor overheating.,Sports Hall Court 2,Mechanical,Medium,Lubricated moving parts,2024-04-17,
+Plumbing issue at Block B Stairwell: toilet overflow.,Block B Stairwell,Plumbing,Low,Cleared blockage,2024-04-27,
+Plumbing issue at Admin Block: water leakage detected.,Admin Block,Plumbing,Low,Cleaned drainage trap,2024-05-29,
+Plumbing issue at Cafeteria: water leakage detected.,Cafeteria,Plumbing,Medium,Cleared blockage,2024-06-24,
+Plumbing issue at Block C Restroom: slow drainage.,Block C Restroom,Plumbing,Low,Cleaned drainage trap,2024-05-09,
+Electrical issue at Cafeteria: power outage.,Cafeteria,Electrical,High,Rewired loose connection,2024-04-17,
+Network issue at Block C Restroom: access point not responding.,Block C Restroom,Network,High,Restarted access point,2024-05-08,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-03-31,
+Electrical issue at Main Library: voltage instability.,Main Library,Electrical,Medium,Rewired loose connection,2024-05-21,
+Plumbing issue at Sports Hall Court 1: toilet overflow.,Sports Hall Court 1,Plumbing,High,Cleaned drainage trap,2024-04-13,
+Electrical issue at Main Library: power outage.,Main Library,Electrical,Low,Replaced ballast,2024-03-23,
+Plumbing issue at Block B Stairwell: pipe joint dripping.,Block B Stairwell,Plumbing,Medium,Adjusted water valve,2024-05-03,
+HVAC issue at Sports Hall Court 2: making loud noise.,Sports Hall Court 2,HVAC,Medium,Replaced blower motor,2024-06-04,
+Network issue at Lecture Hall A: access point not responding.,Lecture Hall A,Network,Medium,Reconfigured router,2024-03-14,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Low,Replaced blower motor,2024-04-29,
+HVAC issue at Sports Hall Court 2: making loud noise.,Sports Hall Court 2,HVAC,Low,Replaced blower motor,2024-03-14,
+Plumbing issue at Engineering Block: sink clogged.,Engineering Block,Plumbing,High,Replaced pipe section,2024-04-12,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Low,Replaced blower motor,2024-04-13,
+Mechanical issue at Block C Restroom: door not closing properly.,Block C Restroom,Mechanical,Medium,Replaced worn relay,2024-03-21,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,High,Updated firmware,2024-03-28,
+Electrical issue at Admin Block: voltage instability.,Admin Block,Electrical,Medium,Reset circuit breaker,2024-04-12,
+Network issue at Cafeteria: network latency high.,Cafeteria,Network,Low,Reconfigured router,2024-04-02,
+Electrical issue at Sports Hall Court 2: lights flickering.,Sports Hall Court 2,Electrical,Medium,Reset circuit breaker,2024-03-29,
+HVAC issue at Engineering Block: temperature fluctuating.,Engineering Block,HVAC,Low,Recharged refrigerant,2024-04-17,
+Network issue at Block C Restroom: WiFi intermittent drop.,Block C Restroom,Network,High,Adjusted bandwidth settings,2024-06-18,
+Plumbing issue at Sports Hall Court 1: sink clogged.,Sports Hall Court 1,Plumbing,Low,Replaced pipe section,2024-06-12,
+Mechanical issue at Sports Hall Court 1: elevator stuck.,Sports Hall Court 1,Mechanical,Medium,Updated control firmware,2024-03-02,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-03-29,
+Mechanical issue at Lecture Hall B: control panel unresponsive.,Lecture Hall B,Mechanical,Medium,Replaced worn relay,2024-04-20,
+HVAC issue at Admin Block: not cooling properly.,Admin Block,HVAC,Low,Cleaned air filters,2024-03-25,
+Plumbing issue at Block B Stairwell: toilet overflow.,Block B Stairwell,Plumbing,Medium,Sealed leaking joint,2024-04-27,
+Network issue at Main Library: WiFi intermittent drop.,Main Library,Network,Low,Reconfigured router,2024-03-03,
+HVAC issue at Admin Block: making loud noise.,Admin Block,HVAC,High,Replaced blower motor,2024-03-19,
+Mechanical issue at Block C Restroom: motor overheating.,Block C Restroom,Mechanical,Medium,Updated control firmware,2024-03-19,
+Plumbing issue at Block B Stairwell: pipe joint dripping.,Block B Stairwell,Plumbing,Medium,Sealed leaking joint,2024-04-14,
+HVAC issue at Block C Restroom: making loud noise.,Block C Restroom,HVAC,High,Inspected ductwork,2024-04-06,
+Plumbing issue at Sports Hall Court 2: slow drainage.,Sports Hall Court 2,Plumbing,Medium,Replaced pipe section,2024-06-12,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-03-20,
+Plumbing issue at Lecture Hall A: water leakage detected.,Lecture Hall A,Plumbing,Low,Cleaned drainage trap,2024-06-15,
+Mechanical issue at Main Library: door not closing properly.,Main Library,Mechanical,Medium,Replaced worn relay,2024-03-13,
+Electrical issue at Block C Restroom: circuit breaker tripped.,Block C Restroom,Electrical,Medium,Reset circuit breaker,2024-05-30,
+Mechanical issue at Lecture Hall B: unusual vibration.,Lecture Hall B,Mechanical,Low,Updated control firmware,2024-03-11,
+Plumbing issue at Block C Restroom: slow drainage.,Block C Restroom,Plumbing,Low,Cleaned drainage trap,2024-06-12,
+Network issue at Main Library: access point not responding.,Main Library,Network,Low,Reconfigured router,2024-04-16,
+Electrical issue at Block B Stairwell: lights flickering.,Block B Stairwell,Electrical,High,Replaced ballast,2024-06-22,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,High,Adjusted bandwidth settings,2024-05-07,
+Network issue at Cafeteria: access point not responding.,Cafeteria,Network,Medium,Replaced faulty switch,2024-05-01,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-06-23,
+HVAC issue at Engineering Block: not cooling properly.,Engineering Block,HVAC,Low,Replaced blower motor,2024-05-23,
+Plumbing issue at Sports Hall Court 1: pipe joint dripping.,Sports Hall Court 1,Plumbing,High,Sealed leaking joint,2024-04-08,
+Electrical issue at Block B Stairwell: lights flickering.,Block B Stairwell,Electrical,High,Inspected voltage supply,2024-05-02,
+Network issue at Cafeteria: WiFi outage reported.,Cafeteria,Network,Medium,Reconfigured router,2024-04-07,
+Electrical issue at Sports Hall Court 2: power outage.,Sports Hall Court 2,Electrical,Low,Replaced fuse,2024-06-15,
+Mechanical issue at Lecture Hall A: elevator stuck.,Lecture Hall A,Mechanical,High,Recalibrated motor,2024-06-12,
+Electrical issue at Lecture Hall A: power outage.,Lecture Hall A,Electrical,Medium,Rewired loose connection,2024-04-25,
+Network issue at Main Library: access point not responding.,Main Library,Network,Medium,Replaced faulty switch,2024-05-05,
+HVAC issue at Main Library: weak airflow.,Main Library,HVAC,High,Cleaned air filters,2024-05-24,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Low,Recharged refrigerant,2024-04-16,
+Network issue at Main Library: access point not responding.,Main Library,Network,High,Restarted access point,2024-06-21,
+HVAC issue at Block C Restroom: not cooling properly.,Block C Restroom,HVAC,Low,Calibrated thermostat,2024-05-13,
+Mechanical issue at Block C Restroom: elevator stuck.,Block C Restroom,Mechanical,Medium,Lubricated moving parts,2024-05-02,
+Network issue at Block C Restroom: WiFi connectivity slow.,Block C Restroom,Network,Medium,Updated firmware,2024-04-17,
+Mechanical issue at Admin Block: control panel unresponsive.,Admin Block,Mechanical,High,Lubricated moving parts,2024-06-10,
+HVAC issue at Lecture Hall B: making loud noise.,Lecture Hall B,HVAC,Low,Recharged refrigerant,2024-03-23,
+Electrical issue at Lecture Hall A: lights not turning on.,Lecture Hall A,Electrical,Medium,Replaced fuse,2024-05-09,
+HVAC issue at Engineering Block: making loud noise.,Engineering Block,HVAC,High,Inspected ductwork,2024-06-15,
+Electrical issue at Block C Restroom: lights not turning on.,Block C Restroom,Electrical,High,Replaced fuse,2024-03-01,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Low,Recharged refrigerant,2024-03-18,
+Mechanical issue at Sports Hall Court 2: control panel unresponsive.,Sports Hall Court 2,Mechanical,Medium,Reset control system,2024-04-04,
+Network issue at Lecture Hall A: WiFi connectivity slow.,Lecture Hall A,Network,Low,Updated firmware,2024-03-14,
+Plumbing issue at Lecture Hall B: water leakage detected.,Lecture Hall B,Plumbing,Medium,Sealed leaking joint,2024-03-02,
+Electrical issue at Main Library: voltage instability.,Main Library,Electrical,Low,Rewired loose connection,2024-06-17,
+Mechanical issue at Admin Block: motor overheating.,Admin Block,Mechanical,High,Lubricated moving parts,2024-04-28,
+Plumbing issue at Block B Stairwell: water leakage detected.,Block B Stairwell,Plumbing,High,Cleared blockage,2024-05-17,
+Network issue at Engineering Block: network latency high.,Engineering Block,Network,Low,Restarted access point,2024-03-30,
+Mechanical issue at Lecture Hall B: elevator stuck.,Lecture Hall B,Mechanical,High,Recalibrated motor,2024-05-24,
+HVAC issue at Block B Stairwell: emitting warm air.,Block B Stairwell,HVAC,Low,Recharged refrigerant,2024-03-21,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-06-13,
+Plumbing issue at Lecture Hall A: water leakage detected.,Lecture Hall A,Plumbing,Low,Sealed leaking joint,2024-05-02,
+Network issue at Main Library: WiFi intermittent drop.,Main Library,Network,Low,Replaced faulty switch,2024-05-13,
+Mechanical issue at Engineering Block: elevator stuck.,Engineering Block,Mechanical,High,Replaced worn relay,2024-04-12,
+Electrical issue at Engineering Block: lights flickering.,Engineering Block,Electrical,Low,Reset circuit breaker,2024-06-28,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Medium,Rewired loose connection,2024-03-14,
+Network issue at Cafeteria: access point not responding.,Cafeteria,Network,Low,Replaced faulty switch,2024-03-03,
+HVAC issue at Sports Hall Court 2: emitting warm air.,Sports Hall Court 2,HVAC,Medium,Replaced blower motor,2024-04-25,
+Mechanical issue at Block B Stairwell: door not closing properly.,Block B Stairwell,Mechanical,Low,Recalibrated motor,2024-03-08,
+HVAC issue at Engineering Block: making loud noise.,Engineering Block,HVAC,Medium,Inspected ductwork,2024-06-25,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Medium,Cleaned air filters,2024-05-27,
+Electrical issue at Admin Block: voltage instability.,Admin Block,Electrical,High,Rewired loose connection,2024-05-10,
+Plumbing issue at Block C Restroom: slow drainage.,Block C Restroom,Plumbing,Medium,Adjusted water valve,2024-06-17,
+Network issue at Sports Hall Court 2: access point not responding.,Sports Hall Court 2,Network,High,Adjusted bandwidth settings,2024-05-06,
+Network issue at Main Library: access point not responding.,Main Library,Network,High,Restarted access point,2024-03-04,
+Mechanical issue at Sports Hall Court 2: control panel unresponsive.,Sports Hall Court 2,Mechanical,Low,Reset control system,2024-04-27,
+Network issue at Block C Restroom: access point not responding.,Block C Restroom,Network,Low,Restarted access point,2024-06-11,
+Electrical issue at Main Library: voltage instability.,Main Library,Electrical,Medium,Replaced ballast,2024-03-16,
+Network issue at Lecture Hall A: WiFi intermittent drop.,Lecture Hall A,Network,Medium,Replaced faulty switch,2024-03-22,
+Network issue at Block B Stairwell: network latency high.,Block B Stairwell,Network,Medium,Reconfigured router,2024-05-02,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,High,Replaced blower motor,2024-05-12,
+Electrical issue at Admin Block: lights flickering.,Admin Block,Electrical,Low,Inspected voltage supply,2024-05-07,
+Mechanical issue at Sports Hall Court 2: control panel unresponsive.,Sports Hall Court 2,Mechanical,High,Replaced worn relay,2024-05-22,
+Network issue at Engineering Block: WiFi intermittent drop.,Engineering Block,Network,Medium,Adjusted bandwidth settings,2024-04-04,
+Plumbing issue at Engineering Block: pipe joint dripping.,Engineering Block,Plumbing,Low,Adjusted water valve,2024-04-30,
+Electrical issue at Block C Restroom: circuit breaker tripped.,Block C Restroom,Electrical,Medium,Rewired loose connection,2024-05-18,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Low,Reconfigured router,2024-04-17,
+Plumbing issue at Lecture Hall A: toilet overflow.,Lecture Hall A,Plumbing,High,Replaced pipe section,2024-05-27,
+Mechanical issue at Block B Stairwell: control panel unresponsive.,Block B Stairwell,Mechanical,Medium,Lubricated moving parts,2024-04-25,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,Low,Adjusted bandwidth settings,2024-06-07,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-06-16,
+Electrical issue at Lecture Hall B: lights flickering.,Lecture Hall B,Electrical,High,Rewired loose connection,2024-05-10,
+Plumbing issue at Block B Stairwell: toilet overflow.,Block B Stairwell,Plumbing,Medium,Sealed leaking joint,2024-05-29,
+HVAC issue at Sports Hall Court 2: not cooling properly.,Sports Hall Court 2,HVAC,High,Recharged refrigerant,2024-04-12,
+Electrical issue at Block B Stairwell: circuit breaker tripped.,Block B Stairwell,Electrical,High,Inspected voltage supply,2024-05-22,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Medium,Rewired loose connection,2024-05-17,
+Plumbing issue at Cafeteria: slow drainage.,Cafeteria,Plumbing,Medium,Sealed leaking joint,2024-05-07,
+HVAC issue at Sports Hall Court 2: emitting warm air.,Sports Hall Court 2,HVAC,Medium,Cleaned air filters,2024-03-16,
+Network issue at Main Library: WiFi intermittent drop.,Main Library,Network,Medium,Adjusted bandwidth settings,2024-03-23,
+Plumbing issue at Lecture Hall A: toilet overflow.,Lecture Hall A,Plumbing,Medium,Cleared blockage,2024-06-23,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-05-27,
+Plumbing issue at Admin Block: slow drainage.,Admin Block,Plumbing,High,Cleaned drainage trap,2024-05-14,
+Electrical issue at Lecture Hall B: lights not turning on.,Lecture Hall B,Electrical,High,Inspected voltage supply,2024-05-05,
+Electrical issue at Admin Block: lights not turning on.,Admin Block,Electrical,Medium,Rewired loose connection,2024-06-15,
+Plumbing issue at Sports Hall Court 2: sink clogged.,Sports Hall Court 2,Plumbing,Low,Sealed leaking joint,2024-06-29,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Low,Inspected voltage supply,2024-04-14,
+Plumbing issue at Admin Block: sink clogged.,Admin Block,Plumbing,High,Sealed leaking joint,2024-05-10,
+Plumbing issue at Sports Hall Court 1: sink clogged.,Sports Hall Court 1,Plumbing,High,Sealed leaking joint,2024-03-15,
+Mechanical issue at Lecture Hall B: unusual vibration.,Lecture Hall B,Mechanical,Medium,Updated control firmware,2024-03-02,
+Plumbing issue at Lecture Hall B: water leakage detected.,Lecture Hall B,Plumbing,Medium,Adjusted water valve,2024-03-17,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,Low,Cleaned air filters,2024-03-23,
+Network issue at Block B Stairwell: WiFi intermittent drop.,Block B Stairwell,Network,High,Replaced faulty switch,2024-03-20,
+HVAC issue at Block B Stairwell: not cooling properly.,Block B Stairwell,HVAC,Low,Inspected ductwork,2024-05-07,
+Electrical issue at Cafeteria: lights flickering.,Cafeteria,Electrical,Low,Inspected voltage supply,2024-06-14,
+Network issue at Sports Hall Court 2: network latency high.,Sports Hall Court 2,Network,Medium,Adjusted bandwidth settings,2024-04-12,
+Mechanical issue at Block C Restroom: door not closing properly.,Block C Restroom,Mechanical,Low,Reset control system,2024-05-19,
+HVAC issue at Sports Hall Court 1: emitting warm air.,Sports Hall Court 1,HVAC,Medium,Inspected ductwork,2024-05-03,
+HVAC issue at Engineering Block: not cooling properly.,Engineering Block,HVAC,Medium,Replaced blower motor,2024-05-30,
+HVAC issue at Lecture Hall B: weak airflow.,Lecture Hall B,HVAC,Medium,Recharged refrigerant,2024-03-14,
+Mechanical issue at Main Library: door not closing properly.,Main Library,Mechanical,Medium,Replaced worn relay,2024-06-19,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Recharged refrigerant,2024-04-14,
+Plumbing issue at Engineering Block: toilet overflow.,Engineering Block,Plumbing,Low,Replaced pipe section,2024-04-25,
+Network issue at Main Library: access point not responding.,Main Library,Network,Low,Adjusted bandwidth settings,2024-06-16,
+Network issue at Sports Hall Court 1: network latency high.,Sports Hall Court 1,Network,High,Reconfigured router,2024-03-03,
+Electrical issue at Block B Stairwell: power outage.,Block B Stairwell,Electrical,Medium,Replaced fuse,2024-06-09,
+Electrical issue at Sports Hall Court 2: power outage.,Sports Hall Court 2,Electrical,Low,Replaced ballast,2024-06-19,
+Electrical issue at Cafeteria: voltage instability.,Cafeteria,Electrical,Low,Reset circuit breaker,2024-03-28,
+Electrical issue at Cafeteria: voltage instability.,Cafeteria,Electrical,Low,Rewired loose connection,2024-04-15,
+Plumbing issue at Block B Stairwell: pipe joint dripping.,Block B Stairwell,Plumbing,High,Sealed leaking joint,2024-05-09,
+Plumbing issue at Sports Hall Court 1: slow drainage.,Sports Hall Court 1,Plumbing,Medium,Cleared blockage,2024-03-02,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Medium,Replaced blower motor,2024-04-29,
+Plumbing issue at Sports Hall Court 1: toilet overflow.,Sports Hall Court 1,Plumbing,Medium,Cleaned drainage trap,2024-03-10,
+Electrical issue at Lecture Hall A: circuit breaker tripped.,Lecture Hall A,Electrical,Medium,Inspected voltage supply,2024-05-15,
+HVAC issue at Sports Hall Court 1: temperature fluctuating.,Sports Hall Court 1,HVAC,Medium,Recharged refrigerant,2024-05-02,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,High,Adjusted bandwidth settings,2024-06-02,
+Electrical issue at Lecture Hall A: lights not turning on.,Lecture Hall A,Electrical,High,Inspected voltage supply,2024-04-11,
+Mechanical issue at Sports Hall Court 1: door not closing properly.,Sports Hall Court 1,Mechanical,Low,Lubricated moving parts,2024-03-13,
+Electrical issue at Engineering Block: voltage instability.,Engineering Block,Electrical,Medium,Replaced ballast,2024-03-20,
+Electrical issue at Cafeteria: lights flickering.,Cafeteria,Electrical,High,Reset circuit breaker,2024-06-24,
+Network issue at Sports Hall Court 2: access point not responding.,Sports Hall Court 2,Network,Medium,Updated firmware,2024-05-26,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-05-13,
+Mechanical issue at Block C Restroom: elevator stuck.,Block C Restroom,Mechanical,Low,Updated control firmware,2024-06-02,
+Mechanical issue at Engineering Block: elevator stuck.,Engineering Block,Mechanical,Low,Reset control system,2024-06-21,
+Mechanical issue at Sports Hall Court 2: door not closing properly.,Sports Hall Court 2,Mechanical,High,Reset control system,2024-06-13,
+HVAC issue at Sports Hall Court 1: making loud noise.,Sports Hall Court 1,HVAC,Medium,Inspected ductwork,2024-05-25,
+HVAC issue at Main Library: not cooling properly.,Main Library,HVAC,Low,Cleaned air filters,2024-05-12,
+Network issue at Main Library: WiFi intermittent drop.,Main Library,Network,Low,Adjusted bandwidth settings,2024-05-27,
+Mechanical issue at Sports Hall Court 1: motor overheating.,Sports Hall Court 1,Mechanical,Low,Reset control system,2024-03-03,
+Network issue at Block C Restroom: WiFi outage reported.,Block C Restroom,Network,Medium,Updated firmware,2024-03-21,
+HVAC issue at Sports Hall Court 1: weak airflow.,Sports Hall Court 1,HVAC,Low,Replaced blower motor,2024-04-05,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,Low,Inspected ductwork,2024-04-02,
+Network issue at Block C Restroom: access point not responding.,Block C Restroom,Network,Medium,Reconfigured router,2024-05-21,
+Electrical issue at Lecture Hall B: voltage instability.,Lecture Hall B,Electrical,Medium,Inspected voltage supply,2024-06-28,
+Network issue at Sports Hall Court 1: WiFi intermittent drop.,Sports Hall Court 1,Network,Medium,Restarted access point,2024-03-17,
+Plumbing issue at Cafeteria: sink clogged.,Cafeteria,Plumbing,Medium,Replaced pipe section,2024-05-05,
+Electrical issue at Sports Hall Court 2: lights flickering.,Sports Hall Court 2,Electrical,High,Rewired loose connection,2024-03-09,
+Plumbing issue at Sports Hall Court 2: toilet overflow.,Sports Hall Court 2,Plumbing,Low,Cleared blockage,2024-06-05,
+Mechanical issue at Admin Block: motor overheating.,Admin Block,Mechanical,Medium,Replaced worn relay,2024-06-22,
+Network issue at Main Library: access point not responding.,Main Library,Network,Medium,Updated firmware,2024-05-11,
+Mechanical issue at Sports Hall Court 2: door not closing properly.,Sports Hall Court 2,Mechanical,Medium,Replaced worn relay,2024-03-02,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,Low,Calibrated thermostat,2024-03-31,
+Electrical issue at Lecture Hall A: voltage instability.,Lecture Hall A,Electrical,Low,Replaced fuse,2024-04-23,
+Mechanical issue at Block B Stairwell: elevator stuck.,Block B Stairwell,Mechanical,Medium,Updated control firmware,2024-03-06,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,High,Inspected voltage supply,2024-04-05,
+Plumbing issue at Block B Stairwell: water leakage detected.,Block B Stairwell,Plumbing,High,Cleaned drainage trap,2024-04-02,
+Electrical issue at Block C Restroom: voltage instability.,Block C Restroom,Electrical,High,Rewired loose connection,2024-04-27,
+Electrical issue at Lecture Hall B: lights flickering.,Lecture Hall B,Electrical,Low,Replaced fuse,2024-06-15,
+Network issue at Lecture Hall B: access point not responding.,Lecture Hall B,Network,Medium,Adjusted bandwidth settings,2024-04-12,
+Network issue at Lecture Hall A: WiFi outage reported.,Lecture Hall A,Network,Medium,Reconfigured router,2024-06-07,
+Network issue at Lecture Hall B: WiFi intermittent drop.,Lecture Hall B,Network,High,Adjusted bandwidth settings,2024-05-17,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-03-21,
+Electrical issue at Lecture Hall B: lights not turning on.,Lecture Hall B,Electrical,Low,Inspected voltage supply,2024-03-08,
+HVAC issue at Sports Hall Court 2: weak airflow.,Sports Hall Court 2,HVAC,High,Recharged refrigerant,2024-04-06,
+Mechanical issue at Engineering Block: elevator stuck.,Engineering Block,Mechanical,Low,Updated control firmware,2024-05-20,
+Electrical issue at Block B Stairwell: lights flickering.,Block B Stairwell,Electrical,Medium,Replaced fuse,2024-04-11,
+Network issue at Block B Stairwell: WiFi intermittent drop.,Block B Stairwell,Network,Medium,Restarted access point,2024-06-17,
+HVAC issue at Sports Hall Court 1: weak airflow.,Sports Hall Court 1,HVAC,High,Replaced blower motor,2024-04-23,
+HVAC issue at Sports Hall Court 2: making loud noise.,Sports Hall Court 2,HVAC,Low,Recharged refrigerant,2024-06-04,
+Network issue at Engineering Block: WiFi connectivity slow.,Engineering Block,Network,Low,Restarted access point,2024-03-22,
+Electrical issue at Sports Hall Court 2: lights not turning on.,Sports Hall Court 2,Electrical,Low,Reset circuit breaker,2024-06-19,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-04-17,
+Mechanical issue at Sports Hall Court 2: door not closing properly.,Sports Hall Court 2,Mechanical,Low,Replaced worn relay,2024-06-27,
+Network issue at Main Library: access point not responding.,Main Library,Network,Low,Restarted access point,2024-05-08,
+Plumbing issue at Lecture Hall B: sink clogged.,Lecture Hall B,Plumbing,High,Replaced pipe section,2024-05-25,
+HVAC issue at Sports Hall Court 2: weak airflow.,Sports Hall Court 2,HVAC,High,Inspected ductwork,2024-06-02,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,High,Replaced fuse,2024-03-14,
+Plumbing issue at Cafeteria: toilet overflow.,Cafeteria,Plumbing,Low,Replaced pipe section,2024-06-16,
+Plumbing issue at Sports Hall Court 1: slow drainage.,Sports Hall Court 1,Plumbing,High,Replaced pipe section,2024-05-03,
+Network issue at Sports Hall Court 1: WiFi intermittent drop.,Sports Hall Court 1,Network,Low,Updated firmware,2024-05-07,
+HVAC issue at Cafeteria: making loud noise.,Cafeteria,HVAC,Medium,Replaced blower motor,2024-05-15,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-05-17,
+Electrical issue at Block B Stairwell: lights flickering.,Block B Stairwell,Electrical,Medium,Replaced fuse,2024-05-30,
+Mechanical issue at Cafeteria: door not closing properly.,Cafeteria,Mechanical,High,Recalibrated motor,2024-04-10,
+Electrical issue at Sports Hall Court 1: lights flickering.,Sports Hall Court 1,Electrical,Low,Rewired loose connection,2024-04-11,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Low,Replaced faulty switch,2024-05-17,
+Mechanical issue at Sports Hall Court 1: unusual vibration.,Sports Hall Court 1,Mechanical,Low,Lubricated moving parts,2024-04-17,
+Plumbing issue at Cafeteria: water leakage detected.,Cafeteria,Plumbing,Low,Sealed leaking joint,2024-04-21,
+Network issue at Main Library: network latency high.,Main Library,Network,High,Updated firmware,2024-04-14,
+Plumbing issue at Lecture Hall A: sink clogged.,Lecture Hall A,Plumbing,High,Cleared blockage,2024-06-14,
+HVAC issue at Lecture Hall B: weak airflow.,Lecture Hall B,HVAC,Medium,Recharged refrigerant,2024-03-23,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-06-05,
+HVAC issue at Cafeteria: not cooling properly.,Cafeteria,HVAC,High,Inspected ductwork,2024-03-02,
+Mechanical issue at Admin Block: motor overheating.,Admin Block,Mechanical,Low,Recalibrated motor,2024-05-06,
+HVAC issue at Block C Restroom: weak airflow.,Block C Restroom,HVAC,High,Calibrated thermostat,2024-03-28,
+Mechanical issue at Cafeteria: control panel unresponsive.,Cafeteria,Mechanical,Medium,Reset control system,2024-06-10,
+Plumbing issue at Sports Hall Court 1: sink clogged.,Sports Hall Court 1,Plumbing,Medium,Adjusted water valve,2024-05-30,
+Network issue at Main Library: network latency high.,Main Library,Network,High,Restarted access point,2024-06-26,
+HVAC issue at Cafeteria: weak airflow.,Cafeteria,HVAC,Medium,Replaced blower motor,2024-06-26,
+Mechanical issue at Sports Hall Court 2: unusual vibration.,Sports Hall Court 2,Mechanical,Medium,Replaced worn relay,2024-05-29,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Low,Restarted access point,2024-03-08,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-05-20,
+Plumbing issue at Lecture Hall B: sink clogged.,Lecture Hall B,Plumbing,Medium,Sealed leaking joint,2024-03-13,
+Mechanical issue at Block B Stairwell: motor overheating.,Block B Stairwell,Mechanical,High,Lubricated moving parts,2024-06-24,
+HVAC issue at Admin Block: not cooling properly.,Admin Block,HVAC,High,Replaced blower motor,2024-03-18,
+Electrical issue at Admin Block: circuit breaker tripped.,Admin Block,Electrical,Low,Inspected voltage supply,2024-04-10,
+Electrical issue at Sports Hall Court 2: circuit breaker tripped.,Sports Hall Court 2,Electrical,Medium,Inspected voltage supply,2024-03-18,
+Electrical issue at Lecture Hall A: power outage.,Lecture Hall A,Electrical,Medium,Replaced fuse,2024-03-03,
+HVAC issue at Block C Restroom: making loud noise.,Block C Restroom,HVAC,Low,Calibrated thermostat,2024-05-11,
+Network issue at Main Library: access point not responding.,Main Library,Network,Medium,Replaced faulty switch,2024-05-09,
+Electrical issue at Cafeteria: circuit breaker tripped.,Cafeteria,Electrical,Medium,Replaced ballast,2024-05-09,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Medium,Replaced blower motor,2024-05-15,
+Plumbing issue at Engineering Block: pipe joint dripping.,Engineering Block,Plumbing,Medium,Sealed leaking joint,2024-03-02,
+Electrical issue at Admin Block: power outage.,Admin Block,Electrical,Medium,Inspected voltage supply,2024-06-23,
+HVAC issue at Sports Hall Court 2: not cooling properly.,Sports Hall Court 2,HVAC,Medium,Replaced blower motor,2024-03-21,
+Plumbing issue at Admin Block: water leakage detected.,Admin Block,Plumbing,Low,Cleaned drainage trap,2024-06-20,
+Network issue at Sports Hall Court 2: WiFi connectivity slow.,Sports Hall Court 2,Network,Low,Adjusted bandwidth settings,2024-05-25,
+Network issue at Sports Hall Court 2: access point not responding.,Sports Hall Court 2,Network,Medium,Updated firmware,2024-03-10,
+Mechanical issue at Lecture Hall A: unusual vibration.,Lecture Hall A,Mechanical,Low,Replaced worn relay,2024-05-31,
+Mechanical issue at Block B Stairwell: motor overheating.,Block B Stairwell,Mechanical,High,Recalibrated motor,2024-03-30,
+HVAC issue at Main Library: emitting warm air.,Main Library,HVAC,High,Replaced blower motor,2024-03-10,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-05-07,
+Electrical issue at Main Library: lights not turning on.,Main Library,Electrical,Low,Replaced ballast,2024-04-20,
+Electrical issue at Lecture Hall A: voltage instability.,Lecture Hall A,Electrical,Medium,Inspected voltage supply,2024-04-15,
+Mechanical issue at Lecture Hall A: elevator stuck.,Lecture Hall A,Mechanical,Low,Lubricated moving parts,2024-06-22,
+Plumbing issue at Sports Hall Court 2: sink clogged.,Sports Hall Court 2,Plumbing,High,Replaced pipe section,2024-05-31,
+Network issue at Cafeteria: WiFi connectivity slow.,Cafeteria,Network,Low,Adjusted bandwidth settings,2024-06-28,
+Plumbing issue at Block B Stairwell: pipe joint dripping.,Block B Stairwell,Plumbing,High,Replaced pipe section,2024-04-19,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-06-14,
+Electrical issue at Lecture Hall A: power outage.,Lecture Hall A,Electrical,Medium,Reset circuit breaker,2024-03-18,
+HVAC issue at Block B Stairwell: not cooling properly.,Block B Stairwell,HVAC,Medium,Inspected ductwork,2024-03-14,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Medium,Inspected ductwork,2024-05-31,
+Electrical issue at Lecture Hall A: power outage.,Lecture Hall A,Electrical,High,Replaced fuse,2024-06-08,
+Network issue at Main Library: access point not responding.,Main Library,Network,Low,Restarted access point,2024-03-15,
+Mechanical issue at Block C Restroom: control panel unresponsive.,Block C Restroom,Mechanical,High,Replaced worn relay,2024-03-27,
+Plumbing issue at Sports Hall Court 2: sink clogged.,Sports Hall Court 2,Plumbing,Medium,Cleaned drainage trap,2024-06-15,
+Electrical issue at Sports Hall Court 2: lights flickering.,Sports Hall Court 2,Electrical,Low,Replaced fuse,2024-06-02,
+Plumbing issue at Lecture Hall A: slow drainage.,Lecture Hall A,Plumbing,High,Cleaned drainage trap,2024-05-27,
+Electrical issue at Lecture Hall A: circuit breaker tripped.,Lecture Hall A,Electrical,High,Rewired loose connection,2024-05-24,
+HVAC issue at Sports Hall Court 1: emitting warm air.,Sports Hall Court 1,HVAC,Low,Inspected ductwork,2024-04-06,
+HVAC issue at Sports Hall Court 1: emitting warm air.,Sports Hall Court 1,HVAC,High,Recharged refrigerant,2024-06-03,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,High,Replaced blower motor,2024-05-25,
+Plumbing issue at Main Library: pipe joint dripping.,Main Library,Plumbing,Medium,Cleaned drainage trap,2024-03-02,
+Mechanical issue at Block B Stairwell: door not closing properly.,Block B Stairwell,Mechanical,Low,Replaced worn relay,2024-05-30,
+Network issue at Admin Block: WiFi outage reported.,Admin Block,Network,High,Adjusted bandwidth settings,2024-04-15,
+Network issue at Main Library: network latency high.,Main Library,Network,High,Updated firmware,2024-04-08,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-06-23,
+Mechanical issue at Block C Restroom: control panel unresponsive.,Block C Restroom,Mechanical,Medium,Lubricated moving parts,2024-04-08,
+HVAC issue at Main Library: not cooling properly.,Main Library,HVAC,Low,Calibrated thermostat,2024-06-20,
+Mechanical issue at Sports Hall Court 1: elevator stuck.,Sports Hall Court 1,Mechanical,Low,Recalibrated motor,2024-05-16,
+Mechanical issue at Admin Block: elevator stuck.,Admin Block,Mechanical,Low,Replaced worn relay,2024-03-12,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-03-06,
+Plumbing issue at Block B Stairwell: pipe joint dripping.,Block B Stairwell,Plumbing,High,Cleaned drainage trap,2024-03-04,
+Mechanical issue at Block B Stairwell: motor overheating.,Block B Stairwell,Mechanical,Medium,Updated control firmware,2024-06-26,
+Plumbing issue at Sports Hall Court 2: water leakage detected.,Sports Hall Court 2,Plumbing,Medium,Cleared blockage,2024-05-01,
+Plumbing issue at Block B Stairwell: slow drainage.,Block B Stairwell,Plumbing,Medium,Replaced pipe section,2024-05-09,
+Plumbing issue at Sports Hall Court 2: slow drainage.,Sports Hall Court 2,Plumbing,Low,Replaced pipe section,2024-04-18,
+Network issue at Main Library: access point not responding.,Main Library,Network,High,Replaced faulty switch,2024-05-04,
+Mechanical issue at Admin Block: door not closing properly.,Admin Block,Mechanical,High,Updated control firmware,2024-04-13,
+Mechanical issue at Cafeteria: door not closing properly.,Cafeteria,Mechanical,High,Reset control system,2024-06-23,
+HVAC issue at Block B Stairwell: weak airflow.,Block B Stairwell,HVAC,Medium,Inspected ductwork,2024-05-19,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,Medium,Replaced blower motor,2024-06-21,
+Mechanical issue at Cafeteria: unusual vibration.,Cafeteria,Mechanical,Medium,Lubricated moving parts,2024-03-31,
+Plumbing issue at Block B Stairwell: toilet overflow.,Block B Stairwell,Plumbing,Medium,Cleaned drainage trap,2024-06-08,
+Network issue at Block C Restroom: WiFi intermittent drop.,Block C Restroom,Network,Low,Replaced faulty switch,2024-06-11,
+Mechanical issue at Admin Block: door not closing properly.,Admin Block,Mechanical,Medium,Updated control firmware,2024-05-16,
+Electrical issue at Sports Hall Court 2: lights flickering.,Sports Hall Court 2,Electrical,Medium,Replaced ballast,2024-06-20,
+Mechanical issue at Engineering Block: control panel unresponsive.,Engineering Block,Mechanical,Medium,Recalibrated motor,2024-04-25,
+Electrical issue at Block C Restroom: voltage instability.,Block C Restroom,Electrical,High,Reset circuit breaker,2024-04-21,
+Network issue at Main Library: WiFi intermittent drop.,Main Library,Network,High,Restarted access point,2024-05-28,
+HVAC issue at Sports Hall Court 1: weak airflow.,Sports Hall Court 1,HVAC,High,Recharged refrigerant,2024-06-07,
+HVAC issue at Lecture Hall A: temperature fluctuating.,Lecture Hall A,HVAC,High,Inspected ductwork,2024-06-10,
+Plumbing issue at Block B Stairwell: sink clogged.,Block B Stairwell,Plumbing,High,Sealed leaking joint,2024-06-05,
+Electrical issue at Block C Restroom: voltage instability.,Block C Restroom,Electrical,Medium,Rewired loose connection,2024-03-12,
+Electrical issue at Sports Hall Court 1: lights not turning on.,Sports Hall Court 1,Electrical,High,Reset circuit breaker,2024-06-17,
+Plumbing issue at Sports Hall Court 1: water leakage detected.,Sports Hall Court 1,Plumbing,High,Adjusted water valve,2024-03-02,
+Mechanical issue at Admin Block: door not closing properly.,Admin Block,Mechanical,Low,Lubricated moving parts,2024-03-12,
+Network issue at Admin Block: WiFi intermittent drop.,Admin Block,Network,High,Reconfigured router,2024-06-12,
+Electrical issue at Cafeteria: voltage instability.,Cafeteria,Electrical,Medium,Reset circuit breaker,2024-04-09,
+Electrical issue at Engineering Block: lights not turning on.,Engineering Block,Electrical,Low,Replaced fuse,2024-05-20,
+Mechanical issue at Block B Stairwell: unusual vibration.,Block B Stairwell,Mechanical,Low,Updated control firmware,2024-05-18,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-04-08,
+Electrical issue at Sports Hall Court 1: circuit breaker tripped.,Sports Hall Court 1,Electrical,Low,Replaced ballast,2024-04-25,
+Network issue at Sports Hall Court 1: network latency high.,Sports Hall Court 1,Network,Low,Adjusted bandwidth settings,2024-06-15,
+Plumbing issue at Engineering Block: toilet overflow.,Engineering Block,Plumbing,High,Cleaned drainage trap,2024-05-01,
+Network issue at Sports Hall Court 2: WiFi intermittent drop.,Sports Hall Court 2,Network,High,Adjusted bandwidth settings,2024-04-12,
+HVAC issue at Block B Stairwell: temperature fluctuating.,Block B Stairwell,HVAC,Medium,Replaced blower motor,2024-03-16,
+Plumbing issue at Sports Hall Court 1: pipe joint dripping.,Sports Hall Court 1,Plumbing,Medium,Sealed leaking joint,2024-03-21,
+Network issue at Lecture Hall B: access point not responding.,Lecture Hall B,Network,High,Replaced faulty switch,2024-05-08,
+HVAC issue at Block C Restroom: not cooling properly.,Block C Restroom,HVAC,Low,Cleaned air filters,2024-04-14,
+Electrical issue at Cafeteria: lights not turning on.,Cafeteria,Electrical,Low,Rewired loose connection,2024-03-20,
+HVAC issue at Lecture Hall A: making loud noise.,Lecture Hall A,HVAC,Medium,Calibrated thermostat,2024-06-21,
+Network issue at Cafeteria: WiFi outage reported.,Cafeteria,Network,High,Restarted access point,2024-05-31,
+Network issue at Main Library: access point not responding.,Main Library,Network,Medium,Adjusted bandwidth settings,2024-06-03,
+Network issue at Block C Restroom: WiFi outage reported.,Block C Restroom,Network,Low,Adjusted bandwidth settings,2024-03-06,
+Network issue at Engineering Block: access point not responding.,Engineering Block,Network,High,Restarted access point,2024-03-05,
+Electrical issue at Sports Hall Court 2: power outage.,Sports Hall Court 2,Electrical,Low,Replaced fuse,2024-04-12,
+Mechanical issue at Block C Restroom: door not closing properly.,Block C Restroom,Mechanical,High,Replaced worn relay,2024-03-30,
+Network issue at Cafeteria: access point not responding.,Cafeteria,Network,High,Adjusted bandwidth settings,2024-03-15,
+Plumbing issue at Block B Stairwell: slow drainage.,Block B Stairwell,Plumbing,High,Replaced pipe section,2024-03-13,
+Mechanical issue at Lecture Hall B: motor overheating.,Lecture Hall B,Mechanical,Low,Recalibrated motor,2024-04-21,
+HVAC issue at Lecture Hall A: emitting warm air.,Lecture Hall A,HVAC,Medium,Inspected ductwork,2024-03-15,
+Mechanical issue at Cafeteria: unusual vibration.,Cafeteria,Mechanical,High,Lubricated moving parts,2024-06-20,
+HVAC issue at Admin Block: making loud noise.,Admin Block,HVAC,Medium,Replaced blower motor,2024-04-03,
+Plumbing issue at Block B Stairwell: water leakage detected.,Block B Stairwell,Plumbing,Low,Cleaned drainage trap,2024-05-16,
+Network issue at Main Library: WiFi outage reported.,Main Library,Network,Medium,Restarted access point,2024-06-29,
+Mechanical issue at Block B Stairwell: unusual vibration.,Block B Stairwell,Mechanical,Medium,Reset control system,2024-03-30,
+HVAC issue at Cafeteria: not cooling properly.,Cafeteria,HVAC,High,Replaced blower motor,2024-06-27,
+Electrical issue at Block C Restroom: circuit breaker tripped.,Block C Restroom,Electrical,High,Reset circuit breaker,2024-04-02,
+Network issue at Engineering Block: WiFi intermittent drop.,Engineering Block,Network,Low,Updated firmware,2024-03-19,
+HVAC issue at Sports Hall Court 2: weak airflow.,Sports Hall Court 2,HVAC,High,Replaced blower motor,2024-03-28,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,High,Calibrated thermostat,2024-03-09,
+HVAC issue at Sports Hall Court 2: not cooling properly.,Sports Hall Court 2,HVAC,High,Inspected ductwork,2024-06-06,
+HVAC issue at Main Library: not cooling properly.,Main Library,HVAC,Low,Cleaned air filters,2024-06-08,
+Electrical issue at Main Library: circuit breaker tripped.,Main Library,Electrical,Medium,Rewired loose connection,2024-05-07,
+Network issue at Sports Hall Court 1: access point not responding.,Sports Hall Court 1,Network,High,Reconfigured router,2024-06-02,
+HVAC issue at Sports Hall Court 1: weak airflow.,Sports Hall Court 1,HVAC,Medium,Calibrated thermostat,2024-06-03,
+Network issue at Main Library: access point not responding.,Main Library,Network,Low,Adjusted bandwidth settings,2024-04-10,
+HVAC issue at Sports Hall Court 2: temperature fluctuating.,Sports Hall Court 2,HVAC,Medium,Cleaned air filters,2024-03-25,
+Mechanical issue at Cafeteria: control panel unresponsive.,Cafeteria,Mechanical,Medium,Lubricated moving parts,2024-05-01,
+Plumbing issue at Engineering Block: pipe joint dripping.,Engineering Block,Plumbing,Medium,Cleaned drainage trap,2024-04-04,
+HVAC issue at Lecture Hall A: weak airflow.,Lecture Hall A,HVAC,Medium,Inspected ductwork,2024-03-30,
+Electrical issue at Block C Restroom: lights flickering.,Block C Restroom,Electrical,High,Inspected voltage supply,2024-05-23,
+Mechanical issue at Sports Hall Court 2: door not closing properly.,Sports Hall Court 2,Mechanical,High,Lubricated moving parts,2024-06-03,
+Electrical issue at Sports Hall Court 2: voltage instability.,Sports Hall Court 2,Electrical,High,Inspected voltage supply,2024-05-14,
+HVAC issue at Sports Hall Court 2: emitting warm air.,Sports Hall Court 2,HVAC,Low,Cleaned air filters,2024-06-08,
+Electrical issue at Sports Hall Court 2: voltage instability.,Sports Hall Court 2,Electrical,High,Replaced fuse,2024-06-24,
+Mechanical issue at Block C Restroom: unusual vibration.,Block C Restroom,Mechanical,High,Lubricated moving parts,2024-03-06,
+Electrical issue at Sports Hall Court 1: lights flickering.,Sports Hall Court 1,Electrical,Medium,Replaced fuse,2024-04-29,
+Network issue at Main Library: WiFi connectivity slow.,Main Library,Network,Low,Reconfigured router,2024-03-04,
+Plumbing issue at Block C Restroom: pipe joint dripping.,Block C Restroom,Plumbing,Low,Cleared blockage,2024-03-07,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,Medium,Recharged refrigerant,2024-03-05,
+Mechanical issue at Lecture Hall B: unusual vibration.,Lecture Hall B,Mechanical,Medium,Updated control firmware,2024-06-11,
+Mechanical issue at Block C Restroom: unusual vibration.,Block C Restroom,Mechanical,Low,Replaced worn relay,2024-05-20,
+Electrical issue at Main Library: circuit breaker tripped.,Main Library,Electrical,High,Replaced ballast,2024-03-10,
+Plumbing issue at Block B Stairwell: slow drainage.,Block B Stairwell,Plumbing,Low,Adjusted water valve,2024-06-29,
+Network issue at Cafeteria: network latency high.,Cafeteria,Network,Medium,Replaced faulty switch,2024-06-08,
+Mechanical issue at Block C Restroom: door not closing properly.,Block C Restroom,Mechanical,High,Recalibrated motor,2024-05-16,
+Network issue at Lecture Hall B: WiFi connectivity slow.,Lecture Hall B,Network,Low,Updated firmware,2024-04-19,
+Mechanical issue at Lecture Hall A: elevator stuck.,Lecture Hall A,Mechanical,Low,Updated control firmware,2024-05-15,
+Plumbing issue at Lecture Hall A: pipe joint dripping.,Lecture Hall A,Plumbing,Low,Cleared blockage,2024-05-19,
+HVAC issue at Lecture Hall A: not cooling properly.,Lecture Hall A,HVAC,High,Cleaned air filters,2024-06-18,
+,,,,,,"Playground safety is not secured - loose bolts on swing,Playground Area,Safety,High,Tightened all structural bolts and applied thread-locker,2024-05-01"
+,,,,,,"Court lights fail every evening - timer malfunction,Sports Court,Electrical,Medium,Reset digital timer and replaced backup battery,2024-05-01"
+,,,,,,"Rubbish is disposed randomly outside the hallway,Block A Level 4,Sanitation,Low,Cleared debris and issued warning letter to unit 4-12,2024-05-02"
+,,,,,,"Elevator jerked during descent,Block B Lift 2,Mechanical,High,Lubricated guide rails and recalibrated floor sensors,2024-05-02"
+,,,,,,"Pool water appears cloudy and green,Poolside,Amenities,Medium,Backwashed filter and performed chlorine shock treatment,2024-05-03"
+,,,,,,"Playground safety is not secured - sharp edge on slide,Playground Area,Safety,High,Sanded down metal burr and applied weather-proof paint,2024-05-04"
+,,,,,,"Court lights fail every evening - tripped breaker,Sports Court,Electrical,Medium,Replaced 20A circuit breaker in DB Room B,2024-05-04"
+,,,,,,"Clogged floor trap causing minor flood,Block C Level 2,Plumbing,Medium,Used high-pressure jetter to clear hair and grease buildup,2024-05-05"
+,,,,,,"Rubbish is disposed randomly outside the hallway,Block A Level 4,Sanitation,Low,Installed CCTV warning sign in the hallway corner,2024-05-06"
+,,,,,,"Fire extinguisher pressure gauge in red zone,Block B Lobby,Safety,High,Replaced unit with a newly charged extinguisher,2024-05-06"
+,,,,,,"Playground safety is not secured - chain rusted on swing,Playground Area,Safety,High,Replaced swing chains with galvanized steel sets,2024-05-07"
+,,,,,,"Court lights fail every evening - sensor blocked by tree,Sports Court,Electrical,Low,Trimmed overhanging branches near the photocell sensor,2024-05-07"
+,,,,,,"Intercom not connecting to guardhouse,Block C Unit 10-05,Security,Medium,Re-terminated RJ45 connector at the wall socket,2024-05-08"
+,,,,,,"Rubbish is disposed randomly outside the hallway,Block A Level 4,Sanitation,Medium,Fined resident for repeated sanitation violations,2024-05-09"
+,,,,,,"Lobby sliding door stuck halfway,Main Lobby,Mechanical,Medium,Cleaned bottom track and replaced worn rollers,2024-05-09"
+,,,,,,"Gym treadmill displays Error 02,Gymnasium,Equipment,Medium,Cleaned motor brushes and tightened drive belt,2024-05-10"
+,,,,,,"Flickering lights in the basement parking,Basement P2,Electrical,Low,Replaced T5 LED tube and checked ballast connection,2024-05-10"
+,,,,,,"Playground safety is not secured - rubber matting peeling,Playground Area,Safety,Medium,Applied industrial adhesive and weighed down edges,2024-05-11"
+,,,,,,"Water seepage on ceiling after rain,Block B Level 12,Structural,High,Applied waterproof membrane coating to the roof deck,2024-05-12"
+,,,,,,"Rubbish is disposed randomly outside the hallway,Block A Level 4,Sanitation,Low,Placed a temporary large bin at the elevator lobby,2024-05-13"
+,,,,,,"VPN connection keeps dropping every 10 minutes,Remote Work,IT Support,High,Updated GlobalProtect client to version 6.2 and cleared system cache,2024-06-03"
+,,,,,,"Blue screen of death on startup - Error 0x0000007B,Office Desk 4,IT Support,Critical,Ran CHKDSK and repaired corrupted master boot record via recovery console,2024-06-03"
+,,,,,,"Cannot print PDF files to Xerox-Lobby-01,Main Lobby,IT Support,Medium,Reinstalled PCL6 print driver and cleared print spooler on the server,2024-06-04"
+,,,,,,"Slow internet speed reported in Meeting Room B,Meeting Room,Network,Medium,Replaced faulty Cat6 patch cable and rebooted the local WAP,2024-06-04"
+,,,,,,"Account locked after three failed login attempts,User Portal,Security,Low,Verified identity via MFA and performed manual password reset,2024-06-05"
+,,,,,,"Laptop overheating and fan making loud grinding noise,Office Desk 12,Hardware,Medium,Opened chassis and replaced failing brushless cooling fan,2024-06-05"
+,,,,,,"Monitor displays 'No Signal' when connected to docking station,Office Desk 8,Hardware,Low,Replaced DisplayPort cable and updated firmware on the Dell WD19 dock,2024-06-06"
+,,,,,,"Email attachments blocked by security filter,Mail Server,Security,Medium,Whitelisted sender domain and released original email from quarantine,2024-06-06"
+,,,,,,"Excel freezes when opening files larger than 50MB,Office Desk 2,IT Support,Medium,Disabled hardware graphics acceleration and cleared Temp folder,2024-06-07"
+,,,,,,"Wi-Fi signal dead zone near the pantry,Pantry Area,Network,Low,Installed a secondary mesh range extender and optimized channel frequency,2024-06-07"
+,,,,,,"Teams audio cuts out during video calls,Meeting Room C,IT Support,Medium,Updated Bluetooth drivers and set Jabra speak as the default device,2024-06-08"
+,,,,,,"External hard drive not recognized by Windows,Office Desk 15,Hardware,Low,Assigned a new drive letter using Disk Management tool,2024-06-09"
+,,,,,,"SQL Database timeout error during peak hours,Data Center,Software,High,Added index to the transaction table and increased buffer pool size,2024-06-09"
+,,,,,,"Keyboard keys 'W' and 'S' are sticky and unresponsive,Office Desk 3,Hardware,Low,Cleaned key switches with isopropyl alcohol and replaced keycaps,2024-06-10"
+,,,,,,"Company portal shows 503 Service Unavailable,Web Server,IT Support,High,Restarted IIS worker process and cleared application pool logs,2024-06-10"
+,,,,,,"Mouse cursor jumping erratically across screen,Office Desk 11,Hardware,Low,Cleaned optical sensor and replaced the worn mousepad,2024-06-11"
+,,,,,,"Antivirus software slowing down system boot time,User Laptops,Security,Medium,Configured scheduled scans for midnight and excluded system-critical paths,2024-06-11"
+,,,,,,"Zoom call recording failed to save to cloud,Cloud Storage,IT Support,Medium,Resynced Zoom account with OneDrive and freed up storage space,2024-06-12"
+,,,,,,"Webcam video appears grainy and dark,Meeting Room A,Hardware,Low,Adjusted lighting settings in camera app and cleaned the lens,2024-06-12"
+,,,,,,"Unauthorized login attempt from unknown IP address,Security Log,Security,High,Blocked IP at the firewall and forced a company-wide password change,2024-06-13"
+,,,,,,"Printer streaks black ink across all pages,Copy Room,Hardware,Medium,Replaced the waste toner bottle and cleaned the corona wire,2024-06-14"
+,,,,,,"Forgot login credentials for the HR portal,Office Desk 22,IT Support,Low,Reset LDAP credentials and provided new login URL,2024-06-14"
+,,,,,,"Legacy software won't run on Windows 11,Office Desk 5,Software,Medium,Configured Compatibility Mode for Windows 7 and enabled Admin rights,2024-06-15"
+,,,,,,"Smartphone cannot sync with company email,Mobile Device,IT Support,Medium,Deleted Outlook profile and reconfigured via Intune Company Portal,2024-06-15"
+,,,,,,"Paper jam in the middle tray of the high-speed scanner,Mail Room,Hardware,Low,Removed stuck debris and cleaned pick-up rollers with rubber restorer,2024-06-16"
+,,,,,,"BitLocker recovery key requested on every boot,Office Desk 18,Security,High,Suspended BitLocker and updated the BIOS to fix TPM handshake,2024-06-17"
+,,,,,,"Accidentally deleted a folder from the Shared Drive,Shared Drive,IT Support,Medium,Restored folder from the previous night's Shadow Copy backup,2024-06-18"
+,,,,,,"Power supply unit (PSU) making a high-pitched whine,Server Room,Hardware,Medium,Replaced the 750W modular PSU with a spare unit,2024-06-18"
+,,,,,,"Adobe Acrobat keeps asking for sign-in,Office Desk 7,Software,Low,Cleared Adobe credential cache and repaired the installation,2024-06-19"
+,,,,,,"Network drive is red and shows 'Disconnected',Office Desk 9,Network,Medium,Re-mapped the drive using the FQDN instead of the IP address,2024-06-20"
+,,,,,,"Headset microphone not picking up voice,Office Desk 21,Hardware,Low,Unmuted the physical switch and adjusted the input gain in Windows,2024-06-20"
+,,,,,,"Chrome browser using 95% of RAM,User Laptops,Software,Medium,Installed 'The Great Suspender' extension and cleared browser history,2024-06-21"
+,,,,,,"Laptop battery not charging past 60%,Office Desk 14,Hardware,Medium,Updated battery management firmware and recalibrated the sensor,2024-06-22"
+,,,,,,"VPN connection keeps dropping every 10 minutes,Remote Work,IT Support,High,Switched protocol from IKEv2 to OpenVPN to bypass ISP throttling,2024-06-22"
+,,,,,,"Cannot access internal Jira dashboard,Office Desk 1,Network,Medium,Flushed DNS and added Jira IP to the local hosts file,2024-06-23"
+,,,,,,"Computer running very slowly with high disk usage,Office Desk 25,IT Support,Medium,Disabled SysMain service and ran a defrag on the HDD,2024-06-24"
+,,,,,,"Spilled coffee on the laptop keyboard,Office Desk 4,Hardware,Critical,Powered off immediately and submerged in desiccant for 48 hours,2024-06-24"
+,,,,,,"Two-factor authentication code not arriving on phone,Mobile Device,Security,Medium,Verified phone number and advised user to use Authenticator App,2024-06-25"
+,,,,,,"Application crashes when clicking 'Save as PDF',Office Desk 10,Software,Medium,Reinstalled Microsoft Print to PDF feature in Windows,2024-06-26"
+,,,,,,"Monitor has a dead pixel in the center,Office Desk 6,Hardware,Low,Ran JScreenFix for 2 hours; pixel was stuck and is now resolved,2024-06-26"
+,,,,,,"Request for annual leave balance not updating in portal,HR System,Admin,Low,Resynced LDAP profile and manually refreshed the leave accrual table,2024-06-27"
+,,,,,,"Discrepancy in monthly overtime pay calculation,Payroll,Finance,Medium,Recalculated hours from punch-in logs and issued back-pay in next cycle,2024-06-27"
+,,,,,,"Employee cannot find the latest Remote Work Policy,Company Wiki,Policy,Low,Sent direct link to PDF v3.2 and updated the 'New Joinee' handbook,2024-06-28"
+,,,,,,"Requesting a replacement for lost staff ID badge,Front Desk,Admin,Low,Deactivated old card and printed new RFID badge with updated photo,2024-06-28"
+,,,,,,"Claim for travel reimbursement was rejected,Finance Portal,Finance,Medium,Advised user to attach missing tax invoices and resubmit for approval,2024-06-29"
+,,,,,,"Query regarding eligibility for the Dental Benefit,Benefits Dept,Policy,Low,Confirmed eligibility after 6 months of service per Section 4.2 of handbook,2024-06-30"
+,,,,,,"Inquiry about maternity leave duration and handover,HR Office,Policy,Medium,Provided 90-day timeline and handover template for department lead,2024-06-30"
+,,,,,,"Payroll slip not received via email this month,Payroll,Finance,Low,Updated email address in the ERP system and re-sent the encrypted PDF,2024-07-01"
+,,,,,,"Difficulty booking Meeting Room 4 via Outlook,Office Admin,Admin,Low,Reset calendar permissions for the room and cleared existing ghost bookings,2024-07-01"
+,,,,,,"Conflict regarding assigned parking bay,Security Desk,Admin,Medium,Verified tenancy agreement and re-assigned Bay 45 to the correct unit,2024-07-02"
+,,,,,,"Request to change bank account for salary deposit,Finance Dept,Finance,Medium,Processed signed Change of Account form and updated bank routing info,2024-07-03"
+,,,,,,"Clarification on dress code for 'Casual Friday',HR Office,Policy,Low,Reiterated that smart casual is allowed but flip-flops are prohibited,2024-07-04"
+,,,,,,"Feedback regarding poor air quality in North Wing,Facilities,Admin,Medium,Increased fresh air intake on AHU-02 and replaced carbon filters,2024-07-04"
+,,,,,,"Lost key to the personal locker in the gym,Gymnasium,Admin,Low,Used master key to open locker and issued a new lock set for $10 fee,2024-07-05"
+,,,,,,"Request for employment verification letter for bank loan,HR Office,Admin,Low,Generated signed letter on company letterhead and sent to user's email,2024-07-06"
+,,,,,,"New employee missing from the company directory,IT/HR Sync,Admin,Low,Manually added user to the Global Address List (GAL) in Exchange,2024-07-06"
+,,,,,,"Complaint about noise levels from the construction next door,Office Area,Admin,Low,Provided noise-canceling headphones to the affected department,2024-07-07"
+,,,,,,"Inquiry on how to refer a friend for the open Developer role,HR Office,Policy,Low,Shared the 'Referral Bonus Program' link and the internal job board,2024-07-08"
+,,,,,,"Unclear instructions on how to use the new coffee machine,Pantry,Admin,Low,Laminated a simple 3-step guide and posted it on the machine,2024-07-09"
+,,,,,,"Requesting an ergonomic chair due to back pain,Office Desk 30,Admin,Medium,Conducted workplace assessment and delivered Herman Miller chair,2024-07-10"
+,,,,,,"Salary not credited on the expected payday,Finance Dept,Finance,High,Identified bank processing delay; sent company-wide status update,2024-07-10"
+,,,,,,"Inquiry about the 'Cycle to Work' scheme benefits,Sustainability,Policy,Low,Explained the 20% discount on bike gear and the dedicated lockers,2024-07-11"
+,,,,,,"Incorrect tax deduction on the latest paycheck,Finance Dept,Finance,Medium,Corrected the tax bracket status and adjusted the deduction for next month,2024-07-12"
+,,,,,,"Request for professional development budget for a coding course,Dept Lead,Finance,Medium,Approved $500 budget upon proof of completion and certificate,2024-07-13"
+,,,,,,"Medical claim status showing as 'Pending' for 2 weeks,Insurance Portal,Finance,Medium,Contacted insurance provider to expedite the review of the hospital bill,2024-07-14"
+,,,,,,"Employee asking about the 'Bereavement Leave' policy,HR Office,Policy,Medium,Confirmed 3 days paid leave allowed for immediate family members,2024-07-15"
+,,,,,,"Stationery cupboard is empty of notebooks and pens,Admin Office,Admin,Low,Placed bulk order with supplier and restocked the shelves,2024-07-16"
+,,,,,,"Inquiry about public holiday replacement for Sunday,HR Office,Policy,Low,Confirmed that Monday will be a substitute public holiday per local law,2024-07-17"
+,,,,,,"Difficulty accessing the performance review portal,IT Support,Admin,Medium,Reset the review cycle for the user and granted manager-level access,2024-07-18"
+,,,,,,"Staff asking if they can bring pets to the office,HR Office,Policy,Low,Clarified that only registered service animals are permitted,2024-07-19"
+,,,,,,"Company laptop was damaged during personal travel,IT Support,Admin,Medium,Initiated insurance claim and issued a temporary loaner laptop,2024-07-20"
+,,,,,,"Request for early salary payout for emergency,Finance Dept,Finance,High,Approved 50% advance payout due to verified medical emergency,2024-07-21"
+,,,,,,"Subscription for Slack Pro has expired for the team,IT Dept,Admin,Medium,Renewed the enterprise license and updated the billing credit card,2024-07-22"
+,,,,,,"Inquiry about the 'Employee Assistance Program' (EAP),HR Office,Policy,Low,Shared the confidential 24/7 hotline number for counseling,2024-07-23"
+,,,,,,"Request to upgrade to a standing desk,Office Desk 55,Admin,Low,Added user to the Q3 procurement list for office furniture,2024-07-24"
+,,,,,,"Missing receipts for the corporate credit card,Finance Dept,Finance,Medium,Instructed user to file a 'Lost Receipt Declaration' form,2024-07-25"
+,,,,,,"Employee asking for the WiFi password for visitors,Reception,Admin,Low,Provided the 'Guest_Access' password and the 24-hour expiry rule,2024-07-26"
+,,,,,,"Conflict between two employees over a shared desk,HR Office,Admin,Medium,Mediated the discussion and created a fixed desk rotation schedule,2024-07-27"
+,,,,,,"Request for an extra monitor for data analysis work,Office Desk 40,Hardware,Low,Provided spare 24-inch Dell monitor and HDMI cable,2024-07-28"
+,,,,,,"Inquiry on how to resign and the notice period,HR Office,Policy,Medium,Advised to submit formal email; confirmed 2-month notice period,2024-07-29"
+,,,,,,"Tailgating incident reported at turnstile 3,Main Entrance,Security,Medium,Reviewed CCTV footage and issued a formal warning to the offending staff,2024-07-30"
+,,,,,,"Fire alarm triggered in Block B - False Alarm,Block B,Safety,High,Inspected smoke detector; found dust buildup and cleaned the sensor,2024-07-30"
+,,,,,,"Security badge reader not responding to any cards,East Wing,Security,High,Rebooted the local door controller and checked the 12V power supply,2024-07-31"
+,,,,,,"Panic button in the basement parking is stuck,Basement P3,Safety,Medium,Replaced the physical spring mechanism and tested the alert signal,2024-07-31"
+,,,,,,"Unauthorised person found in the server room,Server Room,Security,Critical,Escorted individual out and updated the biometric access list,2024-08-01"
+,,,,,,"Emergency exit door blocked by delivery boxes,Loading Bay,Safety,High,Cleared the walkway and briefed the logistics team on safety protocols,2024-08-02"
+,,,,,,"CCTV Camera 14 shows a black screen,North Perimeter,Security,Low,Replaced the faulty BNC connector and tightened the coaxial cable,2024-08-02"
+,,,,,,"First aid kit in the gym is missing supplies,Gymnasium,Safety,Low,Restocked bandages; antiseptic; and gauze; updated the log sheet,2024-08-03"
+,,,,,,"Suspicious package left unattended in the lobby,Main Lobby,Security,High,Cordoned off area and followed the 'Check-Confirm-Clear' protocol,2024-08-04"
+,,,,,,"Broken glass found on the walkway near the cafe,Ground Floor,Safety,Medium,Swept the area and installed temporary 'Caution: Wet Floor' sign,2024-08-04"
+,,,,,,"Strobe light for the fire alarm is not flashing,Block C Level 5,Safety,Medium,Replaced the defective xenon bulb and tested the alarm circuit,2024-08-05"
+,,,,,,"Keycard lost by a third-party contractor,Facility Wide,Security,High,Immediately revoked access permissions in the security database,2024-08-06"
+,,,,,,"Door closer on the fire door is too weak,Staircase A,Safety,Low,Adjusted the hydraulic tension screw for a faster and firmer close,2024-08-07"
+,,,,,,"Motion sensor light in the back alley is always on,Rear Exit,Security,Low,Adjusted the sensitivity dial and lowered the 'ON' timer duration,2024-08-07"
+,,,,,,"Report of a stray dog roaming the basement,Basement P1,Safety,Low,Contacted local animal control and monitored the exits via CCTV,2024-08-08"
+,,,,,,"Burnt smell coming from the security desk UPS,Guardhouse,Safety,High,Switched to bypass mode and replaced the overheating battery bank,2024-08-09"
+,,,,,,"Visitor entered without a valid day-pass,Reception,Security,Medium,Registered visitor manually and issued a temporary visitor sticker,2024-08-10"
+,,,,,,"Floor tiles near the pool are extremely slippery,Poolside,Safety,Medium,Applied anti-slip chemical treatment to the affected tile surface,2024-08-10"
+,,,,,,"Security guard found sleeping during night shift,Main Entrance,Security,High,Reported to the security agency and requested a replacement guard,2024-08-11"
+,,,,,,"Siren for the gas leak detection system is muffled,Basement P3,Safety,Medium,Cleaned the siren horn and cleared the insect nest inside,2024-08-12"
+,,,,,,"AHU-05 making loud screeching noise,North Wing,Mechanical,High,Replaced worn fan belt and lubricated motor bearings,2024-08-13"
+,,,,,,"Lift 3 stuck between Level 4 and 5,Block A,Mechanical,Critical,Manually released brake and rescued passengers; replaced door cam,2024-08-13"
+,,,,,,"High humidity levels in the Server Room,Data Center,HVAC,High,Cleaned condenser coils and recharged refrigerant in CRAC unit,2024-08-14"
+,,,,,,"Circuit breaker trips when gym AC starts,Gymnasium,Electrical,Medium,Upgraded breaker from 32A to 40A to handle inrush current,2024-08-15"
+,,,,,,"Chiller water temperature too high,Roof Deck,Mechanical,High,Descaled heat exchanger tubes and cleared cooling tower basin,2024-08-15"
+,,,,,,"Basement exhaust fan not spinning,Basement P2,Electrical,Medium,Replaced burnt-out motor capacitor and reset the thermal relay,2024-08-16"
+,,,,,,"Generator failed to start during monthly test,Genset Room,Mechanical,Critical,Purged air from fuel line and replaced clogged fuel filter,2024-08-17"
+,,,,,,"Corridor lights flickering on Level 10,Block B,Electrical,Low,Tightened neutral wire in the distribution board (DB) box,2024-08-18"
+,,,,,,"Pantry water heater leaking,Office Pantry,Plumbing,Medium,Replaced the pressure relief valve and tightened inlet pipe,2024-08-19"
+,,,,,,"Smell of burning plastic near DB room,Block C Lobby,Electrical,Critical,Identified melted insulation on busbar; replaced affected cables,2024-08-19"
+,,,,,,"API requests returning 401 Unauthorized errors,External Integration,Software,High,Rotated expired API keys and updated the environment secrets,2025-01-10"
+,,,,,,"Database deadlock detected on user_sessions table,Backend Server,Software,Medium,Optimized SQL query and added a missing non-clustered index,2025-01-11"
+,,,,,,"Cloud storage bucket nearly at 95% capacity,AWS S3,Cloud,Medium,Implemented lifecycle policy to archive files older than 90 days,2025-01-12"
+,,,,,,"Webhooks failing for Stripe payments,Payment Gateway,Software,High,Validated SSL certificate and updated the endpoint URL in dashboard,2025-01-13"
+,,,,,,"Slow page load for the analytics dashboard,Front End,Software,Medium,Enabled Gzip compression and implemented lazy loading for charts,2025-01-14"
+,,,,,,"Docker container keeps restarting - Out of Memory,Production Env,Cloud,High,Increased memory limit in docker-compose.yml to 2GB,2025-01-15"
+,,,,,,"CSS styles not loading on Safari browser,User Interface,Software,Low,Added vendor prefixes and cleared the Cloudflare CDN cache,2025-01-16"
+,,,,,,"Automated backup failed for the MySQL instance,Cloud Backup,Software,High,Re-authenticated service account and increased disk I/O limit,2025-01-17"
+,,,,,,"User reporting missing data in the export CSV,Backend,Software,Medium,Fixed character encoding bug (UTF-8) in the export script,2025-01-18"
+,,,,,,"Internal Wiki shows 404 Page Not Found,Company Portal,Software,Low,Restored missing .md files from GitHub main branch,2025-01-19"
+,,,,,,"Tennis court fence has a large hole,Sports Court,Maintenance,Low,Patched fence with galvanized wire mesh and zip ties,2026-02-01"
+,,,,,,"Residents complaining about cigarette smell in lifts,Elevator 1,Community,Medium,Cleaned air vents and installed ionizer in lift car,2026-02-02"
+,,,,,,"Pool deck chairs are broken and unsafe,Poolside,Amenities,Low,Removed damaged chairs and ordered 5 new weather-proof units,2026-02-03"
+,,,,,,"Gym Wi-Fi password sticker is missing,Gymnasium,Admin,Low,Printed and laminated new QR code signs for the wall,2026-02-04"
+,,,,,,"Stray cat found feeding in the corridor,Block A Level 2,Sanitation,Low,Advised residents via notice not to leave food in common areas,2026-02-05"
+,,,,,,"Barbecue pit has a gas leak smell,BBQ Area,Safety,High,Replaced the gas hose and the regulator valve,2026-02-06"
+,,,,,,"Squash court floor is warped and slippery,Sports Center,Structural,Medium,Sanded wood surface and applied anti-slip polyurethane coating,2026-02-07"
+,,,,,,"Community hall lights won't turn off,Clubhouse,Electrical,Low,Replaced the faulty manual toggle switch with a new unit,2026-02-08"
+,,,,,,"Trash room door lock is broken,Block C Ground,Security,Medium,Installed a new heavy-duty deadbolt and gave keys to cleaners,2026-02-09"
+,,,,,,"Loud music complaint at 2 AM,Block B Unit 12-04,Community,Medium,Security guard issued a verbal warning and recorded the incident,2026-02-10"
+,,,,,,"Solar panel inverter shows Error 44,Roof Deck,Energy,Medium,Restarted AC/DC isolator and updated inverter firmware,2026-03-01"
+,,,,,,"Water seepage on ceiling after heavy rain,Block B Level 12,Structural,High,Applied waterproof membrane coating and cleared roof scuppers,2026-03-02"
+,,,,,,"Recycling bin contaminated with food waste,Refuse Area,Sanitation,Low,Sorted waste manually and posted educational signage for residents,2026-03-03"
+,,,,,,"High electricity consumption in common area,Main Lobby,Energy,Medium,Identified faulty timer on lobby lights and switched to LED sensors,2026-03-04"
+,,,,,,"Strong sewage smell near manhole,Block C Ground,Sanitation,Medium,Contracted desludging service to clear the grease trap and manhole,2026-03-05"
+,,,,,,"Irrigation system spraying water on walkway,Landscape,Water,Low,Adjusted nozzle direction and reprogrammed the sprinkler schedule,2026-03-06"
+,,,,,,"Illegal dumping of old furniture,Basement P2,Sanitation,Medium,Cleared furniture to bulky waste bin and reviewed CCTV for fines,2026-03-07"
+,,,,,,"Rainwater harvesting tank is overflowing,Block D,Water,Medium,Cleaned the overflow pipe and checked the float valve mechanism,2026-03-08"
+,,,,,,"Fallen tree blocking the side entrance,Perimeter Road,Safety,High,Used chainsaw to clear branches and hauled debris for disposal,2026-03-09"
+,,,,,,"Termite tracks found on skirting boards,Block A Unit 5-02,Sanitation,Medium,Conducted localized chemical injection and set up monitoring stations,2026-03-10"
+,,,,,,"Total power outage in North Wing,North Wing,Electrical,Critical,Identified blown 100A main fuse and replaced it in the Sub-Station,2026-04-12"
+,,,,,,"Elevator pit flooded after pipe burst,Block A Basement,Mechanical,Critical,Activated submersible sump pumps and repaired the 4-inch main pipe,2024-04-12"
+,,,,,,"Staff member fainted in the pantry,Level 3 Pantry,Medical,Critical,Administered first aid and called ambulance for hospital transfer,2024-04-13"
+,,,,,,"Gas leak detected in the kitchen area,Clubhouse Cafe,Safety,Critical,Evacuated cafe and replaced the rusted gas regulator and hose,2024-04-14"
+,,,,,,"Server Room temperature hit 35 degrees,Data Center,HVAC,Critical,Switched to backup portable AC and fixed the failed chiller pump,2024-04-15"
+,,,,,,"Small fire in the rubbish chute,Block B Level 8,Safety,Critical,Extinguished fire using ABC powder unit and cleared the chute blockage,2024-04-16"
+,,,,,,"Security Guard found unresponsive,Main Guardhouse,Medical,Critical,Performed CPR and alerted emergency services immediately,2024-04-17"
+,,,,,,"Main gate crashed into by a vehicle,Main Entrance,Security,High,Secured the area with cones and deployed manual boom gate,2024-04-18"
+,,,,,,"Internal network hit by ransomware,Office IT,Cybersecurity,Critical,Isolated affected servers and initiated data recovery from cold backup,2024-04-19"
+,,,,,,"Basement P3 ceiling collapsed partially,Basement P3,Structural,Critical,Cordoned off the area and shored up the slab with temporary props,2024-04-20"
+,,,,,,"Tailgating incident reported at turnstile 3,Main Entrance,Security,Medium,Reviewed CCTV footage and issued a formal warning to the offending staff,2024-07-30"
+,,,,,,"Fire alarm triggered in Block B - False Alarm,Block B,Safety,High,Inspected smoke detector; found dust buildup and cleaned the sensor,2024-07-30"
+,,,,,,"Security badge reader not responding to any cards,East Wing,Security,High,Rebooted the local door controller and checked the 12V power supply,2024-07-31"
+,,,,,,"Panic button in the basement parking is stuck,Basement P3,Safety,Medium,Replaced the physical spring mechanism and tested the alert signal,2024-07-31"
+,,,,,,"Unauthorised person found in the server room,Server Room,Security,Critical,Escorted individual out and updated the biometric access list,2024-08-01"
+,,,,,,"Emergency exit door blocked by delivery boxes,Loading Bay,Safety,High,Cleared the walkway and briefed the logistics team on safety protocols,2024-08-02"
+,,,,,,"CCTV Camera 14 shows a black screen,North Perimeter,Security,Low,Replaced the faulty BNC connector and tightened the coaxial cable,2024-08-02"
+,,,,,,"First aid kit in the gym is missing supplies,Gymnasium,Safety,Low,Restocked bandages; antiseptic; and gauze; updated the log sheet,2024-08-03"
+,,,,,,"Suspicious package left unattended in the lobby,Main Lobby,Security,High,Cordoned off area and followed the 'Check-Confirm-Clear' protocol,2024-08-04"
+,,,,,,"Broken glass found on the walkway near the cafe,Ground Floor,Safety,Medium,Swept the area and installed temporary 'Caution: Wet Floor' sign,2024-08-04"
+,,,,,,"Strobe light for the fire alarm is not flashing,Block C Level 5,Safety,Medium,Replaced the defective xenon bulb and tested the alarm circuit,2024-08-05"
+,,,,,,"Keycard lost by a third-party contractor,Facility Wide,Security,High,Immediately revoked access permissions in the security database,2024-08-06"
+,,,,,,"Door closer on the fire door is too weak,Staircase A,Safety,Low,Adjusted the hydraulic tension screw for a faster and firmer close,2024-08-07"
+,,,,,,"Motion sensor light in the back alley is always on,Rear Exit,Security,Low,Adjusted the sensitivity dial and lowered the 'ON' timer duration,2024-08-07"
+,,,,,,"Report of a stray dog roaming the basement,Basement P1,Safety,Low,Contacted local animal control and monitored the exits via CCTV,2024-08-08"
+,,,,,,"Burnt smell coming from the security desk UPS,Guardhouse,Safety,High,Switched to bypass mode and replaced the overheating battery bank,2024-08-09"
+,,,,,,"Visitor entered without a valid day-pass,Reception,Security,Medium,Registered visitor manually and issued a temporary visitor sticker,2024-08-10"
+,,,,,,"Floor tiles near the pool are extremely slippery,Poolside,Safety,Medium,Applied anti-slip chemical treatment to the affected tile surface,2024-08-10"
+,,,,,,"Security guard found sleeping during night shift,Main Entrance,Security,High,Reported to the security agency and requested a replacement guard,2024-08-11"
+,,,,,,"Siren for the gas leak detection system is muffled,Basement P3,Safety,Medium,Cleaned the siren horn and cleared the insect nest inside,2024-08-12"
+,,,,,,"Broken window in the vacant unit 5-04,Block A,Security,Medium,Boarded up the window and notified the unit owner for replacement,2024-08-13"
+,,,,,,"Intercom unit at the gate has no audio,Main Gate,Security,Medium,Rewired the speaker terminals and replaced the waterproof membrane,2024-08-14"
+,,,,,,"Graffiti found on the perimeter wall,South Fence,Security,Low,Sanded the surface and applied anti-graffiti protective coating,2024-08-15"
+,,,,,,"Handrail on the handicap ramp is loose,Lobby Entrance,Safety,High,Re-anchored the base plates into the concrete with epoxy bolts,2024-08-15"
+,,,,,,"Evidence of forced entry on the side gate,West Perimeter,Security,Critical,Repaired the lock hasp and added a motion-activated spotlight,2024-08-16"
+,,,,,,"Fire hose reel cabinet door is jammed,Block B Level 2,Safety,Medium,Lubricated the hinges and replaced the broken glass break-point,2024-08-17"
+,,,,,,"Smoking reported in the non-smoking stairwell,Staircase 3,Safety,Low,Installed a smoke detector linked to the security alarm system,2024-08-18"
+,,,,,,"Car hit the boom gate arm,Main Exit,Security,Medium,Replaced the aluminum arm and recalibrated the motor sensor,2024-08-19"
+,,,,,,"Unsecured manhole cover in the driveway,External Road,Safety,High,Reset the heavy-duty iron cover and welded a locking tab,2024-08-20"
+,,,,,,"Biometric scanner failing in high humidity,Server Room,Security,Medium,Installed a dedicated dehumidifier near the access control panel,2024-08-21"
+,,,,,,"Loud argument between residents in the lobby,Main Lobby,Security,Low,Security intervened to de-escalate and recorded resident details,2024-08-22"
+,,,,,,"Elevator emergency phone has a dead line,Block C Lift 1,Safety,High,Tested the phone line at the MDF and replaced the faulty handset,2024-08-23"
+,,,,,,"Sharp metal edge on the mailboxes,Block A Lobby,Safety,Low,Filed down the metal burr and applied a protective rubber strip,2024-08-24"
+,,,,,,"Drone flying over the private pool area,Poolside,Security,Medium,Traced operator to unit 12-05 and issued a privacy violation notice,2024-08-25"
+,,,,,,"Water pooling near the electrical substation,External Area,Safety,Critical,Dug a temporary trench to divert water and cleared the drain,2024-08-26"
+,,,,,,"Security camera 08 lens is foggy,Parking P2,Security,Low,Opened the housing; cleaned the lens; and replaced the silica gel,2024-08-27"
+,,,,,,"Suspicious vehicle loitering near the exit,Main Gate,Security,Medium,Took down license plate and requested the driver to move along,2024-08-28"
+,,,,,,"Fire drill exit lights not illuminating,Block D,Safety,High,Replaced the backup Ni-Cd batteries in the emergency exit signs,2024-08-29"
+,,,,,,"Basement P1 lighting is too dim for safety,Parking P1,Safety,Medium,Added four additional LED floodlights in the dark corners,2024-08-30"
+,,,,,,"Abandoned bicycle blocking the hallway,Block B Level 4,Safety,Low,Tagged for removal and moved to the designated storage area,2024-09-01"
+,,,,,,"Loose carpet in the meeting room causing trips,Level 3 Office,Safety,Medium,Re-stretched the carpet and applied industrial double-sided tape,2024-09-02"
+,,,,,,"Missing 'High Voltage' sign on the DB room,Block A Basement,Safety,Low,Ordered and installed a new reflective hazard warning sign,2024-09-03"
+,,,,,,"Report of a drone landing on the roof deck,Roof Area,Security,Medium,Recovered drone and checked for unauthorized surveillance footage,2024-09-04"
+,,,,,,"Overcrowding in the elevator during peak hours,Main Lobby,Safety,Low,Posted weight limit signs and updated the floor-limit logic,2024-09-05"
+,,,,,,"Fallen ceiling board in the corridor,Block C Level 1,Safety,Medium,Replaced the moisture-damaged gypsum board and checked for leaks,2024-09-06"
+,,,,,,"Door handle in the ladies room is broken,Level 2 Admin,Safety,Low,Replaced the privacy lockset with a heavy-duty commercial grade,2024-09-07"
+,,,,,,"Exposed wiring near the water fountain,Pantry,Safety,Critical,Wrapped wires in conduit and relocated the power socket higher,2024-09-08"
+,,,,,,"Unauthorised sales person in the lobby,Main Lobby,Security,Low,Escorted out of the building and added to the blacklist,2024-09-09"
+,,,,,,"Slippery moss growth on the north walkway,External Area,Safety,Medium,Power-washed the walkway and applied anti-fungal treatment,2024-09-10"
+,,,,,,"Stairwell lights timed out too quickly,Staircase B,Safety,Low,Adjusted the PIR sensor delay from 30 seconds to 2 minutes,2024-09-11"
+,,,,,,"AHU-05 making loud screeching noise,North Wing,Mechanical,High,Replaced worn fan belt and lubricated motor bearings,2024-08-13"
+,,,,,,"Lift 3 stuck between Level 4 and 5,Block A,Mechanical,Critical,Manually released brake and rescued passengers; replaced door cam,2024-08-13"
+,,,,,,"High humidity levels in the Server Room,Data Center,HVAC,High,Cleaned condenser coils and recharged refrigerant in CRAC unit,2024-08-14"
+,,,,,,"Circuit breaker trips when gym AC starts,Gymnasium,Electrical,Medium,Upgraded breaker from 32A to 40A to handle inrush current,2024-08-15"
+,,,,,,"Chiller water temperature too high,Roof Deck,Mechanical,High,Descaled heat exchanger tubes and cleared cooling tower basin,2024-08-15"
+,,,,,,"Basement exhaust fan not spinning,Basement P2,Electrical,Medium,Replaced burnt-out motor capacitor and reset the thermal relay,2024-08-16"
+,,,,,,"Generator failed to start during monthly test,Genset Room,Mechanical,Critical,Purged air from fuel line and replaced clogged fuel filter,2024-08-17"
+,,,,,,"Corridor lights flickering on Level 10,Block B,Electrical,Low,Tightened neutral wire in the distribution board (DB) box,2024-08-18"
+,,,,,,"Pantry water heater leaking,Office Pantry,Plumbing,Medium,Replaced the pressure relief valve and tightened inlet pipe,2024-08-19"
+,,,,,,"Smell of burning plastic near DB room,Block C Lobby,Electrical,Critical,Identified melted insulation on busbar; replaced affected cables,2024-08-19"
+,,,,,,"Cooling tower vibration sensor alarm,Roof Area,Mechanical,Medium,Balanced the fan blades and replaced the worn rubber mounts,2024-08-20"
+,,,,,,"Server Room AC unit leaking water,Data Center,HVAC,High,Cleared the clogged condensate drain line with compressed air,2024-08-21"
+,,,,,,"Main switchboard shows a phase imbalance,Electrical Room,Electrical,High,Re-distributed single-phase loads across the three-phase system,2024-08-22"
+,,,,,,"Elevator floor leveling is off by 2 inches,Block B Lift 1,Mechanical,Medium,Adjusted the floor selector magnet and recalibrated the drive,2024-08-22"
+,,,,,,"Exhaust fan making a clicking noise,Restroom Level 3,Mechanical,Low,Removed a piece of plastic debris stuck in the fan shroud,2024-08-23"
+,,,,,,"UPS system reporting low battery voltage,IT Server Room,Electrical,High,Conducted a load test and replaced the failing lead-acid batteries,2024-08-24"
+,,,,,,"HVAC ducting rattling in the CEO office,Executive Suite,Mechanical,Low,Tightened the support hangers and applied foam insulation tape,2024-08-25"
+,,,,,,"Lobby chandelier has three burnt-out bulbs,Main Lobby,Electrical,Low,Rented a scissor lift and replaced bulbs with 10W LED units,2024-08-26"
+,,,,,,"Domestic water pump running continuously,Pump Room,Plumbing,Medium,Replaced the faulty pressure switch and checked for leaks,2024-08-26"
+,,,,,,"Variable Frequency Drive (VFD) showing Error F001,HVAC Room,Electrical,High,Re-seated the control board and cleared the fault history,2024-08-27"
+,,,,,,"Sewerage ejector pump high level alarm,Basement P3,Plumbing,Critical,Cleared a blockage in the pump impeller and reset the float,2024-08-28"
+,,,,,,"Parking gate motor is overheating,Main Entrance,Mechanical,Medium,Replaced the gear oil and cleaned the motor cooling fins,2024-08-29"
+,,,,,,"Emergency generator battery charger failed,Genset Room,Electrical,High,Replaced the 24V automatic battery charger unit,2024-08-30"
+,,,,,,"Dampness found on the electrical riser wall,Block A Level 7,Structural,Medium,Traced leak to a faulty pipe sleeve and sealed with mastic,2024-08-31"
+,,,,,,"Air conditioner remote control unresponsive,Meeting Room 2,Electrical,Low,Replaced the AAA batteries and cleaned the IR sensor lens,2024-09-01"
+,,,,,,"Kitchen exhaust hood motor won't turn on,Clubhouse,Electrical,Medium,Replaced the thermal fuse and cleaned the grease-caked motor,2024-09-02"
+,,,,,,"Boiler pressure exceeding safety limit,Mechanical Room,Mechanical,Critical,Adjusted the pressure regulator and inspected the safety valve,2024-09-03"
+,,,,,,"Office lighting sensor won't turn off,Open Office A,Electrical,Low,Replaced the faulty PIR sensor and adjusted the time delay,2024-09-04"
+,,,,,,"Vacuum pump in the lab has lost suction,Level 4 Lab,Mechanical,Medium,Replaced the worn O-rings and checked the vacuum lines,2024-09-05"
+,,,,,,"Pantry sink faucet is loose and spinning,Level 2 Pantry,Plumbing,Low,Tightened the mounting nut under the sink and added a washer,2024-09-06"
+,,,,,,"Outdoor signage lights not turning on,Building Exterior,Electrical,Medium,Replaced the digital photocell and checked the contactor,2024-09-07"
+,,,,,,"Elevator door keeps reopening for no reason,Block D Lift 2,Mechanical,Medium,Cleaned the light curtain sensors and adjusted the door torque,2024-09-08"
+,,,,,,"Electric vehicle charger showing Red Light,Parking P1,Electrical,Medium,Reset the internal RCD and updated the charger firmware,2024-09-09"
+,,,,,,"Ceiling fan in the guardhouse is wobbling,Main Gate,Mechanical,Low,Balanced the fan blades using a clip-on weights kit,2024-09-10"
+,,,,,,"Toilet flush valve won't stop running,Men's Room L1,Plumbing,Low,Replaced the diaphragm and cleaned the bypass orifice,2024-09-11"
+,,,,,,"Backup generator fuel level low alarm,Genset Room,Mechanical,Medium,Ordered 500 liters of diesel and checked for fuel leaks,2024-09-12"
+,,,,,,"High voltage transformer making a hum,Substation,Electrical,Low,Inspected cooling fans and tightened the enclosure bolts,2024-09-13"
+,,,,,,"Vending machine power outlet is dead,Breakroom,Electrical,Low,Reset the tripped 13A breaker in the floor distribution board,2024-09-14"
+,,,,,,"HVAC thermostat displaying 'Low Battery',Level 5 Admin,Electrical,Low,Replaced the 24V backup battery in the thermostat unit,2024-09-15"
+,,,,,,"Lift car interior lighting is dim,Block B Lift 2,Electrical,Low,Replaced the old fluorescent tubes with new LED strips,2024-09-16"
+,,,,,,"Automatic urinal sensor constantly flushing,Men's Room L4,Electrical,Medium,Replaced the solenoid valve and adjusted the sensor range,2024-09-17"
+,,,,,,"Gym treadmill motor making a burning smell,Gymnasium,Mechanical,High,Replaced the worn carbon brushes and vacuumed the motor,2024-09-18"
+,,,,,,"Conference room projector screen stuck,Meeting Room 1,Mechanical,Medium,Lubricated the roller mechanism and fixed the limit switch,2024-09-19"
+,,,,,,"Water fountain water is not cold,Lobby,Mechanical,Medium,Cleaned the condenser coils and checked the compressor gas,2024-09-20"
+,,,,,,"Fire pump controller showing 'Phase Reversal',Pump Room,Electrical,High,Corrected the wiring at the main isolator to fix rotation,2024-09-21"
+,,,,,,"Washing machine in gym laundry won't drain,Gymnasium,Mechanical,Medium,Cleared a coin blockage from the drain pump filter,2024-09-22"
+,,,,,,"Office power sockets on Row C are dead,Open Office B,Electrical,Medium,Identified a loose connection in the under-floor trunking,2024-09-23"
+,,,,,,"Air handling unit filter is collapsed,Block C AHU,HVAC,Medium,Replaced the pleated filters and cleaned the frame tracks,2024-09-24"
+,,,,,,"Security boom gate arm is bent,Main Entrance,Mechanical,Low,Straightened the aluminum arm and tightened the hinge bolts,2024-09-25"
+,,,,,,"Automatic soap dispenser is leaking,Restroom L2,Mechanical,Low,Replaced the cracked reservoir bottle and cleaned the nozzle,2024-09-26"
+,,,,,,"API requests returning 401 Unauthorized errors,External Integration,Software,High,Rotated expired API keys and updated the environment secrets,2025-01-10"
+,,,,,,"Database deadlock detected on user_sessions table,Backend Server,Software,Medium,Optimized SQL query and added a missing non-clustered index,2025-01-11"
+,,,,,,"Cloud storage bucket nearly at 95% capacity,AWS S3,Cloud,Medium,Implemented lifecycle policy to archive files older than 90 days,2025-01-12"
+,,,,,,"Webhooks failing for Stripe payments,Payment Gateway,Software,High,Validated SSL certificate and updated the endpoint URL in dashboard,2025-01-13"
+,,,,,,"Slow page load for the analytics dashboard,Front End,Software,Medium,Enabled Gzip compression and implemented lazy loading for charts,2025-01-14"
+,,,,,,"Docker container keeps restarting - Out of Memory,Production Env,Cloud,High,Increased memory limit in docker-compose.yml to 2GB,2025-01-15"
+,,,,,,"CSS styles not loading on Safari browser,User Interface,Software,Low,Added vendor prefixes and cleared the Cloudflare CDN cache,2025-01-16"
+,,,,,,"Automated backup failed for the MySQL instance,Cloud Backup,Software,High,Re-authenticated service account and increased disk I/O limit,2025-01-17"
+,,,,,,"User reporting missing data in the export CSV,Backend,Software,Medium,Fixed character encoding bug (UTF-8) in the export script,2025-01-18"
+,,,,,,"Internal Wiki shows 404 Page Not Found,Company Portal,Software,Low,Restored missing .md files from GitHub main branch,2025-01-19"
+,,,,,,"Redis cache eviction rate is too high,Cache Server,Cloud,Medium,Increased maxmemory setting and switched to volatile-lru policy,2025-01-20"
+,,,,,,"SSL certificate for dev-subdomain expired,Dev Environment,Security,Medium,Renewed Let's Encrypt certificate and updated Nginx config,2025-01-21"
+,,,,,,"Kubernetes pod stuck in ImagePullBackOff,Cluster Node 2,Cloud,High,Corrected the image tag in the deployment manifest and pushed to ECR,2025-01-22"
+,,,,,,"Password reset link takes 10 minutes to arrive,Mail Service,Software,Medium,Switched SMTP provider to SendGrid for higher deliverability,2025-01-23"
+,,,,,,"Broken image links on the landing page,Public Site,Software,Low,Ran a script to update all hardcoded URLs to relative paths,2025-01-24"
+,,,,,,"NPM build failing due to dependency conflict,CI/CD Pipeline,Software,Medium,Deleted package-lock.json and ran clean install with legacy-peer-deps,2025-01-25"
+,,,,,,"Jenkins pipeline stuck on 'Waiting for Executor',Build Server,Cloud,Low,Increased the number of concurrent executors in Jenkins global config,2025-01-26"
+,,,,,,"PostgreSQL logs show 'Too many connections',DB Instance,Software,High,Implemented pgbouncer for connection pooling and increased max_connections,2025-01-27"
+,,,,,,"Search results not reflecting new database entries,Elasticsearch,Software,Medium,Triggered a manual re-index of the products collection,2025-01-28"
+,,,,,,"Grafana alert: CPU usage at 99%,Worker Node,Cloud,Critical,Identified a runaway Python process and killed the PID manually,2025-01-29"
+,,,,,,"Mobile app crashing on Android 14 launch,Mobile App,Software,High,Updated SDK target version and patched the null-pointer exception,2025-01-30"
+,,,,,,"Git merge conflict in the main branch,Repository,Software,Low,Resolved conflicts manually and re-verified via unit tests,2025-01-31"
+,,,,,,"Unable to delete files from the FTP server,Legacy System,IT Support,Medium,Adjusted folder permissions to 755 and restarted the vsftpd service,2025-02-01"
+,,,,,,"Slack bot not responding to commands,Internal Tools,Software,Low,Re-authorized the Slack App token and restarted the bot server,2025-02-02"
+,,,,,,"DNS propagation delay for new domain,Networking,IT Support,Low,Advised user to flush local DNS and set TTL to 3600,2025-02-03"
+,,,,,,"Inconsistent data between staging and prod,Environment Sync,Software,Medium,Performed a data dump from prod to staging excluding sensitive PII,2025-02-04"
+,,,,,,"JSON payload being rejected by the API,API Gateway,Software,Low,Corrected the 'Content-Type' header to application/json,2025-02-05"
+,,,,,,"Terraform plan failing with state lock error,Infrastructure,Cloud,Medium,Force-unlocked the state in DynamoDB after verifying no active runs,2025-02-06"
+,,,,,,"Python script failing with ModuleNotFoundError,Automation,Software,Low,Added a requirements.txt file and updated the virtualenv,2025-02-07"
+,,,,,,"Missing fonts on the PDF generator service,Microservice,Software,Medium,Installed 'ttf-mscorefonts-installer' in the Docker container,2025-02-08"
+,,,,,,"Unused cloud instances incurring costs,Cloud Billing,Cloud,Low,Terminated 5 t2.micro instances that had 0% CPU for 30 days,2025-02-09"
+,,,,,,"React component rendering twice on mount,Front End,Software,Low,Removed the extra <React.StrictMode> tag in index.js,2025-02-10"
+,,,,,,"Bitbucket pipeline failing at 'SonarCloud' step,CI/CD,Software,Medium,Updated the SONAR_TOKEN secret in the repository settings,2025-02-11"
+,,,,,,"High number of 500 errors on the login page,Auth Service,Software,Critical,Reconnected the lost socket between auth-service and DB-cluster,2025-02-12"
+,,,,,,"Broken links in the automated welcome email,Marketing Ops,Software,Low,Updated the Jinja2 template with the correct production URL,2025-02-13"
+,,,,,,"MongoDB shard balancing taking too long,DB Cluster,Cloud,High,Increased the shard range and moved the balancer window to off-peak,2025-02-14"
+,,,,,,"Public Wi-Fi portal not redirecting to login,Office Area,Network,Medium,Reconfigured the captive portal settings on the Meraki dashboard,2025-02-15"
+,,,,,,"Kafka consumer group is lagging behind,Event Bus,Software,High,Increased the number of partitions and added more consumer instances,2025-02-16"
+,,,,,,"Duplicate notifications being sent to users,Notification Engine,Software,Medium,Implemented a de-duplication logic based on message UUIDs,2025-02-17"
+,,,,,,"Internal tool 'DataView' not loading charts,Office IT,Software,Low,Updated the d3.js library version and fixed the SVG viewport bug,2025-02-18"
+,,,,,,"Company VPN not compatible with M3 MacBooks,IT Support,Software,Medium,Upgraded the VPN client to the ARM64 compatible version,2025-02-19"
+,,,,,,"CloudFront returning 403 Forbidden for images,Cloud,Software,Medium,Updated the OAI (Origin Access Identity) permissions on the S3 bucket,2025-02-20"
+,,,,,,"System time out of sync on production servers,Linux Nodes,Cloud,Low,Installed and configured chrony for NTP time synchronization,2025-02-21"
+,,,,,,"Legacy Java app won't start on Java 21,Back End,Software,Medium,Downgraded the runtime environment to OpenJDK 11 for compatibility,2025-02-22"
+,,,,,,"Memory leak in the background worker process,Software,Medium,Implemented manual garbage collection and closed unhandled DB connections,2025-02-23"
+,,,,,,"CSV upload failing for files with commas in cells,Front End,Software,Low,Updated the parser to use the PapaParse library for better CSV handling,2025-02-24"
+,,,,,,"Broken pipe error during large file transfer,Networking,IT Support,Medium,Increased the timeout settings in the SSH config file,2025-02-25"
+,,,,,,"Firebase auth token expiring too quickly,Mobile App,Software,Low,Adjusted the token expiration settings in the Firebase console,2025-02-26"
+,,,,,,"Database migration script failed halfway,Back End,Software,High,Performed a manual rollback and fixed the syntax error in migration 042,2025-02-27"
+,,,,,,"Internal dashboard showing 2024 data instead of 2026,Front End,Software,Low,Cleared the local storage and hard-refreshed the browser cache,2025-02-28"
+,,,,,,"Tennis court fence has a large hole,Sports Court,Maintenance,Low,Patched fence with galvanized wire mesh and zip ties,2026-02-01"
+,,,,,,"Residents complaining about cigarette smell in lifts,Elevator 1,Community,Medium,Cleaned air vents and installed ionizer in lift car,2026-02-02"
+,,,,,,"Pool deck chairs are broken and unsafe,Poolside,Amenities,Low,Removed damaged chairs and ordered 5 new weather-proof units,2026-02-03"
+,,,,,,"Gym Wi-Fi password sticker is missing,Gymnasium,Admin,Low,Printed and laminated new QR code signs for the wall,2026-02-04"
+,,,,,,"Stray cat found feeding in the corridor,Block A Level 2,Sanitation,Low,Advised residents via notice not to leave food in common areas,2026-02-05"
+,,,,,,"Barbecue pit has a gas leak smell,BBQ Area,Safety,High,Replaced the gas hose and the regulator valve,2026-02-06"
+,,,,,,"Squash court floor is warped and slippery,Sports Center,Structural,Medium,Sanded wood surface and applied anti-slip polyurethane coating,2026-02-07"
+,,,,,,"Community hall lights won't turn off,Clubhouse,Electrical,Low,Replaced the faulty manual toggle switch with a new unit,2026-02-08"
+,,,,,,"Trash room door lock is broken,Block C Ground,Security,Medium,Installed a new heavy-duty deadbolt and gave keys to cleaners,2026-02-09"
+,,,,,,"Loud music complaint at 2 AM,Block B Unit 12-04,Community,Medium,Security guard issued a verbal warning and recorded the incident,2026-02-10"
+,,,,,,"Yoga room mirror has a visible crack,Gymnasium,Amenities,Medium,Covered crack with safety tape and scheduled glass replacement,2026-02-11"
+,,,,,,"Pool water pH level is too high,Swimming Pool,Amenities,Medium,Added muriatic acid to balance pH and re-tested water quality,2026-02-12"
+,,,,,,"Resident's parcel stolen from the lobby shelf,Main Lobby,Security,High,Reviewed CCTV and provided footage to local police department,2026-02-13"
+,,,,,,"Bicycle rack is fully occupied and messy,Parking Area,Admin,Low,Installed two additional racks and tagged abandoned bikes for removal,2026-02-14"
+,,,,,,"Playground slide is too hot during noon,Playground,Safety,Low,Installed a UV-resistant shade sail over the play structure,2026-02-15"
+,,,,,,"Children playing football in the parking lot,Basement P1,Safety,Medium,Directed children to the sports court and notified parents,2026-02-16"
+,,,,,,"Sauna room heater not reaching temperature,Gymnasium,Mechanical,Medium,Replaced the faulty heating element and checked the thermostat,2026-02-17"
+,,,,,,"Pigeon droppings accumulating on balconies,Block D,Sanitation,Low,Installed bird spikes on ledges and scheduled professional cleaning,2026-02-18"
+,,,,,,"Library computer is extremely slow,Reading Room,IT Support,Low,Ran disk cleanup and upgraded RAM from 4GB to 8GB,2026-02-19"
+,,,,,,"Resident reporting a leak from the unit above,Block B Unit 8-03,Plumbing,High,Coordinated with upper unit for pipe inspection and repair,2026-02-20"
+,,,,,,"Gym equipment weights are left on the floor,Gymnasium,Community,Low,Posted 'Please Rerack Weights' signs and alerted gym staff,2026-02-21"
+,,,,,,"Barbecue area charcoal bins are overflowing,BBQ Area,Sanitation,Low,Cleared ash bins and replaced liners with fire-resistant bags,2026-02-22"
+,,,,,,"Resident requesting a booking for the function hall,Management Office,Admin,Low,Verified availability and processed the $50 booking deposit,2026-02-23"
+,,,,,,"Vending machine took money but didn't dispense,Lobby,Amenities,Low,Refunded user and contacted the vendor for machine repair,2026-02-24"
+,,,,,,"Strong cooking smells in the hallway,Block C Level 6,Community,Low,Reminded residents to use kitchen exhaust fans via newsletter,2026-02-25"
+,,,,,,"Lobby plants appear to be dying,Main Lobby,Maintenance,Low,Adjusted watering schedule and added slow-release fertilizer,2026-02-26"
+,,,,,,"Resident complaining about neighbor's dog barking,Block A Level 9,Community,Medium,Issued a gentle reminder letter regarding the house rules for pets,2026-02-27"
+,,,,,,"Pool shower head is clogged with lime scale,Poolside,Plumbing,Low,Soaked shower head in vinegar and cleared the nozzles,2026-02-28"
+,,,,,,"Table tennis bat is broken,Clubhouse,Amenities,Low,Purchased a new set of 4 bats and 10 balls for the residents,2026-03-01"
+,,,,,,"Kids drawing on the common area walls with chalk,Block B Lobby,Vandalism,Low,Cleaned walls with a damp cloth and spoke to the children's parents,2026-03-02"
+,,,,,,"Resident cannot find their assigned mailbox key,Management Office,Admin,Low,Verified ownership and provided a replacement key for a $20 fee,2026-03-03"
+,,,,,,"Water cooler in the gym is empty,Gymnasium,Amenities,Low,Replaced the 5-gallon water jug and checked the dispenser tap,2026-03-04"
+,,,,,,"Resident's car scratched in the parking lot,Basement P2,Security,Medium,Checked CCTV footage but found no direct impact; advised filing report,2026-03-05"
+,,,,,,"Jogging track has a trip hazard from a tree root,Perimeter,Safety,Medium,Ground down the root and patched the asphalt surface,2026-03-06"
+,,,,,,"Resident asking for a moving-in permit,Management Office,Admin,Low,Issued permit and scheduled the elevator padding for the move date,2026-03-07"
+,,,,,,"Meeting room whiteboard is permanently stained,Reading Room,Amenities,Low,Cleaned with specialized solvent and replaced old markers,2026-03-08"
+,,,,,,"Unauthorized person using the swimming pool,Poolside,Security,Medium,Requested identification; escorted non-resident out of the facility,2026-03-09"
+,,,,,,"Lobby sofa has a deep coffee stain,Main Lobby,Sanitation,Low,Professional upholstery cleaning performed to remove the stain,2026-03-10"
+,,,,,,"Resident requesting a copy of the House Rules,Management Office,Admin,Low,Printed a copy and sent a digital PDF version to their email,2026-03-11"
+,,,,,,"Gym air conditioner leaking on the floor,Gymnasium,HVAC,Medium,Cleared the drain pipe and placed a temporary 'Caution' sign,2026-03-12"
+,,,,,,"Resident complaining about water pressure,Block D Unit 4-11,Plumbing,Medium,Inspected the unit's pressure reducing valve and adjusted it,2026-03-13"
+,,,,,,"Barbecue area lights are too dim at night,BBQ Area,Electrical,Low,Replaced 40W bulbs with 100W equivalent LED floodlights,2026-03-14"
+,,,,,,"Resident reporting a hornet's nest on the balcony,Block B Level 5,Safety,High,Called pest control for safe removal of the nest after sunset,2026-03-15"
+,,,,,,"Common area corridor needs repainting,Block A Level 3,Maintenance,Low,Scheduled painting contractor for the upcoming weekend,2026-03-16"
+,,,,,,"Resident's guest blocked the fire hydrant,Entrance Road,Safety,High,Towed the vehicle and issued a fine for safety violation,2026-03-17"
+,,,,,,"Intercom button for 'Unit 10-02' is stuck,Main Entrance,Electrical,Low,Applied contact cleaner and freed the physical button,2026-03-18"
+,,,,,,"Resident asking for a temporary visitor parking pass,Management Office,Admin,Low,Issued a 24-hour pass for the 'Guest Zone' P1 area,2026-03-19"
+,,,,,,"Smell of trash near the elevator lobby,Block C,Sanitation,Low,Cleaned the trash chute area with industrial disinfectant,2026-03-20"
+,,,,,,"Resident complaining about the heat in the gym,Gymnasium,HVAC,Medium,Decreased the AC set point to 22 degrees during peak hours,2026-03-21"
+,,,,,,"Gym door lock is sticking,Gymnasium,Mechanical,Low,Lubricated the lock cylinder with graphite powder,2026-03-22"
+,,,,,,"Solar panel inverter shows Error 44,Roof Deck,Energy,Medium,Restarted AC/DC isolator and updated inverter firmware,2026-03-01"
+,,,,,,"Water seepage on ceiling after heavy rain,Block B Level 12,Structural,High,Applied waterproof membrane coating and cleared roof scuppers,2026-03-02"
+,,,,,,"Recycling bin contaminated with food waste,Refuse Area,Sanitation,Low,Sorted waste manually and posted educational signage for residents,2026-03-03"
+,,,,,,"High electricity consumption in common area,Main Lobby,Energy,Medium,Identified faulty timer on lobby lights and switched to LED sensors,2026-03-04"
+,,,,,,"Strong sewage smell near manhole,Block C Ground,Sanitation,Medium,Contracted desludging service to clear the grease trap and manhole,2026-03-05"
+,,,,,,"Irrigation system spraying water on walkway,Landscape,Water,Low,Adjusted nozzle direction and reprogrammed the sprinkler schedule,2026-03-06"
+,,,,,,"Illegal dumping of old furniture,Basement P2,Sanitation,Medium,Cleared furniture to bulky waste bin and reviewed CCTV for fines,2026-03-07"
+,,,,,,"Rainwater harvesting tank is overflowing,Block D,Water,Medium,Cleaned the overflow pipe and checked the float valve mechanism,2026-03-08"
+,,,,,,"Fallen tree blocking the side entrance,Perimeter Road,Safety,High,Used chainsaw to clear branches and hauled debris for disposal,2026-03-09"
+,,,,,,"Termite tracks found on skirting boards,Block A Unit 5-02,Sanitation,Medium,Conducted localized chemical injection and set up monitoring stations,2026-03-10"
+,,,,,,"LED conversion for corridor lights incomplete,Block B,Energy,Low,Replaced remaining 15 fluorescent tubes with 18W LED units,2026-03-11"
+,,,,,,"EV charging station screen is frozen,Parking P1,Energy,Medium,Performed a hard reset via the distribution board and updated firmware,2026-03-12"
+,,,,,,"Excessive noise from the cooling tower,Roof Area,Environmental,Medium,Installed acoustic silencers on the fan discharge outlet,2026-03-13"
+,,,,,,"Water meter for the clubhouse is spinning fast,Clubhouse,Water,High,Located and repaired a burst underground pipe near the entrance,2026-03-14"
+,,,,,,"Compost bin emitting strong foul odor,Community Garden,Sanitation,Low,Aerated the compost and added dry carbon-rich brown material,2026-03-15"
+,,,,,,"Garden lighting staying on during daytime,Landscape,Energy,Low,Cleaned the dirty photocell sensor and adjusted the LUX threshold,2026-03-16"
+,,,,,,"Discovery of an invasive plant species,Perimeter Fence,Environmental,Low,Manually uprooted plants and applied eco-friendly herbicide,2026-03-17"
+,,,,,,"Garbage chute compactor is jammed,Block C,Sanitation,High,Cleared the oversized box and reset the hydraulic ram,2026-03-18"
+,,,,,,"Air quality sensor reporting high CO2,Gymnasium,Environmental,Medium,Opened the ventilation dampers and checked the AHU filters,2026-03-19"
+,,,,,,"Automatic taps running for too long,Public Restroom,Water,Low,Adjusted the infrared sensor delay from 10 seconds to 5 seconds,2026-03-20"
+,,,,,,"Grease trap in the cafe kitchen is full,Clubhouse,Sanitation,Medium,Scheduled emergency vacuum service and cleaned the inlet baffle,2026-03-21"
+,,,,,,"Dust accumulation on rooftop solar panels,Roof Deck,Energy,Low,Performed a light-pressure wash to restore energy efficiency,2026-03-22"
+,,,,,,"Resident reporting a bird trapped in the vent,Block A,Environmental,Medium,Safely removed the bird and installed a protective wire mesh,2026-03-23"
+,,,,,,"Unauthorized chemical smell in the basement,Parking P3,Environmental,High,Identified spilled paint thinner; used absorbent pads for cleanup,2026-03-24"
+,,,,,,"HVAC system using 20% more power than usual,Plant Room,Energy,Medium,Identified a stuck damper and re-calibrated the actuator,2026-03-25"
+,,,,,,"Motion sensors in the stairwell are failing,Staircase C,Energy,Low,Replaced the battery-powered PIR sensors with hardwired units,2026-03-26"
+,,,,,,"Report of oil sheen in the perimeter drain,External Area,Sanitation,High,Installed oil-absorbent booms and traced the source to a leaky car,2026-03-27"
+,,,,,,"Recycling center door is difficult to open,Refuse Area,Maintenance,Low,Lubricated the sliding track and adjusted the door alignment,2026-03-28"
+,,,,,,"Water fountain filter change light is on,Lobby,Water,Low,Replaced the 5-micron carbon filter and reset the indicator,2026-03-29"
+,,,,,,"Complaint of excessive heat from the sun,West Wing Lobby,Energy,Medium,Applied heat-reflective solar film to the glass facade,2026-03-30"
+,,,,,,"Dripping AC unit over the main entrance,Lobby,Water,Medium,Installed a proper drain pipe and connected it to the main stack,2026-03-31"
+,,,,,,"Rats sighted near the refuse center,Refuse Area,Sanitation,Medium,Installed tamper-resistant"
