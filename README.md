@@ -112,7 +112,7 @@ System surfaces:
 
 The intelligence improves over time as more data accumulates.
 
-Innovation
+**Innovation**
 1. Persistent Operational Memory
 Unlike chat-based AI tools, DataHub accumulates site-specific intelligence over time. It does not rely solely on prompts — it reasons over historical operational data.
 
