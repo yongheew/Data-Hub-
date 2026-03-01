@@ -27,6 +27,16 @@ class _DataLogPageState extends State<DataLogPage> {
         .snapshots();
   }
 
+  /// ✅ Go back (pop if possible, else go Home)
+  void _goBack(BuildContext context) {
+    if (Navigator.canPop(context)) {
+      Navigator.pop(context);
+    } else {
+      // fallback if this page is the root
+      Navigator.pushReplacementNamed(context, "/home");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,14 +47,26 @@ class _DataLogPageState extends State<DataLogPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
-                "Data Log",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 22,
-                  fontWeight: FontWeight.w600,
-                ),
+              /// ✅ HEADER ROW WITH BACK BUTTON + TITLE
+              Row(
+                children: [
+                  IconButton(
+                    onPressed: () => _goBack(context),
+                    icon: const Icon(Icons.arrow_back, color: Colors.white),
+                    tooltip: "Back",
+                  ),
+                  const SizedBox(width: 6),
+                  const Text(
+                    "Data Log",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 22,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
               ),
+
               const SizedBox(height: 20),
 
               /// TOP BUTTONS
@@ -152,10 +174,8 @@ class _DataLogPageState extends State<DataLogPage> {
         final dataStyle = const TextStyle(color: Colors.white);
 
         if (snap.hasError) {
-          return Text(
-            "Inventory error: ${snap.error}",
-            style: const TextStyle(color: Colors.white),
-          );
+          return Text("Inventory error: ${snap.error}",
+              style: const TextStyle(color: Colors.white));
         }
 
         if (!snap.hasData) {
@@ -324,10 +344,8 @@ class _DataLogPageState extends State<DataLogPage> {
         final dataStyle = const TextStyle(color: Colors.white);
 
         if (snap.hasError) {
-          return Text(
-            "Incidents error: ${snap.error}",
-            style: const TextStyle(color: Colors.white),
-          );
+          return Text("Incidents error: ${snap.error}",
+              style: const TextStyle(color: Colors.white));
         }
 
         if (!snap.hasData) {
