@@ -192,7 +192,7 @@ class _NotesPageState extends State<NotesPage> {
 
     _migrationStarted.add(tabId);
 
-    migrateOldNotesIfNeeded(tabId).catchError(() {
+    _migrateOldNotesIfNeeded(tabId).catchError(() {
       // ignore; UI still works
     });
   }
