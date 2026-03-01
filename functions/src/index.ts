@@ -1,146 +1,3 @@
-// import * as admin from "firebase-admin";
-// import {setGlobalOptions} from "firebase-functions/v2";
-// import {onCall} from "firebase-functions/v2/https";
-// import {VertexAI} from "@google-cloud/vertexai";
-
-// admin.initializeApp();
-// setGlobalOptions({region: "us-central1"});
-
-// // =====================
-// // A) Callable: Ensure user profile exists (fixes missing users docs)
-// // =====================
-// export const ensureUserProfile = onCall(async (request) => {
-//   if (!request.auth) {
-//     throw new Error("UNAUTHENTICATED");
-//   }
-
-//   const uid = request.auth.uid;
-//   const email = request.auth.token.email ?? null;
-
-//   const name =
-//     typeof request.data?.name === "string" ? request.data.name.trim() : null;
-//   const gender =
-//     typeof request.data?.gender === "string" ? request.data.gender.trim() : null;
-
-//   const birthDateIso =
-//     typeof request.data?.birthDate === "string" ? request.data.birthDate : null;
-
-//   const birthDate = birthDateIso
-//     ? admin.firestore.Timestamp.fromDate(new Date(birthDateIso))
-//     : null;
-
-//   const ref = admin.firestore().collection("users").doc(uid);
-
-//   await ref.set(
-//     {
-//       email,
-//       ...(name ? {name} : {}),
-//       ...(gender ? {gender} : {}),
-//       ...(birthDate ? {birthDate} : {}),
-//       updatedAt: admin.firestore.FieldValue.serverTimestamp(),
-//       createdAt: admin.firestore.FieldValue.serverTimestamp(),
-//     },
-//     {merge: true}
-//   );
-
-//   return {ok: true, uid};
-// });
-
-// // =====================
-// // B) Callable: Incident AI Enrichment (NO Eventarc needed)
-// // =====================
-// const PROJECT_ID = process.env.GCLOUD_PROJECT || "datahub-3c396";
-// const LOCATION = "us-central1";
-// const MODEL = "gemini-1.5-flash";
-
-// const vertex = new VertexAI({project: PROJECT_ID, location: LOCATION});
-// const model = vertex.getGenerativeModel({model: MODEL});
-
-// type AiResult = {
-//   summary: string;
-//   category: string;
-//   severity: "low" | "medium" | "high";
-//   actions: string[];
-// };
-
-// function tryParseJson(text: string): AiResult | null {
-//   try {
-//     return JSON.parse(text) as AiResult;
-//   } catch {
-//     return null;
-//   }
-// }
-
-// export const aiEnrichIncident = onCall(async (request) => {
-//   if (!request.auth) {
-//     throw new Error("UNAUTHENTICATED");
-//   }
-
-//   const incidentId = request.data?.incidentId;
-//   if (typeof incidentId !== "string" || incidentId.trim() === "") {
-//     throw new Error("Missing incidentId");
-//   }
-
-//   const ref = admin.firestore().collection("incidents").doc(incidentId.trim());
-//   const snap = await ref.get();
-//   if (!snap.exists) {
-//     throw new Error("Incident not found");
-//   }
-
-//   const data = snap.data() as any;
-//   const rawText = (data.rawText ?? "").toString().trim();
-//   if (!rawText) {
-//     throw new Error("Incident rawText is empty");
-//   }
-
-//   // Avoid re-processing
-//   if (data.ai && data.ai.summary) {
-//     return {ok: true, skipped: true};
-//   }
-
-//   const prompt = `
-// You are an assistant that classifies facility incident reports.
-// Return ONLY valid JSON with EXACT keys:
-// summary (string),
-// category (string),
-// severity ("low"|"medium"|"high"),
-// actions (array of short strings).
-
-// Incident text:
-// "${rawText}"
-// `.trim();
-
-//   const resp = await model.generateContent({
-//     contents: [{role: "user", parts: [{text: prompt}]}],
-//     generationConfig: {temperature: 0.2},
-//   });
-
-//   const text =
-//     resp.response.candidates?.[0]?.content?.parts
-//       ?.map((p: any) => (p.text ? p.text : ""))
-//       .join("") ?? "";
-
-//   const parsed = tryParseJson(text);
-
-//   const ai: AiResult = parsed ?? {
-//     summary: (text || "No summary generated").slice(0, 200),
-//     category: "unknown",
-//     severity: "medium",
-//     actions: [],
-//   };
-
-//   await ref.update({
-//     status: "ai_done",
-//     ai: {
-//       ...ai,
-//       model: MODEL,
-//       processedAt: admin.firestore.FieldValue.serverTimestamp(),
-//     },
-//   });
-
-//   return {ok: true};
-// });
-
 import * as admin from "firebase-admin";
 import { setGlobalOptions } from "firebase-functions/v2";
 import { onCall, HttpsError } from "firebase-functions/v2/https";
@@ -174,6 +31,27 @@ type RouteDecision = {
   confidence: number; // 0..1
   reason: string;
 };
+
+type InventoryItem = {
+  id: string;
+  name: string;
+  brand: string;
+  qty: number;
+  minQty: number;
+  maxQty: number | null; // allow missing
+  unitPrice: number | null;
+  supplier: string;
+  keywords: string[];
+};
+
+function safeNum(x: any, fallback = 0): number {
+  const n = typeof x === "number" ? x : Number(x);
+  return Number.isFinite(n) ? n : fallback;
+}
+
+function safeStr(x: any, fallback = ""): string {
+  return typeof x === "string" ? x : x == null ? fallback : String(x);
+}
 
 // Remove ```json fences and try to extract the first JSON object
 function extractJsonObject(text: string): string | null {
@@ -288,6 +166,7 @@ function looksLikeInventoryQuestion(message: string) {
   return (
     m.includes("stock") ||
     m.includes("out of stock") ||
+    m.includes("out-of-stock") ||
     m.includes("inventory") ||
     m.includes("supplier") ||
     m.includes("purchase") ||
@@ -300,8 +179,205 @@ function looksLikeInventoryQuestion(message: string) {
   );
 }
 
+// =====================
+// Inventory helpers (NEW)
+// =====================
+
+// tokenize message to match keywords
+function extractInventoryTokens(message: string): string[] {
+  const raw = message
+    .toLowerCase()
+    .replace(/[^a-z0-9\s]/g, " ")
+    .split(/\s+/)
+    .map((x) => x.trim())
+    .filter(Boolean);
+
+  // remove very common noise words
+  const stop = new Set([
+    "the",
+    "a",
+    "an",
+    "is",
+    "are",
+    "and",
+    "or",
+    "to",
+    "of",
+    "in",
+    "on",
+    "for",
+    "with",
+    "what",
+    "how",
+    "much",
+    "many",
+    "do",
+    "i",
+    "we",
+    "you",
+    "our",
+    "my",
+    "your",
+    "out",
+    "stock", // keep separate logic (we still keep tokens but not needed)
+  ]);
+
+  const tokens = raw.filter((t) => !stop.has(t));
+
+  // also include 2-word phrases for better matching
+  const bigrams: string[] = [];
+  for (let i = 0; i < raw.length - 1; i++) {
+    const a = raw[i];
+    const b = raw[i + 1];
+    if (a && b) {
+      const phrase = `${a} ${b}`.trim();
+      if (phrase.length >= 3) bigrams.push(phrase);
+    }
+  }
+
+  // Keep unique, limit to avoid Firestore array-contains-any limit (max 10)
+  const uniq: string[] = [];
+  const seen = new Set<string>();
+  for (const t of [...tokens, ...bigrams]) {
+    if (!seen.has(t)) {
+      seen.add(t);
+      uniq.push(t);
+    }
+    if (uniq.length >= 10) break;
+  }
+  return uniq;
+}
+
+function parseInventoryDoc(docId: string, data: any): InventoryItem {
+  // NOTE: you made a typo maxDty in the console screenshot.
+  // We support both maxQty and maxDty.
+  const maxQtyRaw =
+    data?.maxQty !== undefined ? data.maxQty : data?.maxDty !== undefined ? data.maxDty : null;
+
+  return {
+    id: docId,
+    name: safeStr(data?.name, docId),
+    brand: safeStr(data?.brand, ""),
+    qty: safeNum(data?.qty, 0),
+    minQty: safeNum(data?.minQty, 0),
+    maxQty: maxQtyRaw == null ? null : safeNum(maxQtyRaw, 0),
+    unitPrice: data?.unitPrice == null ? null : safeNum(data.unitPrice, 0),
+    supplier: safeStr(data?.supplier, ""),
+    keywords: Array.isArray(data?.keywords)
+      ? data.keywords.map((x: any) => safeStr(x, "")).filter(Boolean)
+      : [],
+  };
+}
+
+async function findInventoryMatches(message: string): Promise<InventoryItem[]> {
+  const db = admin.firestore();
+  const tokens = extractInventoryTokens(message);
+
+  // If we somehow got no tokens, just return empty
+  if (!tokens.length) return [];
+
+  // Firestore array-contains-any supports up to 10 values
+  const snap = await db
+    .collection("inventory")
+    .where("keywords", "array-contains-any", tokens)
+    .limit(10)
+    .get();
+
+  if (snap.empty) return [];
+
+  const items = snap.docs.map((d) => parseInventoryDoc(d.id, d.data()));
+
+  // Rank: higher overlap = better
+  const lowerMsg = message.toLowerCase();
+  const score = (it: InventoryItem) => {
+    let s = 0;
+    for (const kw of it.keywords) {
+      if (kw && lowerMsg.includes(kw.toLowerCase())) s += 2;
+      if (tokens.includes(kw.toLowerCase())) s += 3;
+    }
+    if (it.name && lowerMsg.includes(it.name.toLowerCase())) s += 4;
+    if (it.brand && lowerMsg.includes(it.brand.toLowerCase())) s += 2;
+    return s;
+  };
+
+  items.sort((a, b) => score(b) - score(a));
+  return items;
+}
+
+function formatMoneyRM(n: number | null): string {
+  if (n == null || !Number.isFinite(n)) return "—";
+  // simple formatting (no Intl needed)
+  const fixed = n % 1 === 0 ? n.toFixed(0) : n.toFixed(2);
+  return `RM${fixed}`;
+}
+
+function buildInventoryReply(message: string, items: InventoryItem[]): string {
+  const lower = message.toLowerCase();
+  const askOutOfStock = lower.includes("out of stock") || lower.includes("out-of-stock");
+
+  // If multiple matches, present options
+  if (items.length > 1) {
+    const list = items
+      .slice(0, 6)
+      .map((it, idx) => {
+        const qty = it.qty;
+        const max = it.maxQty;
+        const maxTxt = max == null ? "—" : String(max);
+        return `${idx + 1}) ${it.name} (${it.brand || "—"}) — qty: ${qty}, max: ${maxTxt}`;
+      })
+      .join("\n");
+
+    return (
+      `I found multiple items that match. Which one do you mean?\n\n` +
+      `${list}\n\n` +
+      `Reply with the number (1-${Math.min(6, items.length)}).`
+    );
+  }
+
+  const it = items[0];
+  const qty = it.qty;
+  const min = it.minQty;
+  const max = it.maxQty; // may be null
+  const supplier = it.supplier || "—";
+  const unitPrice = formatMoneyRM(it.unitPrice);
+
+  const isLow = qty <= min;
+  const isZero = qty <= 0;
+
+  // reorder target: if max exists, reorder to max; else reorder to min
+  const target = max != null ? max : min;
+  const reorderQty = Math.max(0, target - qty);
+
+  let statusLine = `Stock for **${it.name}** (${it.brand || "—"}):`;
+  let lines: string[] = [];
+  lines.push(`• Current qty: **${qty}**`);
+  lines.push(`• Min qty: **${min}**`);
+  lines.push(`• Max qty: **${max == null ? "—" : max}**`);
+  lines.push(`• Unit price: **${unitPrice}**`);
+  lines.push(`• Supplier: **${supplier}**`);
+
+  if (askOutOfStock || isZero) {
+    lines.push(`\n✅ Status: **OUT OF STOCK**`);
+  } else if (isLow) {
+    lines.push(`\n⚠️ Status: **LOW STOCK**`);
+  } else {
+    lines.push(`\n✅ Status: **IN STOCK**`);
+  }
+
+  if (reorderQty > 0) {
+    lines.push(`• Suggested reorder: **${reorderQty}** (to reach ${target})`);
+  } else {
+    lines.push(`• Suggested reorder: **0**`);
+  }
+
+  return `${statusLine}\n\n${lines.join("\n")}`;
+}
+
 // ✅ Only allow “incident follow-up” when the last assistant message was incident-related
-async function wasLastAssistantIncident(uid: string, chatId: string): Promise<boolean> {
+async function wasLastAssistantIncident(
+  uid: string,
+  chatId: string
+): Promise<boolean> {
   const messagesRef = messagesRefFor(uid, chatId);
 
   const snap = await messagesRef
@@ -416,6 +492,69 @@ function messagesRefFor(uid: string, chatId: string) {
 }
 
 // =====================
+// Chat metadata helpers (for Chat History UI)
+// =====================
+function chatDocRef(uid: string, chatId: string) {
+  const db = admin.firestore();
+  return db.collection("users").doc(uid).collection("chats").doc(chatId);
+}
+
+async function ensureChatDoc(uid: string, chatId: string) {
+  const ref = chatDocRef(uid, chatId);
+  const snap = await ref.get();
+  if (!snap.exists) {
+    await ref.set(
+      {
+        title: "New Chat",
+        lastMessage: "",
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      },
+      { merge: true }
+    );
+  }
+}
+
+function autoTitleFromText(text: string) {
+  const t = String(text ?? "").trim();
+  if (!t) return "New Chat";
+  return t.length > 28 ? `${t.slice(0, 28)}...` : t;
+}
+
+async function updateChatMeta(params: {
+  uid: string;
+  chatId: string;
+  lastMessage?: string;
+  maybeTitleFromFirstUser?: string;
+}) {
+  const { uid, chatId, lastMessage, maybeTitleFromFirstUser } = params;
+  const ref = chatDocRef(uid, chatId);
+
+  await ensureChatDoc(uid, chatId);
+
+  const snap = await ref.get();
+  const data: any = snap.data() ?? {};
+  const currentTitle = String(data.title ?? "New Chat");
+
+  const updates: any = {
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+  };
+
+  if (typeof lastMessage === "string") {
+    updates.lastMessage = lastMessage.trim();
+  }
+
+  if (
+    maybeTitleFromFirstUser &&
+    (currentTitle === "New Chat" || !currentTitle.trim())
+  ) {
+    updates.title = autoTitleFromText(maybeTitleFromFirstUser);
+  }
+
+  await ref.set(updates, { merge: true });
+}
+
+// =====================
 // store / load last incident per chat
 // =====================
 async function setLastIncidentId(uid: string, chatId: string, incidentId: string) {
@@ -432,6 +571,9 @@ async function setLastIncidentId(uid: string, chatId: string, incidentId: string
       },
       { merge: true }
     );
+
+  // keep chat list updated too
+  await ensureChatDoc(uid, chatId);
 }
 
 async function getLastIncidentId(uid: string, chatId: string): Promise<string | null> {
@@ -499,12 +641,21 @@ async function createIncidentInternal(params: {
   const db = admin.firestore();
   const messagesRef = messagesRefFor(uid, chatId);
 
+  await ensureChatDoc(uid, chatId);
+
   // Save user message
   await messagesRef.add({
     role: "user",
     text: rawText,
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     kind: "incident_user_text",
+  });
+
+  await updateChatMeta({
+    uid,
+    chatId,
+    lastMessage: rawText,
+    maybeTitleFromFirstUser: rawText,
   });
 
   // Create incident
@@ -549,6 +700,12 @@ async function createIncidentInternal(params: {
       },
     });
 
+    await updateChatMeta({
+      uid,
+      chatId,
+      lastMessage: reply.trim(),
+    });
+
     return { incidentId: docRef.id, reply: reply.trim() };
   } catch (err: any) {
     await docRef.update({
@@ -568,6 +725,12 @@ async function createIncidentInternal(params: {
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       kind: "incident_ai_failed",
       incidentId: docRef.id,
+    });
+
+    await updateChatMeta({
+      uid,
+      chatId,
+      lastMessage: reply.trim(),
     });
 
     return { incidentId: docRef.id, reply: reply.trim(), aiFailed: true };
@@ -618,12 +781,21 @@ async function chatWithGeminiInternal(params: {
   const db = admin.firestore();
   const messagesRef = messagesRefFor(uid, chatId);
 
+  await ensureChatDoc(uid, chatId);
+
   // (1) Save user message
   await messagesRef.add({
     role: "user",
     text: message.trim(),
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     kind: imageBase64 ? "user_with_image" : "user_text",
+  });
+
+  await updateChatMeta({
+    uid,
+    chatId,
+    lastMessage: message.trim(),
+    maybeTitleFromFirstUser: message.trim(),
   });
 
   // (2) Load last incident (for follow-ups)
@@ -656,6 +828,8 @@ async function chatWithGeminiInternal(params: {
           actions: Array.isArray(ai.actions) ? ai.actions : [],
         },
       });
+
+      await updateChatMeta({ uid, chatId, lastMessage: reply });
 
       return { reply };
     }
@@ -754,14 +928,10 @@ If an image is attached:
   if (low.includes(bad1) || low.includes(bad2)) {
     if (looksLikeInventoryQuestion(message)) {
       reply =
-        `If an item is out of stock, here’s what you can do:\n\n` +
-        `• Check current stock + max stock\n` +
-        `• Reorder enough to reach the target\n` +
-        `• Contact supplier and confirm lead time\n` +
-        `• Inform customers it’s temporarily unavailable and offer alternatives\n\n` +
-        `If you tell me current stock + max stock + supplier info, I can format a purchase plan like your example.`;
+        `Tell me the product name and I’ll check stock from your database.`;
     } else {
-      reply = `Sure — tell me what you want to do and what info you already have, and I’ll help you step-by-step.`;
+      reply =
+        `Sure — tell me what you want to do and what info you already have, and I’ll help you step-by-step.`;
     }
   }
 
@@ -772,6 +942,8 @@ If an image is attached:
     createdAt: admin.firestore.FieldValue.serverTimestamp(),
     kind: "chat_reply",
   });
+
+  await updateChatMeta({ uid, chatId, lastMessage: reply });
 
   return { reply };
 }
@@ -946,14 +1118,92 @@ export const processUserMessage = onCall(async (request) => {
       throw new HttpsError("invalid-argument", "Missing message");
     }
 
+    await ensureChatDoc(uid, chatId);
+
     const hasImage = !!imageBase64;
 
-    // 1) Decide route
+    // ✅ INVENTORY FAST-PATH (NEW)
+    // If it looks like inventory and there is NO image, answer from Firestore first.
+    if (looksLikeInventoryQuestion(message) && !hasImage) {
+      const items = await findInventoryMatches(message);
+
+      if (items.length > 0) {
+        const reply = buildInventoryReply(message, items);
+
+        const messagesRef = messagesRefFor(uid, chatId);
+
+        // Save user msg (as normal chat)
+        await messagesRef.add({
+          role: "user",
+          text: message.trim(),
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+          kind: "user_text",
+        });
+
+        await updateChatMeta({
+          uid,
+          chatId,
+          lastMessage: message.trim(),
+          maybeTitleFromFirstUser: message.trim(),
+        });
+
+        // Save assistant reply
+        await messagesRef.add({
+          role: "assistant",
+          text: reply,
+          createdAt: admin.firestore.FieldValue.serverTimestamp(),
+          kind: "inventory_reply",
+        });
+
+        await updateChatMeta({ uid, chatId, lastMessage: reply });
+
+        return {
+          ok: true,
+          type: "inventory",
+          reply,
+        };
+      }
+
+      // If looks like inventory but no match found, ask one question
+      const ask =
+        `I couldn’t find that item in your inventory database.\n\n` +
+        `Try: add keywords for it in /inventory, or tell me the exact product name.`;
+
+      const messagesRef = messagesRefFor(uid, chatId);
+
+      await messagesRef.add({
+        role: "user",
+        text: message.trim(),
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        kind: "user_text",
+      });
+
+      await updateChatMeta({
+        uid,
+        chatId,
+        lastMessage: message.trim(),
+        maybeTitleFromFirstUser: message.trim(),
+      });
+
+      await messagesRef.add({
+        role: "assistant",
+        text: ask,
+        createdAt: admin.firestore.FieldValue.serverTimestamp(),
+        kind: "inventory_reply",
+      });
+
+      await updateChatMeta({ uid, chatId, lastMessage: ask });
+
+      return { ok: true, type: "inventory", reply: ask };
+    }
+
+    // 1) Decide route (incident vs chat)
     const decision = await decideRoute(message, hasImage);
 
     // 2) Threshold (image slightly increases chance it’s incident)
     const threshold = hasImage ? 0.45 : 0.55;
-    const treatAsIncident = decision.isIncident && decision.confidence >= threshold;
+    const treatAsIncident =
+      decision.isIncident && decision.confidence >= threshold;
 
     if (treatAsIncident) {
       const out = await createIncidentInternal({
